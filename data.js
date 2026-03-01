@@ -136,3 +136,7 @@ const WITHDRAWN_IDS = new Set([
   "horieito",
   "sakuraihikaru"
 ]);
+// ====== ここを data.js の一番下に追加 ======
+window.traineesOnly = traineesOnly;
+window.candidates = candidates;
+window.WITHDRAWN_IDS = WITHDRAWN_IDS;
