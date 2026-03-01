@@ -10,9 +10,9 @@
   --bg1:#061325;
   --bg2:#0b2040;
   --card:rgba(8,18,35,.64);
-  --line:rgba(255,255,255,.10);
+  --line:rgba(255,255,255,.12);
   --txt:#f7fbff;
-  --sub:rgba(255,255,255,.85);
+  --sub:rgba(255,255,255,.88);
   --accent:#7dd3ff;
   --accent2:#4da3ff;
 }
@@ -38,22 +38,22 @@ body::after{
   height:55vh;
   pointer-events:none;
   z-index:-2;
-  filter:blur(12px);
+  filter:blur(14px);
 }
 
 body::before{
   top:-10vh;
   background:
-    radial-gradient(60% 120% at 20% 40%, rgba(125,211,255,.40), transparent 60%),
-    radial-gradient(50% 120% at 80% 20%, rgba(77,163,255,.35), transparent 65%);
+    radial-gradient(60% 120% at 20% 40%, rgba(125,211,255,.45), transparent 60%),
+    radial-gradient(50% 120% at 80% 20%, rgba(77,163,255,.40), transparent 65%);
   animation:wave1 18s ease-in-out infinite;
 }
 
 body::after{
   bottom:-15vh;
   background:
-    radial-gradient(60% 120% at 70% 60%, rgba(125,211,255,.30), transparent 60%),
-    radial-gradient(50% 120% at 30% 80%, rgba(77,163,255,.25), transparent 65%);
+    radial-gradient(60% 120% at 70% 60%, rgba(125,211,255,.35), transparent 60%),
+    radial-gradient(50% 120% at 30% 80%, rgba(77,163,255,.30), transparent 65%);
   animation:wave2 22s ease-in-out infinite;
 }
 
@@ -140,39 +140,54 @@ ul{
   color:var(--sub);
 }
 
-/* ===== フッター（コンパクト版） ===== */
+/* ===== 完成版フッター ===== */
 .footer{
-  margin-top:26px;
-  padding:14px 10px;
+  margin-top:30px;
+  padding:18px 12px;
   border:1px solid var(--line);
-  background:rgba(8,18,35,.55);
-  border-radius:14px;
+  background:rgba(8,18,35,.70);
+  border-radius:16px;
   text-align:center;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.04em;
-  box-shadow:0 8px 24px rgba(0,0,0,.22);
-  backdrop-filter:blur(10px);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  backdrop-filter:blur(12px);
 }
 
 .footer a{
   display:inline-block;
-  padding:7px 14px;
-  margin:4px 6px;
+  padding:8px 16px;
+  margin:6px 8px;
   border-radius:999px;
-  font-size:12px;
+  font-size:12.5px;
   font-weight:700;
-  letter-spacing:.04em;
-  color:rgba(255,255,255,.96);
+  letter-spacing:.05em;
+
+  color:#ffffff;
   text-decoration:none;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.10);
-  text-shadow:0 2px 6px rgba(0,0,0,.35);
+
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.22),
+    rgba(255,255,255,.12)
+  );
+
+  border:1px solid rgba(255,255,255,.35);
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  transition:.25s ease;
 }
 
 .footer a:hover{
-  background:rgba(125,211,255,.25);
-  border-color:rgba(125,211,255,.45);
+  background:linear-gradient(
+    180deg,
+    rgba(125,211,255,.55),
+    rgba(77,163,255,.40)
+  );
+  border-color:rgba(125,211,255,.75);
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(0,0,0,.45);
 }
 </style>
 </head>
