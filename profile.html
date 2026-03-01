@@ -67,57 +67,60 @@ body{
   background:var(--card);
   border:1px solid var(--line);
   border-radius:16px;
-  padding:18px;
+  padding:20px;
   box-shadow:0 16px 40px rgba(0,0,0,.35);
-  backdrop-filter:blur(10px);
 }
 
 .header{
   display:flex;
-  gap:14px;
+  gap:16px;
   align-items:center;
 }
+
 .avatar{
-  width:92px;
-  height:92px;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.18);
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:32px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#061325;
   flex:0 0 auto;
-  background:rgba(255,255,255,.06);
 }
-.avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+
 .name{
   font-weight:900;
-  font-size:18px;
+  font-size:20px;
   line-height:1.4;
 }
+
 .meta{
   margin-top:6px;
+  font-size:13px;
   color:var(--sub);
-  font-size:12.8px;
-  line-height:1.7;
+  line-height:1.8;
 }
+
 .hr{
   height:1px;
   background:rgba(255,255,255,.14);
-  margin:14px 0;
+  margin:18px 0;
   border-radius:999px;
 }
-.note{
-  color:rgba(255,255,255,.80);
-  font-size:12.5px;
-  line-height:1.85;
+
+.sectionTitle{
+  font-weight:900;
+  font-size:14px;
+  margin-bottom:8px;
 }
-.small{
-  color:rgba(255,255,255,.78);
-  font-size:12px;
-  margin-top:10px;
-  line-height:1.8;
+
+.note{
+  font-size:13px;
+  line-height:1.9;
+  color:rgba(255,255,255,.85);
 }
 
 .footer{
@@ -142,24 +145,25 @@ body{
 <body>
 <main class="wrap">
 
-  <div class="topbar">
-    <a class="pill" href="./top11.html">← 上位11人へ</a>
-    <a class="btnMain" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">投票へ移動🗳</a>
-  </div>
+<div class="topbar">
+  <a class="pill" href="./top11.html">← 上位11人へ</a>
+  <a class="btnMain" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+    投票へ移動🗳
+  </a>
+</div>
 
-  <section class="card" id="profileCard">
-    読み込み中...
-  </section>
+<section class="card" id="profileCard">
+  読み込み中...
+</section>
 
-  <div class="footer">
-    <a href="./about.html">About</a>
-    <a href="./privacy.html">Privacy</a>
-    <a href="./contact.html">Contact</a>
-  </div>
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
 
 </main>
 
-<!-- ★ データはここから読み込む（超重要） -->
 <script src="./data.js"></script>
 
 <script>
@@ -186,53 +190,53 @@ function buildMap(){
   if(!id){
     card.innerHTML = `
       <div class="name">プロフィールが見つかりません</div>
-      <div class="meta">URLに id がありません。</div>
-      <div class="hr"></div>
-      <a class="pill" href="./top11.html">← 上位11人へ戻る</a>
+      <div class="meta">URLにIDがありません。</div>
     `;
     return;
   }
 
-  const withdrawn = window.WITHDRAWN_IDS && window.WITHDRAWN_IDS.has(id);
   const map = buildMap();
+  const withdrawn = window.WITHDRAWN_IDS || new Set();
   const m = map[id];
 
   if(!m){
     card.innerHTML = `
       <div class="name">プロフィールが見つかりません</div>
       <div class="meta">ID：${id}</div>
-      <div class="hr"></div>
-      <a class="pill" href="./top11.html">← 上位11人へ戻る</a>
     `;
     return;
   }
 
   const jp = displayName(m.name);
+  const firstLetter = jp.charAt(0);
 
   card.innerHTML = `
     <div class="header">
-      <div class="avatar">
-        <img src="${m.img}" alt="${jp}" onerror="this.src='https://i.imgur.com/8fK4h6y.png';">
-      </div>
+      <div class="avatar">${firstLetter}</div>
       <div>
         <div class="name">${jp}</div>
         <div class="meta">
           ID：${m.id}<br>
           区分：${(window.traineesOnly||[]).some(x=>x.id===m.id) ? "練習生" : "練習生候補"}
-          ${withdrawn ? "<br><strong style='color:#ffd1d1;'>※辞退</strong>" : ""}
+          ${withdrawn.has(id) ? "<br><strong style='color:#ffd1d1;'>※辞退</strong>" : ""}
         </div>
       </div>
     </div>
 
     <div class="hr"></div>
 
+    <div class="sectionTitle">プロフィール概要</div>
     <div class="note">
-      このページは非公式のファン向けまとめです。公式とは関係ありません。<br>
-      掲載内容はできるだけ正確に整備しますが、完全な保証はできません。
+      このページはファン向けの非公式情報まとめページです。<br>
+      投票状況や順位変動を確認するための補助情報として掲載しています。
     </div>
 
-    <div class="small">
-      ※画像が表示されない場合は、時間をおいて再読み込みしてください。
+    <div class="hr"></div>
+
+    <div class="sectionTitle">応援メモ</div>
+    <div class="note">
+      推しを応援するために、公式投票ページから毎日投票を行いましょう。<br>
+      詳細な投票方法は「投票ガイド」ページをご覧ください。
     </div>
   `;
 })();
