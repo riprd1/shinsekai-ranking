@@ -183,6 +183,37 @@ function buildMap(){
   return map;
 }
 
+/* ★ メンバー別詳細プロフィール */
+const profileDetails = {
+  "abeyura": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      2005年6月16日生まれ、茨城県出身。身長175cm。<br>
+      MBTIはISTP。自分を表すキーワードは「幸せの青い鳥」。<br><br>
+      趣味は語学を学び実践すること。特技はピアノと習字。
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">パフォーマンスの強み</div>
+    <div class="note">
+      ダンス・ラップ・ボーカルをバランスよくこなすオールラウンダー。<br>
+      韓国語も堪能で、発音や表現力の高さが魅力。<br><br>
+      『日プ新世界』ではシグナルソング「新世界（SHINSEKAI）」でセンターを務め、
+      番組の象徴的存在として注目を集めている。
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">過去の活動</div>
+    <div class="note">
+      オーディション番組「PROJECT7（通称：プジェ）」に参加。<br>
+      第3回で脱落（最終順位26位）。<br><br>
+      番組内では韓国語を教えるなど面倒見の良さも印象的だった。
+    </div>
+  `
+};
+
 (function render(){
   const id = getParam("id");
   const card = document.getElementById("profileCard");
@@ -225,19 +256,12 @@ function buildMap(){
 
     <div class="hr"></div>
 
-    <div class="sectionTitle">プロフィール概要</div>
-    <div class="note">
-      このページはファン向けの非公式情報まとめページです。<br>
-      投票状況や順位変動を確認するための補助情報として掲載しています。
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="sectionTitle">応援メモ</div>
-    <div class="note">
-      推しを応援するために、公式投票ページから毎日投票を行いましょう。<br>
-      詳細な投票方法は「投票ガイド」ページをご覧ください。
-    </div>
+    ${profileDetails[id] || `
+      <div class="sectionTitle">プロフィール概要</div>
+      <div class="note">
+        詳細プロフィールは準備中です。
+      </div>
+    `}
   `;
 })();
 </script>
