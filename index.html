@@ -9,10 +9,15 @@
 :root{
   --bg1:#0f1320;
   --bg2:#161b2e;
-  --card:rgba(255,255,255,.05);
-  --line:rgba(255,255,255,.08);
-  --txt:#f1f2f7;
-  --sub:rgba(255,255,255,.65);
+
+  /* ★ここが重要：カードの下地を“暗め”に固定して文字が消えないように */
+  --card:rgba(10,14,25,.58);
+  --card2:rgba(10,14,25,.40);
+
+  --line:rgba(255,255,255,.14);
+  --txt:#ffffff;
+  --sub:rgba(255,255,255,.86);
+
   --accent:#9a86ff;
   --accent2:#6fc3ff;
 }
@@ -20,7 +25,7 @@
 /* ===== 背景 ===== */
 body{
   margin:0;
-  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  font-family: system-ui, -apple-system, "Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
   color:var(--txt);
   background: linear-gradient(180deg, var(--bg1), var(--bg2));
   position:relative;
@@ -36,8 +41,8 @@ body::before{
   width:200%;
   height:200%;
   background:
-    radial-gradient(circle at 30% 30%, rgba(154,134,255,.12), transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(111,195,255,.10), transparent 60%);
+    radial-gradient(circle at 30% 30%, rgba(154,134,255,.18), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(111,195,255,.14), transparent 60%);
   animation: waveMove 35s linear infinite;
   z-index:-1;
 }
@@ -56,40 +61,44 @@ body::before{
 }
 
 .hero{
-  background:var(--card);
+  background:linear-gradient(180deg, var(--card), var(--card2));
   border:1px solid var(--line);
   border-radius:20px;
   padding:32px 28px;
   box-shadow:0 12px 40px rgba(0,0,0,.35);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .hero h1{
-  margin:0 0 24px;
+  margin:0 0 20px;
   font-size:20px;
-  font-weight:600;
-  letter-spacing:.05em;
-  line-height:1.6;
+  font-weight:800;
+  letter-spacing:.04em;
+  line-height:1.55;
+  text-shadow:0 2px 16px rgba(0,0,0,.35);
 }
 
 .hero p{
-  margin:0 0 24px;
-  font-size:13.5px;
-  line-height:2.1;
+  margin:0 0 22px;
+  font-size:14px;
+  line-height:2.05;
   color:var(--sub);
+  font-weight:500;
+  text-shadow:0 1px 14px rgba(0,0,0,.25);
 }
 
 .btn{
   display:inline-block;
-  padding:10px 18px;
+  padding:11px 18px;
   border-radius:999px;
-  font-weight:600;
+  font-weight:800;
   font-size:13px;
   letter-spacing:.05em;
   text-decoration:none;
   color:#0f1320;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
 }
 
 .grid{
@@ -100,27 +109,30 @@ body::before{
 }
 
 .card{
-  background:var(--card);
+  background:linear-gradient(180deg, var(--card), var(--card2));
   border:1px solid var(--line);
   border-radius:18px;
   padding:26px;
   box-shadow:0 8px 30px rgba(0,0,0,.25);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 h2{
-  margin:0 0 16px;
+  margin:0 0 14px;
   font-size:16px;
-  font-weight:600;
+  font-weight:800;
   letter-spacing:.04em;
+  text-shadow:0 2px 12px rgba(0,0,0,.25);
 }
 
 ul{
   margin:0;
   padding-left:18px;
   color:var(--sub);
-  font-size:13.5px;
+  font-size:14px;
   line-height:2;
+  font-weight:500;
 }
 
 .footer{
@@ -129,23 +141,20 @@ ul{
   border-top:1px solid var(--line);
   text-align:center;
   font-size:12px;
-  color:rgba(255,255,255,.55);
+  color:rgba(255,255,255,.70);
 }
 
 .footer a{
-  color:rgba(255,255,255,.8);
+  color:rgba(255,255,255,.92);
   text-decoration:none;
   margin:0 10px;
 }
 
-.footer a:hover{
-  text-decoration:underline;
-}
+.footer a:hover{ text-decoration:underline; }
 </style>
 </head>
 
 <body>
-
 <main class="wrap">
 
 <section class="hero">
@@ -167,7 +176,6 @@ ul{
 </section>
 
 <section class="grid">
-
   <div class="card">
     <h2>これから追加する内容</h2>
     <ul>
@@ -185,7 +193,6 @@ ul{
       <li>権利者様からのご連絡には速やかに対応します。</li>
     </ul>
   </div>
-
 </section>
 
 <div class="footer">
@@ -195,6 +202,5 @@ ul{
 </div>
 
 </main>
-
 </body>
 </html>
