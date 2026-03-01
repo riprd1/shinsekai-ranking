@@ -90,9 +90,6 @@ body::after{
   font-weight:700;
   line-height:1.6;
   letter-spacing:.04em;
-
-  /* ★色味は変えず、読めるように影だけ足す */
-  text-shadow:0 2px 14px rgba(0,0,0,.55);
 }
 
 .hero p{
@@ -100,17 +97,6 @@ body::after{
   font-size:13.8px;
   line-height:2.0;
   color:var(--sub);
-
-  /* ★色味は変えず、読めるように影だけ足す */
-  text-shadow:0 2px 14px rgba(0,0,0,.45);
-}
-
-/* ===== ボタン ===== */
-.btnRow{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  align-items:center;
 }
 
 .btn{
@@ -123,37 +109,6 @@ body::after{
   color:#061325;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   box-shadow:0 8px 22px rgba(0,0,0,.35);
-}
-
-.btnSub{
-  display:inline-block;
-  padding:9px 14px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:12.5px;
-  text-decoration:none;
-  color:#ffffff;
-  background:linear-gradient(
-    180deg,
-    rgba(255,255,255,.18),
-    rgba(255,255,255,.10)
-  );
-  border:1px solid rgba(255,255,255,.28);
-  box-shadow:
-    0 6px 16px rgba(0,0,0,.30),
-    inset 0 1px 0 rgba(255,255,255,.30);
-  transition:.25s ease;
-}
-
-.btnSub:hover{
-  background:linear-gradient(
-    180deg,
-    rgba(125,211,255,.55),
-    rgba(77,163,255,.40)
-  );
-  border-color:rgba(125,211,255,.75);
-  transform:translateY(-2px);
-  box-shadow:0 10px 22px rgba(0,0,0,.45);
 }
 
 .grid{
@@ -175,9 +130,6 @@ h2{
   margin:0 0 12px;
   font-size:15px;
   font-weight:700;
-
-  /* ★色味は変えず、読めるように影だけ足す */
-  text-shadow:0 2px 12px rgba(0,0,0,.55);
 }
 
 ul{
@@ -186,9 +138,64 @@ ul{
   font-size:13.5px;
   line-height:1.9;
   color:var(--sub);
+}
 
-  /* ★色味は変えず、読めるように影だけ足す */
-  text-shadow:0 2px 12px rgba(0,0,0,.42);
+/* ★ 追加：中のリンクを見やすく（色味は同系統） */
+.card a{
+  color:rgba(255,255,255,.95);
+  text-decoration:underline;
+  text-decoration-color:rgba(125,211,255,.55);
+  text-underline-offset:3px;
+}
+.card a:hover{
+  text-decoration-color:rgba(77,163,255,.85);
+}
+
+/* ★ 追加：人気コンテンツのリストを少し押しやすく */
+.quickLinks{
+  list-style:none;
+  padding-left:0;
+  margin:0;
+}
+.quickLinks li{
+  margin:10px 0;
+}
+.quickLinks a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  text-decoration:none;
+  color:rgba(255,255,255,.95);
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.quickLinks a:hover{
+  background:rgba(255,255,255,.09);
+  border-color:rgba(125,211,255,.35);
+}
+.quickLinks .icon{
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:#061325;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+.quickLinks .text{
+  flex:1;
+  font-weight:700;
+  font-size:13.5px;
+}
+.quickLinks .sub{
+  font-size:12px;
+  font-weight:600;
+  color:rgba(255,255,255,.78);
 }
 
 /* ===== 完成版フッター ===== */
@@ -260,23 +267,40 @@ ul{
     投票ページへのリンクを掲載します。
   </p>
 
-  <!-- ★必要な部分だけ追加：ガイド導線 -->
-  <div class="btnRow">
-    <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
-      ▶ 今すぐ投票する
-    </a>
-
-    <a class="btnSub" href="./vote-guide.html">
-      投票のやり方
-    </a>
-
-    <a class="btnSub" href="./ranking-guide.html">
-      ランキングの見方
-    </a>
-  </div>
+  <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+    ▶ 今すぐ投票する
+  </a>
 </section>
 
 <section class="grid">
+
+  <!-- ★追加：内部リンク（AdSense審査で辿れるように） -->
+  <div class="card">
+    <h2>人気コンテンツ</h2>
+    <ul class="quickLinks">
+      <li>
+        <a href="./top11.html">
+          <span class="icon">11</span>
+          <span class="text">上位11人まとめ</span>
+          <span class="sub">30秒ごと更新</span>
+        </a>
+      </li>
+      <li>
+        <a href="./vote-guide.html">
+          <span class="icon">🗳</span>
+          <span class="text">投票のやり方</span>
+          <span class="sub">初心者向け</span>
+        </a>
+      </li>
+      <li>
+        <a href="./ranking-guide.html">
+          <span class="icon">📊</span>
+          <span class="text">ランキングの見方</span>
+          <span class="sub">更新の仕組み</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 
   <div class="card">
     <h2>これから追加する内容</h2>
