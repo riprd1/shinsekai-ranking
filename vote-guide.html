@@ -7,200 +7,303 @@
 
 <style>
 :root{
-  --bg1:#0b1426;
-  --bg2:#122040;
-
-  --card:rgba(10,18,35,.94);
-  --line:rgba(255,255,255,.18);
-
-  --txt:#ffffff;
-  --sub:rgba(255,255,255,.92);
-
-  --accent:#7dd3ff;
-  --accent2:#4da3ff;
+  --bg1:#0f1320;
+  --bg2:#161b2e;
+  --card:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.10);
+  --txt:#f1f2f7;
+  --sub:rgba(255,255,255,.78);
+  --accent:#9a86ff;
+  --accent2:#6fc3ff;
+  --link:#b9d8ff;
 }
-
-*{box-sizing:border-box}
 
 body{
   margin:0;
   font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
   color:var(--txt);
-  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  overflow-x:hidden;
+  position:relative;
 }
 
-/* ===== 上部バー ===== */
+/* ===== 青/水色の波っぽい背景（控えめ） ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(111,195,255,.16), transparent 55%),
+    radial-gradient(circle at 70% 40%, rgba(154,134,255,.16), transparent 60%),
+    radial-gradient(circle at 45% 70%, rgba(111,195,255,.10), transparent 60%);
+  filter: blur(2px);
+  animation: waveMove 28s ease-in-out infinite;
+  z-index:-2;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:-40%;
+  background:
+    radial-gradient(circle at 30% 60%, rgba(111,195,255,.10), transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(154,134,255,.10), transparent 60%);
+  animation: waveMove2 36s ease-in-out infinite;
+  z-index:-3;
+  opacity:.9;
+}
+@keyframes waveMove{
+  0%{ transform: translate(0,0) rotate(0deg); }
+  50%{ transform: translate(-3%, -2%) rotate(160deg); }
+  100%{ transform: translate(0,0) rotate(360deg); }
+}
+@keyframes waveMove2{
+  0%{ transform: translate(0,0) rotate(0deg) scale(1); }
+  50%{ transform: translate(2%, -3%) rotate(140deg) scale(1.03); }
+  100%{ transform: translate(0,0) rotate(360deg) scale(1); }
+}
+
+.wrap{
+  max-width:960px;
+  margin:0 auto;
+  padding:22px 14px 70px;
+}
+
+/* ===== 上のナビ（右上ボタンを下と同じ色に） ===== */
 .topbar{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:16px 18px 0;
-  max-width:900px;
-  margin:0 auto;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
 }
 
-.topbar a{
-  text-decoration:none;
-  font-size:12px;
+.brand{
   font-weight:700;
-  color:#ffffff;
-  padding:6px 12px;
+  letter-spacing:.04em;
+  font-size:13px;
+  color:rgba(255,255,255,.82);
+}
+
+.pills{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* 左の「←トップ」 */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
   border-radius:999px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.08);
+  background:rgba(255,255,255,.05);
+  text-decoration:none;
+  color:rgba(255,255,255,.92);
+  font-size:12px;
+  font-weight:800;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
 }
+.pill:active{ transform: translateY(1px); }
 
-.vote-btn{
+/* ★右上の「投票へ移動🗳」を下ボタンと完全一致 */
+.voteBtnTop{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12.5px;
+  letter-spacing:.04em;
+  text-decoration:none;
+  color:#0f1320;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:#061325 !important;
-  border:none !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.32);
+  border:0;
 }
+.voteBtnTop:active{ transform: translateY(1px); }
 
-/* ===== レイアウト ===== */
-.wrap{
-  max-width:900px;
-  margin:0 auto;
-  padding:18px 18px 80px;
-}
-
+/* ===== 本体カード ===== */
 .card{
   background:var(--card);
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:24px 20px;
-  box-shadow:0 14px 40px rgba(0,0,0,.45);
+  border-radius:20px;
+  padding:18px 14px;
+  box-shadow:0 10px 34px rgba(0,0,0,.28);
+  backdrop-filter: blur(7px);
 }
 
 h1{
-  margin:0 0 16px;
-  font-size:21px;
-  font-weight:700;
-  line-height:1.6;
+  margin:0 0 12px;
+  font-size:20px;
+  letter-spacing:.04em;
+  line-height:1.5;
 }
 
-h2{
-  margin:26px 0 12px;
-  font-size:17px;
-  font-weight:700;
+.badge{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:11.5px;
+  font-weight:900;
+  letter-spacing:.04em;
+  background:rgba(111,195,255,.16);
+  border:1px solid rgba(111,195,255,.22);
+  color:rgba(255,255,255,.95);
 }
 
-p, li{
-  font-size:14px;
-  line-height:2.0;
+.lead{
+  margin:0 0 10px;
   color:var(--sub);
-}
-
-ul, ol{
-  padding-left:20px;
+  line-height:2.0;
+  font-size:13.5px;
 }
 
 .hr{
   height:1px;
-  background:rgba(255,255,255,.25);
-  margin:20px 0;
+  background:rgba(255,255,255,.10);
+  margin:16px 0;
+  border-radius:999px;
 }
 
+h2{
+  margin:0 0 10px;
+  font-size:15.5px;
+  letter-spacing:.03em;
+}
+
+ol, ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--sub);
+  line-height:2.0;
+  font-size:13.5px;
+}
+
+.note{
+  margin-top:10px;
+  font-size:12.5px;
+  color:rgba(255,255,255,.75);
+  line-height:1.9;
+}
+
+/* 下のメインボタン（右上と同じ） */
 .btn{
   display:inline-block;
-  margin-top:20px;
-  padding:10px 18px;
+  margin-top:14px;
+  padding:10px 16px;
   border-radius:999px;
-  font-weight:700;
+  font-weight:900;
   font-size:13px;
+  letter-spacing:.05em;
   text-decoration:none;
-  color:#061325;
+  color:#0f1320;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 8px 22px rgba(0,0,0,.32);
 }
+.btn:active{ transform: translateY(1px); }
 
-/* ===== 統一フッター ===== */
 .footer{
-  margin-top:30px;
+  margin-top:18px;
   text-align:center;
-  padding-top:20px;
-  border-top:1px solid var(--line);
 }
 
 .footer a{
-  margin:0 10px;
-  font-size:13px;
-  font-weight:700;
-  color:#ffffff;
+  color:rgba(255,255,255,.92);
   text-decoration:none;
+  font-weight:900;
+  font-size:12.5px;
+  letter-spacing:.04em;
+  text-shadow: 0 1px 8px rgba(0,0,0,.45);
+  margin:0 14px;
 }
+.footer a:hover{ text-decoration:underline; }
 
-.footer a:hover{
-  text-decoration:underline;
+@media (max-width:480px){
+  .wrap{ padding:18px 12px 64px; }
+  .card{ padding:16px 12px; }
+  h1{ font-size:19px; }
+  .voteBtnTop{ padding:9px 14px; font-size:12px; }
 }
 </style>
 </head>
 
 <body>
-
-<!-- 上部バー -->
-<div class="topbar">
-  <a href="./index.html">← トップ</a>
-  <a class="vote-btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
-    投票へ移動🗳
-  </a>
-</div>
-
 <main class="wrap">
 
-<section class="card">
+  <div class="topbar">
+    <div class="brand">日プ新世界まとめ（非公式）</div>
+    <div class="pills">
+      <a class="pill" href="./index.html">← トップ</a>
+      <a class="voteBtnTop" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+        投票へ移動🗳
+      </a>
+    </div>
+  </div>
 
-<h1>投票のやり方</h1>
+  <section class="card">
+    <h1>投票のやり方 <span class="badge">初心者向け</span></h1>
 
-<p>
-ここでは投票方法を簡単にまとめています。<br>
-初めての方でも迷わず使えるように、操作手順をわかりやすく解説しています。<br>
-※当サイトは非公式ファンサイトです。公式とは関係ありません。
-</p>
+    <p class="lead">
+      ここでは投票方法を簡単にまとめています。<br>
+      初めての方でも迷わず使えるように、操作手順をわかりやすく解説しています。<br>
+      ※当サイトは非公式ファンサイトです。公式とは関係ありません。
+    </p>
 
-<div class="hr"></div>
+    <div class="hr"></div>
 
-<h2>手順（11人選ぶ）</h2>
-<ol>
-  <li>「投票ツール」を開く</li>
-  <li>投票したい練習生をタップして <strong>11人</strong> 選ぶ</li>
-  <li>確認したら、画面の案内に沿って投票（フォーム等）へ進む</li>
-</ol>
+    <h2>手順（11人選ぶ）</h2>
+    <ol>
+      <li>｢投票サイト｣を開く</li>
+      <li>投票したい練習生をタップして <strong>11人</strong> 選ぶ</li>
+      <li>確認したら、画面の案内に沿って投票（フォーム等）へ進む</li>
+    </ol>
 
-<p>
-<strong>ポイント：</strong>「選択中」の枠が埋まっていればOKです。<br>
-間違えた場合は「削除」「1人戻す」「リセット」を使用してください。
-</p>
+    <p class="note">
+      <strong>ポイント：</strong>「選択中」の枠が埋まっていればOKです。<br>
+      間違えた場合は「削除」「1人戻す」「リセット」を使用してください。
+    </p>
 
-<div class="hr"></div>
+    <div class="hr"></div>
 
-<h2>よく使うボタン</h2>
-<ul>
-  <li><strong>リセット</strong>：選択をすべて消します</li>
-  <li><strong>1人戻す</strong>：直前に選んだ1人を取り消します</li>
-  <li><strong>（上の顔をタップ）</strong>：その人だけ削除できます</li>
-</ul>
+    <h2>ランキングの見方（超重要）</h2>
+    <ul>
+      <li>投票画面の <strong>右上にある「ランキング」ボタン</strong> を押すと、ランキングが確認できます。</li>
+      <li>ランキングは定期的に更新されます。反映されない場合はページを再読み込みしてください。</li>
+      <li>上位11人は別ページでまとめて表示されます（今後、プロフィールも確認できるようにする予定です）。</li>
+    </ul>
 
-<div class="hr"></div>
+    <div class="hr"></div>
 
-<h2>毎日リセットについて</h2>
-<ul>
-  <li>投票枠は <strong>毎日0:00（日本時間）</strong> にリセットされます</li>
-  <li>日付が変わるタイミングに注意してください</li>
-</ul>
+    <h2>よく使うボタン</h2>
+    <ul>
+      <li><strong>リセット</strong>：選択をすべて消します</li>
+      <li><strong>1人戻す</strong>：直前に選んだ1人を取り消します</li>
+      <li><strong>（上の顔をタップ）</strong>：その人だけ削除できます</li>
+    </ul>
 
-<a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
-▶ 投票へ移動🗳
-</a>
+    <div class="hr"></div>
 
-<!-- 統一フッター -->
-<div class="footer">
-  <a href="./privacy.html">Privacy</a>
-  <a href="./about.html">About</a>
-  <a href="./contact.html">Contact</a>
-</div>
+    <h2>毎日リセットについて</h2>
+    <ul>
+      <li>投票枠は <strong>毎日0:00（日本時間）</strong> にリセットされます</li>
+      <li>日付が変わるタイミングに注意してください</li>
+    </ul>
 
-</section>
+    <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+      ▶ 投票へ移動🗳
+    </a>
+
+    <div class="footer" style="margin-top:18px;">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+  </section>
 
 </main>
-
 </body>
 </html>
