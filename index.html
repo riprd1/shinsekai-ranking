@@ -1,162 +1,200 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>日プ新世界まとめ｜練習生情報・順位・投票リンク</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>日プ新世界まとめ｜練習生情報・順位・投票リンク</title>
 
-  <style>
-    :root{
-      --bg1:#0b0f1a; --bg2:#111a2e;
-      --card:rgba(255,255,255,.08);
-      --line:rgba(255,255,255,.12);
-      --txt:#f6f7fb; --sub:rgba(255,255,255,.78);
-      --accent:#7c5cff; --accent2:#24c6ff;
-    }
+<style>
+:root{
+  --bg1:#0f1320;
+  --bg2:#161b2e;
+  --card:rgba(255,255,255,.05);
+  --line:rgba(255,255,255,.08);
+  --txt:#f1f2f7;
+  --sub:rgba(255,255,255,.65);
+  --accent:#9a86ff;
+  --accent2:#6fc3ff;
+}
 
-    body{
-      margin:0;
-      color:var(--txt);
-      font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
-      background:
-        radial-gradient(900px 500px at 20% 0%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(900px 500px at 80% 10%, rgba(36,198,255,.25), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-    }
+/* ===== 背景 ===== */
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  position:relative;
+  overflow-x:hidden;
+}
 
-    .wrap{
-      max-width:980px;
-      margin:0 auto;
-      padding:22px 14px 70px;
-    }
+/* ===== 流れる上品な波 ===== */
+body::before{
+  content:"";
+  position:fixed;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(154,134,255,.12), transparent 60%),
+    radial-gradient(circle at 70% 60%, rgba(111,195,255,.10), transparent 60%);
+  animation: waveMove 35s linear infinite;
+  z-index:-1;
+}
 
-    .hero{
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(36,198,255,.12));
-      padding:22px 18px;
-    }
+@keyframes waveMove{
+  0%{ transform: translate(0,0) rotate(0deg); }
+  50%{ transform: translate(-5%, -5%) rotate(180deg); }
+  100%{ transform: translate(0,0) rotate(360deg); }
+}
 
-    .hero h1{
-      margin:0 0 18px;
-      font-size:21px;
-      line-height:1.5;
-    }
+/* ===== レイアウト ===== */
+.wrap{
+  max-width:960px;
+  margin:0 auto;
+  padding:40px 20px 80px;
+}
 
-    .hero p{
-      margin:0 0 18px;
-      line-height:2;
-      color:var(--sub);
-      font-size:14px;
-    }
+.hero{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:32px 28px;
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
 
-    .btn{
-      display:inline-block;
-      padding:12px 16px;
-      border-radius:999px;
-      font-weight:800;
-      text-decoration:none;
-      color:#081018;
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      box-shadow:0 10px 24px rgba(0,0,0,.35);
-    }
+.hero h1{
+  margin:0 0 24px;
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:.05em;
+  line-height:1.6;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-      margin-top:20px;
-    }
+.hero p{
+  margin:0 0 24px;
+  font-size:13.5px;
+  line-height:2.1;
+  color:var(--sub);
+}
 
-    .card{
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:var(--card);
-      padding:18px;
-      backdrop-filter: blur(10px);
-    }
+.btn{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:.05em;
+  text-decoration:none;
+  color:#0f1320;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
 
-    h2{
-      margin:0 0 12px;
-      font-size:17px;
-    }
+.grid{
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+}
 
-    ul{
-      margin:0;
-      padding-left:18px;
-      color:var(--sub);
-      line-height:1.9;
-      font-size:14px;
-    }
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  backdrop-filter: blur(6px);
+}
 
-    .footer{
-      margin-top:30px;
-      padding-top:16px;
-      border-top:1px solid var(--line);
-      text-align:center;
-      font-size:12px;
-      color:rgba(255,255,255,.65);
-    }
+h2{
+  margin:0 0 16px;
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:.04em;
+}
 
-    .footer a{
-      color:rgba(255,255,255,.9);
-      text-decoration:none;
-      margin:0 8px;
-    }
+ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--sub);
+  font-size:13.5px;
+  line-height:2;
+}
 
-    .footer a:hover{
-      text-decoration:underline;
-    }
-  </style>
+.footer{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  font-size:12px;
+  color:rgba(255,255,255,.55);
+}
+
+.footer a{
+  color:rgba(255,255,255,.8);
+  text-decoration:none;
+  margin:0 10px;
+}
+
+.footer a:hover{
+  text-decoration:underline;
+}
+</style>
 </head>
 
 <body>
-  <main class="wrap">
 
-    <section class="hero">
-      <h1>
-        日プ新世界まとめ（非公式）｜<br>
-        練習生情報・順位・投票リンク
-      </h1>
+<main class="wrap">
 
-      <p>
-        当サイトは、PRODUCE 101 JAPAN 新世界を<br>
-        応援する非公式ファンサイトです。<br>
-        練習生の情報まとめ・順位メモ<br>
-        投票ページへのリンクを掲載します。
-      </p>
+<section class="hero">
+  <h1>
+    日プ新世界まとめ（非公式）｜<br>
+    練習生情報・順位・投票リンク
+  </h1>
 
-      <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
-        ▶ 投票ページへ🗳
-      </a>
-    </section>
+  <p>
+    当サイトは、PRODUCE 101 JAPAN 新世界を<br>
+    応援する非公式ファンサイトです。<br>
+    練習生の情報まとめ・順位メモ<br>
+    投票ページへのリンクを掲載します。
+  </p>
 
-    <section class="grid">
-      <div class="card">
-        <h2>これから追加する内容</h2>
-        <ul>
-          <li>練習生プロフィールまとめ（年齢・出身・身長など）</li>
-          <li>順位の推移（更新ログ）</li>
-          <li>SNSの反応まとめ</li>
-          <li>投票のやり方（初心者向け）</li>
-        </ul>
-      </div>
+  <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+    ▶ 今すぐ投票する
+  </a>
+</section>
 
-      <div class="card">
-        <h2>注意</h2>
-        <ul>
-          <li>当サイトは非公式です。公式とは関係ありません。</li>
-          <li>権利者様からのご連絡には速やかに対応します。</li>
-        </ul>
-      </div>
-    </section>
+<section class="grid">
 
-    <div class="footer">
-      <a href="./about.html">About</a>
-      <a href="./privacy.html">Privacy</a>
-      <a href="./contact.html">Contact</a>
-    </div>
+  <div class="card">
+    <h2>これから追加する内容</h2>
+    <ul>
+      <li>練習生プロフィールまとめ（年齢・出身・身長など）</li>
+      <li>順位の推移（更新ログ）</li>
+      <li>SNSの反応まとめ</li>
+      <li>投票のやり方（初心者向け）</li>
+    </ul>
+  </div>
 
-  </main>
+  <div class="card">
+    <h2>注意</h2>
+    <ul>
+      <li>当サイトは非公式です。公式とは関係ありません。</li>
+      <li>権利者様からのご連絡には速やかに対応します。</li>
+    </ul>
+  </div>
+
+</section>
+
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
+
+</main>
+
 </body>
 </html>
