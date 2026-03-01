@@ -9,13 +9,17 @@
 :root{
   --bg1:#0f1320;
   --bg2:#161b2e;
-  --card:rgba(255,255,255,.06);
-  --line:rgba(255,255,255,.10);
-  --txt:#f1f2f7;
-  --sub:rgba(255,255,255,.78);
+
+  /* ★読めるように「カード」と「文字」を強化 */
+  --card:rgba(12,18,34,.68);
+  --line:rgba(255,255,255,.14);
+
+  --txt:#f5f7ff;
+  --sub:rgba(245,247,255,.82);
+  --muted:rgba(245,247,255,.70);
+
   --accent:#9a86ff;
   --accent2:#6fc3ff;
-  --link:#b9d8ff;
 }
 
 body{
@@ -31,11 +35,11 @@ body{
 body::before{
   content:"";
   position:fixed;
-  inset:-50%;
+  inset:-55%;
   background:
     radial-gradient(circle at 20% 20%, rgba(111,195,255,.16), transparent 55%),
     radial-gradient(circle at 70% 40%, rgba(154,134,255,.16), transparent 60%),
-    radial-gradient(circle at 45% 70%, rgba(111,195,255,.10), transparent 60%);
+    radial-gradient(circle at 45% 70%, rgba(111,195,255,.12), transparent 60%);
   filter: blur(2px);
   animation: waveMove 28s ease-in-out infinite;
   z-index:-2;
@@ -43,7 +47,7 @@ body::before{
 body::after{
   content:"";
   position:fixed;
-  inset:-40%;
+  inset:-45%;
   background:
     radial-gradient(circle at 30% 60%, rgba(111,195,255,.10), transparent 60%),
     radial-gradient(circle at 80% 20%, rgba(154,134,255,.10), transparent 60%);
@@ -68,7 +72,7 @@ body::after{
   padding:22px 14px 70px;
 }
 
-/* ===== 上のナビ（右上ボタンを下と同じ色に） ===== */
+/* ===== 上のナビ ===== */
 .topbar{
   display:flex;
   align-items:center;
@@ -76,14 +80,13 @@ body::after{
   gap:12px;
   margin-bottom:12px;
 }
-
 .brand{
-  font-weight:700;
+  font-weight:800;
   letter-spacing:.04em;
   font-size:13px;
-  color:rgba(255,255,255,.82);
+  color:rgba(255,255,255,.86);
+  text-shadow:0 1px 10px rgba(0,0,0,.35);
 }
-
 .pills{
   display:flex;
   gap:8px;
@@ -91,24 +94,24 @@ body::after{
   justify-content:flex-end;
 }
 
-/* 左の「←トップ」 */
+/* 左：トップへ */
 .pill{
   display:inline-flex;
   align-items:center;
   gap:8px;
   padding:8px 12px;
   border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
   text-decoration:none;
-  color:rgba(255,255,255,.92);
+  color:rgba(255,255,255,.94);
   font-size:12px;
-  font-weight:800;
-  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  font-weight:900;
+  box-shadow: 0 10px 26px rgba(0,0,0,.22);
 }
 .pill:active{ transform: translateY(1px); }
 
-/* ★右上の「投票へ移動🗳」を下ボタンと完全一致 */
+/* 右上：投票へ移動（下と同じ色） */
 .voteBtnTop{
   display:inline-flex;
   align-items:center;
@@ -121,7 +124,7 @@ body::after{
   text-decoration:none;
   color:#0f1320;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 8px 22px rgba(0,0,0,.32);
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
   border:0;
 }
 .voteBtnTop:active{ transform: translateY(1px); }
@@ -132,8 +135,8 @@ body::after{
   border:1px solid var(--line);
   border-radius:20px;
   padding:18px 14px;
-  box-shadow:0 10px 34px rgba(0,0,0,.28);
-  backdrop-filter: blur(7px);
+  box-shadow:0 16px 46px rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
 }
 
 h1{
@@ -141,6 +144,7 @@ h1{
   font-size:20px;
   letter-spacing:.04em;
   line-height:1.5;
+  text-shadow:0 1px 14px rgba(0,0,0,.45);
 }
 
 .badge{
@@ -150,21 +154,22 @@ h1{
   font-size:11.5px;
   font-weight:900;
   letter-spacing:.04em;
-  background:rgba(111,195,255,.16);
-  border:1px solid rgba(111,195,255,.22);
-  color:rgba(255,255,255,.95);
+  background:rgba(111,195,255,.18);
+  border:1px solid rgba(111,195,255,.26);
+  color:rgba(255,255,255,.96);
 }
 
 .lead{
   margin:0 0 10px;
   color:var(--sub);
-  line-height:2.0;
-  font-size:13.5px;
+  line-height:2.05;
+  font-size:13.8px;
+  text-shadow:0 1px 10px rgba(0,0,0,.30);
 }
 
 .hr{
   height:1px;
-  background:rgba(255,255,255,.10);
+  background:rgba(255,255,255,.14);
   margin:16px 0;
   border-radius:999px;
 }
@@ -173,24 +178,28 @@ h2{
   margin:0 0 10px;
   font-size:15.5px;
   letter-spacing:.03em;
+  color:rgba(255,255,255,.96);
+  text-shadow:0 1px 10px rgba(0,0,0,.32);
 }
 
 ol, ul{
   margin:0;
   padding-left:18px;
   color:var(--sub);
-  line-height:2.0;
-  font-size:13.5px;
+  line-height:2.05;
+  font-size:13.6px;
+  text-shadow:0 1px 10px rgba(0,0,0,.25);
 }
 
 .note{
   margin-top:10px;
-  font-size:12.5px;
-  color:rgba(255,255,255,.75);
-  line-height:1.9;
+  font-size:12.8px;
+  color:var(--muted);
+  line-height:1.95;
+  text-shadow:0 1px 10px rgba(0,0,0,.25);
 }
 
-/* 下のメインボタン（右上と同じ） */
+/* 下のメインボタン */
 .btn{
   display:inline-block;
   margin-top:14px;
@@ -202,23 +211,21 @@ ol, ul{
   text-decoration:none;
   color:#0f1320;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 8px 22px rgba(0,0,0,.32);
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
 }
 .btn:active{ transform: translateY(1px); }
 
 .footer{
-  margin-top:18px;
+  margin-top:16px;
   text-align:center;
 }
-
 .footer a{
   color:rgba(255,255,255,.92);
   text-decoration:none;
   font-weight:900;
   font-size:12.5px;
   letter-spacing:.04em;
-  text-shadow: 0 1px 8px rgba(0,0,0,.45);
-  margin:0 14px;
+  text-shadow:0 1px 12px rgba(0,0,0,.55);
 }
 .footer a:hover{ text-decoration:underline; }
 
@@ -257,7 +264,7 @@ ol, ul{
 
     <h2>手順（11人選ぶ）</h2>
     <ol>
-      <li>｢投票サイト｣を開く</li>
+      <li>「投票サイト」を開く</li>
       <li>投票したい練習生をタップして <strong>11人</strong> 選ぶ</li>
       <li>確認したら、画面の案内に沿って投票（フォーム等）へ進む</li>
     </ol>
@@ -297,10 +304,8 @@ ol, ul{
       ▶ 投票へ移動🗳
     </a>
 
-    <div class="footer" style="margin-top:18px;">
-      <a href="./privacy.html">Privacy</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
+    <div class="footer">
+      <a href="./index.html">トップへ戻る</a>
     </div>
   </section>
 
