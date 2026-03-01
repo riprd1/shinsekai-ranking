@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ランキングの見方｜日プ新世界まとめ（非公式）</title>
+
+<style>
+:root{
+  --bg1:#161104;
+  --bg2:#241b08;
+
+  --card:rgba(20,15,5,.75);
+  --line:rgba(255,220,120,.25);
+
+  --txt:#ffffff;
+  --sub:rgba(255,255,255,.90);
+
+  --accent:#ffd86b;
+  --accent2:#ffb347;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== ゴールド波背景 ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255,216,107,.40), transparent 60%),
+    radial-gradient(circle at 70% 40%, rgba(255,179,71,.35), transparent 60%),
+    radial-gradient(circle at 40% 75%, rgba(255,216,107,.25), transparent 60%);
+  animation: goldWave 30s ease-in-out infinite;
+  z-index:-2;
+  filter: blur(8px);
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:-45%;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,200,90,.20), transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(255,170,60,.20), transparent 60%);
+  animation: goldWave2 40s ease-in-out infinite;
+  z-index:-3;
+  filter: blur(10px);
+}
+
+@keyframes goldWave{
+  0%{ transform: translate(0,0) rotate(0deg); }
+  50%{ transform: translate(-4%, -3%) rotate(180deg); }
+  100%{ transform: translate(0,0) rotate(360deg); }
+}
+
+@keyframes goldWave2{
+  0%{ transform: translate(0,0) rotate(0deg); }
+  50%{ transform: translate(3%, -4%) rotate(140deg); }
+  100%{ transform: translate(0,0) rotate(360deg); }
+}
+
+/* ===== レイアウト ===== */
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:32px 18px 80px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:26px 22px;
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
+  backdrop-filter: blur(6px);
+}
+
+h1{
+  margin:0 0 16px;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:.04em;
+  line-height:1.6;
+}
+
+h2{
+  margin:26px 0 10px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.03em;
+}
+
+p, li{
+  font-size:14px;
+  line-height:2.0;
+  color:var(--sub);
+}
+
+ul{
+  padding-left:20px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:22px;
+  padding:11px 18px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:14px;
+  text-decoration:none;
+  color:#1a1406;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 10px 26px rgba(0,0,0,.5);
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.footer{
+  margin-top:28px;
+  text-align:center;
+}
+
+.footer a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.05em;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+
+.footer a:hover{
+  text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<section class="card">
+
+<h1>ランキングの見方</h1>
+
+<p>
+当サイトでは、練習生の順位を見やすく表示しています。<br>
+現在の状況を把握できるよう、ランキング表示機能を用意しています。
+</p>
+
+<h2>ランキングの確認方法</h2>
+<p>
+投票画面の右上にある「ランキング」ボタンを押すと、
+現在の順位一覧を確認できます。<br>
+表示は一定時間ごとに更新され、最新の状況が反映されます。
+</p>
+
+<h2>リアルタイム更新について</h2>
+<ul>
+<li>ランキングは一定時間ごとに自動更新されます。</li>
+<li>最新データが反映されていない場合は、ページを再読み込みしてください。</li>
+<li>上位11人は別ページでまとめて表示しています。</li>
+</ul>
+
+<h2>今日投票した練習生</h2>
+<p>
+投票ツールを利用すると、本日選択した練習生が記録されます。<br>
+今日誰に投票したかを後から確認できる仕組みになっています。
+</p>
+
+<h2>マイ統計（これまでの投票履歴）</h2>
+<p>
+これまで投票した練習生の履歴を確認できます。<br>
+自分がどの練習生を多く選んでいるかを把握できる機能です。
+</p>
+
+<h2>注意事項</h2>
+<ul>
+<li>当サイトは非公式ファンサイトです。</li>
+<li>公式とは一切関係ありません。</li>
+<li>掲載情報の正確性を保証するものではありません。</li>
+</ul>
+
+<a class="btn" href="./index.html">トップへ戻る</a>
+
+<div class="footer">
+<a href="./privacy.html">Privacy</a> |
+<a href="./about.html">About</a> |
+<a href="./contact.html">Contact</a>
+</div>
+
+</section>
+
+</main>
+</body>
+</html>
