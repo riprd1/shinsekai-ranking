@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ランキングの見方｜日プ新世界まとめ（非公式）</title>
+
+<style>
+:root{
+  /* ===== Bubble palette ===== */
+  --bgDeep1:#0a0f1e;
+  --bgDeep2:#0b1530;
+
+  /* 読みやすさ最優先：カードはしっかり暗め */
+  --card: rgba(12, 18, 34, .78);
+  --line: rgba(255,255,255,.14);
+
+  --txt:#f7f9ff;
+  --sub: rgba(247,249,255,.84);
+  --muted: rgba(247,249,255,.72);
+
+  --accent:#9a86ff;
+  --accent2:#6fc3ff;
+  --accent3:#ff8fd6; /* ピンク */
+  --accent4:#8affd3; /* ミント */
+}
+
+/* ===== Base ===== */
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background: linear-gradient(180deg, var(--bgDeep1), var(--bgDeep2));
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== Bubble background (オシャレだけど邪魔しない) ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-40%;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(111,195,255,.26), transparent 58%),
+    radial-gradient(circle at 70% 20%, rgba(255,143,214,.20), transparent 60%),
+    radial-gradient(circle at 55% 70%, rgba(154,134,255,.20), transparent 62%),
+    radial-gradient(circle at 30% 75%, rgba(138,255,211,.16), transparent 62%);
+  filter: blur(2px);
+  animation: bubbleFloat 28s ease-in-out infinite;
+  z-index:-3;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:-55%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,.10), transparent 55%),
+    radial-gradient(circle at 78% 55%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(circle at 12% 60%, rgba(255,255,255,.06), transparent 60%);
+  filter: blur(3px);
+  animation: bubbleFloat2 36s ease-in-out infinite;
+  z-index:-4;
+  opacity:.9;
+}
+
+@keyframes bubbleFloat{
+  0%{ transform: translate(0,0) rotate(0deg); }
+  50%{ transform: translate(-2%, -3%) rotate(150deg); }
+  100%{ transform: translate(0,0) rotate(360deg); }
+}
+@keyframes bubbleFloat2{
+  0%{ transform: translate(0,0) rotate(0deg) scale(1); }
+  50%{ transform: translate(2%, -2%) rotate(120deg) scale(1.03); }
+  100%{ transform: translate(0,0) rotate(360deg) scale(1); }
+}
+
+/* ===== Layout ===== */
+.wrap{
+  max-width:960px;
+  margin:0 auto;
+  padding:22px 14px 70px;
+}
+
+/* ===== Top bar ===== */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.brand{
+  font-weight:900;
+  letter-spacing:.04em;
+  font-size:13px;
+  color:rgba(255,255,255,.90);
+  text-shadow:0 1px 12px rgba(0,0,0,.45);
+}
+.pills{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  text-decoration:none;
+  color:rgba(255,255,255,.94);
+  font-size:12px;
+  font-weight:900;
+  box-shadow: 0 10px 26px rgba(0,0,0,.22);
+}
+.pill:active{ transform: translateY(1px); }
+
+/* 右上：投票へ移動（見やすいグラデ） */
+.voteBtnTop{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12.5px;
+  letter-spacing:.04em;
+  text-decoration:none;
+  color:#0b1022;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  border:0;
+}
+.voteBtnTop:active{ transform: translateY(1px); }
+
+/* ===== Card ===== */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px 14px;
+  box-shadow:0 18px 54px rgba(0,0,0,.50);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Typography (読みやすさ優先) ===== */
+h1{
+  margin:0 0 12px;
+  font-size:20px;
+  letter-spacing:.04em;
+  line-height:1.5;
+  text-shadow:0 1px 14px rgba(0,0,0,.55);
+}
+.lead{
+  margin:0 0 10px;
+  color:var(--sub);
+  line-height:2.05;
+  font-size:13.8px;
+  text-shadow:0 1px 12px rgba(0,0,0,.35);
+}
+.badge{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:11.5px;
+  font-weight:900;
+  letter-spacing:.04em;
+  background: linear-gradient(90deg, rgba(255,143,214,.20), rgba(111,195,255,.18));
+  border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.96);
+}
+.hr{
+  height:1px;
+  background:rgba(255,255,255,.14);
+  margin:16px 0;
+  border-radius:999px;
+}
+h2{
+  margin:0 0 10px;
+  font-size:15.5px;
+  letter-spacing:.03em;
+  color:rgba(255,255,255,.98);
+  text-shadow:0 1px 12px rgba(0,0,0,.40);
+}
+ul, ol{
+  margin:0;
+  padding-left:18px;
+  color:var(--sub);
+  line-height:2.05;
+  font-size:13.6px;
+  text-shadow:0 1px 10px rgba(0,0,0,.25);
+}
+.note{
+  margin-top:10px;
+  font-size:12.8px;
+  color:var(--muted);
+  line-height:1.95;
+  text-shadow:0 1px 10px rgba(0,0,0,.25);
+}
+
+/* ===== Buttons ===== */
+.btnRow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.05em;
+  text-decoration:none;
+  color:#0b1022;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  border:0;
+}
+.btn:active{ transform: translateY(1px); }
+.btnGhost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.04em;
+  text-decoration:none;
+  color:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 26px rgba(0,0,0,.22);
+}
+.btnGhost:active{ transform: translateY(1px); }
+
+/* ===== Footer nav (必ず表示・見やすい) ===== */
+.footerNav{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.14);
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.footerNav a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 14px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12.5px;
+  letter-spacing:.04em;
+  text-decoration:none;
+  color:rgba(255,255,255,.96);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 26px rgba(0,0,0,.22);
+  text-shadow:0 1px 12px rgba(0,0,0,.55);
+}
+.footerNav a:hover{ filter: brightness(1.06); }
+.footerNav a:active{ transform: translateY(1px); }
+
+/* small screen */
+@media (max-width:480px){
+  .wrap{ padding:18px 12px 64px; }
+  .card{ padding:16px 12px; }
+  h1{ font-size:19px; }
+  .voteBtnTop{ padding:9px 14px; font-size:12px; }
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="topbar">
+    <div class="brand">日プ新世界まとめ（非公式）</div>
+    <div class="pills">
+      <a class="pill" href="./index.html">← トップ</a>
+      <a class="voteBtnTop" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+        投票へ移動🗳
+      </a>
+    </div>
+  </div>
+
+  <section class="card">
+    <h1>ランキングの見方 <span class="badge">ガイド</span></h1>
+
+    <p class="lead">
+      投票ページの <strong>右上「ランキング」ボタン</strong> から、順位を確認できます。<br>
+      ランキングは定期的に更新されます。反映されない場合はページを再読み込みしてください。<br>
+      ※当サイトは非公式ファンサイトです。公式とは関係ありません。
+    </p>
+
+    <div class="hr"></div>
+
+    <h2>どこで見れる？</h2>
+    <ul>
+      <li>投票ページの右上にある <strong>「ランキング」</strong> をタップ</li>
+      <li>順位が一覧で表示されます（更新タイミングにより少しズレることがあります）</li>
+    </ul>
+
+    <div class="hr"></div>
+
+    <h2>リアルタイム更新について</h2>
+    <ul>
+      <li>ランキングは <strong>定期的に自動更新</strong> されます</li>
+      <li>最新データが反映されない場合は <strong>ページを再読み込み</strong> してください</li>
+    </ul>
+
+    <div class="hr"></div>
+
+    <h2>上位11人は別ページで確認</h2>
+    <ul>
+      <li>上位11人は <strong>別ページでまとめて表示</strong> しています</li>
+      <li>今後、各練習生の <strong>プロフィール確認</strong> もできるようにする予定です</li>
+    </ul>
+
+    <div class="hr"></div>
+
+    <h2>ランキングの楽しみ方</h2>
+    <ul>
+      <li>推しの現在位置をチェックして、投票の参考にできます</li>
+      <li>日々の順位変動を見て、みんなで盛り上がりましょう❤️‍🔥</li>
+    </ul>
+
+    <div class="hr"></div>
+
+    <h2>注意事項</h2>
+    <ul>
+      <li>当サイトは非公式です。公式・制作会社・関係団体とは一切関係ありません。</li>
+      <li>掲載内容は正確性に配慮しますが、保証するものではありません。</li>
+      <li>権利者様からのご連絡には速やかに対応します。</li>
+    </ul>
+
+    <div class="btnRow">
+      <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+        ▶ 投票へ移動🗳
+      </a>
+      <a class="btnGhost" href="./index.html">トップへ戻る</a>
+    </div>
+
+    <!-- ✅ 下に必ず付ける -->
+    <nav class="footerNav" aria-label="Footer">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+
+  </section>
+
+</main>
+</body>
+</html>
