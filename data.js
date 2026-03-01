@@ -1,5 +1,7 @@
-const traineesOnly = [
-  {name:"アダム・ナガイ(ADAM)", img:"https://i.imgur.com/6QGzvRx.png", id:"adamnagai"},
+/* data.js  ※必ず window に載せる版 */
+(() => {
+  window.traineesOnly = [
+    {name:"アダム・ナガイ(ADAM)", img:"https://i.imgur.com/6QGzvRx.png", id:"adamnagai"},
   {name:"中丸 晏寿(AJU)", img:"https://i.imgur.com/KiZCKos.png", id:"nakamaruaju"},
   {name:"オム・スアンカワーテン(AOM)", img:"https://i.imgur.com/dDIFJSc.png", id:"aomsuungkavathin"},
   {name:"アーチャー・ウイ(ARCHER)", img:"https://i.imgur.com/5iIerqN.png", id:"archeruy"},
@@ -83,9 +85,8 @@ const traineesOnly = [
   {name:"佐野 由征(S.YUSEI)", img:"https://i.imgur.com/fDql5Tu.png", id:"sanoyusei"},
   {name:"板倉 悠太(YUTA)", img:"https://i.imgur.com/j6IlxeD.png", id:"itakurayuta"}
 ];
-
-const candidates = [
-  {name:"本荘 晃(AKIRA)", img:"https://i.imgur.com/p976l8j.jpeg", id:"honjoakira"},
+  window.candidates = [
+    {name:"本荘 晃(AKIRA)", img:"https://i.imgur.com/p976l8j.jpeg", id:"honjoakira"},
   {name:"児島 歩夢(K.AYUMU)", img:"https://i.imgur.com/1jtcgbB.png", id:"kojimaayumu"},
   {name:"市川 大輝(I.DAIKI)", img:"https://i.imgur.com/72FqxLz.png", id:"ichikawadaiki"},
   {name:"川村 珀斗(HAKUTO)", img:"https://i.imgur.com/ua7RMig.png", id:"kawamurahakuto"},
@@ -125,18 +126,8 @@ const candidates = [
   {name:"岡本 佑斗(YUTO)", img:"https://i.imgur.com/lzv8Vu5.png", id:"okamotoyuto"}
 ];
 
-const MAX = 11;
-
-/* =========================
-   ★ 辞退者ID（追加）
-   - 練習生：保里瑛都（horieito）
-   - 練習生候補：櫻井輝（sakuraihikaru）
-========================= */
-const WITHDRAWN_IDS = new Set([
-  "horieito",
-  "sakuraihikaru"
-]);
-// ====== ここを data.js の一番下に追加 ======
-window.traineesOnly = traineesOnly;
-window.candidates = candidates;
-window.WITHDRAWN_IDS = WITHDRAWN_IDS;
+  window.WITHDRAWN_IDS = new Set([
+    "horieito",
+    "sakuraihikaru"
+  ]);
+})();
