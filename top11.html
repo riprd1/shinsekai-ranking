@@ -28,16 +28,51 @@ body{
   margin:0 auto;
   padding:28px 18px 70px;
 }
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
 h1{
-  margin:0 0 10px;
+  margin:0;
   font-size:18px;
   font-weight:900;
 }
 .sub{
   font-size:12.5px;
   color:var(--sub);
-  margin-bottom:16px;
+  margin-top:4px;
 }
+.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  color:#fff;
+  text-decoration:none;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+}
+.btnMain{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 14px;
+  border-radius:999px;
+  font-size:12.5px;
+  font-weight:900;
+  color:#061325;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 8px 22px rgba(0,0,0,.35);
+}
+
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -46,6 +81,7 @@ h1{
 @media (min-width:760px){
   .grid{grid-template-columns:repeat(3,1fr);}
 }
+
 .card{
   background:var(--card);
   border:1px solid var(--line);
@@ -62,6 +98,7 @@ h1{
   overflow:hidden;
   border:1px solid rgba(255,255,255,.16);
   flex:0 0 auto;
+  background:rgba(255,255,255,.06);
 }
 .avatar img{
   width:100%;
@@ -95,6 +132,11 @@ h1{
   border-radius:999px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
 }
+.notice{
+  margin-top:16px;
+  font-size:12px;
+  color:rgba(255,255,255,.80);
+}
 .footer{
   margin-top:24px;
   text-align:center;
@@ -117,10 +159,26 @@ h1{
 <body>
 <main class="wrap">
 
-<h1>上位11人まとめ</h1>
-<div class="sub">30秒ごとに自動更新されます</div>
+<div class="topbar">
+  <div>
+    <h1>上位11人まとめ</h1>
+    <div class="sub">30秒ごとに自動更新されます</div>
+  </div>
+  <div style="display:flex; gap:8px;">
+    <a class="pill" href="./index.html">← Top</a>
+    <a class="btnMain" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+      投票へ移動🗳
+    </a>
+  </div>
+</div>
 
-<div id="ranking" class="grid">読み込み中...</div>
+<div id="ranking" class="grid">
+  読み込み中...
+</div>
+
+<div class="notice">
+  ※当ページは非公式ファンサイトです。公式とは関係ありません。
+</div>
 
 <div class="footer">
   <a href="./about.html">About</a>
@@ -130,205 +188,79 @@ h1{
 
 </main>
 
+<!-- ★ データを読み込む -->
+<script src="./data.js"></script>
+
 <script>
-
-/* ====== 練習生データ（あなたのものをそのまま組み込み） ====== */
-const traineesOnly = [
-  {name:"アダム・ナガイ(ADAM)", img:"https://i.imgur.com/6QGzvRx.png", id:"adamnagai"},
-  {name:"中丸 晏寿(AJU)", img:"https://i.imgur.com/KiZCKos.png", id:"nakamaruaju"},
-  {name:"オム・スアンカワーテン(AOM)", img:"https://i.imgur.com/dDIFJSc.png", id:"aomsuungkavathin"},
-  {name:"アーチャー・ウイ(ARCHER)", img:"https://i.imgur.com/5iIerqN.png", id:"archeruy"},
-  {name:"篠ヶ谷 歩夢(S.AYUMU)", img:"https://i.imgur.com/YJAdh8q.png", id:"shinogayaayumu"},
-  {name:"小林 千悟(CHISATO)", img:"https://i.imgur.com/Iu0hNBO.png", id:"kobayashichisato"},
-  {name:"加藤 大樹 (K.DAIKI)", img:"https://i.imgur.com/4fRk2EB.png", id:"katodaiki"},
-  {name:"カク・ドンミン(DONGMIN)", img:"https://i.imgur.com/xZSQqMh.png", id:"kwakdongmin"},
-  {name:"末川 瑛太(EITA)", img:"https://i.imgur.com/5aMVSc0.png", id:"suekawaeita"},
-  {name:"保里 瑛都(H.EITO)", img:"https://i.imgur.com/IAhs4ZA.png", id:"horieito"},
-  {name:"金田 栄都(K.EITO)", img:"https://i.imgur.com/tF7i1du.png", id:"kanedaeito"},
-  {name:"櫻井 楓真(FUMA)", img:"https://i.imgur.com/WIWI8Sx.png", id:"sakuraifuma"},
-  {name:"小笠原ジュゼッペ慧(GIUSEPPE)", img:"https://i.imgur.com/2oKn3Ma.jpeg", id:"ogasawaragiuseppekei"},
-  {name:"倉橋 吾槙(GOTEN)", img:"https://i.imgur.com/hlEjYqR.png", id:"kurahashigoten"},
-  {name:"堀尾 聖(HIJIRI)", img:"https://i.imgur.com/5Qb5dRJ.png", id:"horiohijiri"},
-  {name:"瑞慶覧 太都(HIROTO)", img:"https://i.imgur.com/siOPGIr.png", id:"zukeranhiroto"},
-  {name:"ユ・ヒョンスン(HYEONSEUNG)", img:"https://i.imgur.com/lY3lXLj.png", id:"yoohyeonseung"},
-  {name:"岡田 彪吾(HYUGO)", img:"https://i.imgur.com/zalwc1W.png", id:"okadahyugo"},
-  {name:"柳谷 伊冴(ISSA)", img:"https://i.imgur.com/gboCNWu.png", id:"yanagiyaissa"},
-  {name:"ユン・ジェヨン(JAEYONG)", img:"https://i.imgur.com/1yCImxd.png", id:"yoonjaeyong"},
-  {name:"ジュアン・ジェイ(JAY)", img:"https://i.imgur.com/41jKNZX.png", id:"chuangjay"},
-  {name:"丸尾 尋一郎(JINICHIRO)", img:"https://i.imgur.com/83azYjx.png", id:"maruojinichiro"},
-  {name:"河邊 晟(JOE)", img:"https://i.imgur.com/DqUS1o6.png", id:"kawabejoe"},
-  {name:"シン・ジョンウク(JUNGUK)", img:"https://i.imgur.com/6cwEusK.jpeg", id:"shinjunguk"},
-  {name:"金安 純正(JUNSEI)", img:"https://i.imgur.com/juPhMDR.png", id:"kaneyasujunsei"},
-  {name:"宇野 海夢(KAIMU)", img:"https://i.imgur.com/QVliSyD.png", id:"unokaimu"},
-  {name:"多比 奏聖(KANADE)", img:"https://i.imgur.com/rdSJ6QX.png", id:"tabikanade"},
-  {name:"横山 奏夢(KANAME)", img:"https://i.imgur.com/0brlEw8.png", id:"yokoyamakaname"},
-  {name:"関 敬次郎(KEIJIRO)", img:"https://i.imgur.com/PHlkDUt.png", id:"sekikeijiro"},
-  {name:"髙松 敬祐(KEISUKE)", img:"https://i.imgur.com/bs4vfiF.png", id:"takamatsukeisuke"},
-  {name:"小野 慶人(KEITO)", img:"https://i.imgur.com/glfmRJE.png", id:"onokeito"},
-  {name:"西山 賢人(KENTO)", img:"https://i.imgur.com/izEXoBY.png", id:"nishiyamakento"},
-  {name:"河合 晃誠(KOSEI)", img:"https://i.imgur.com/E30eGfr.png", id:"kawaikosei"},
-  {name:"照井 康祐(KOSUKE)", img:"https://i.imgur.com/oDkwdFn.png", id:"teruikosuke"},
-  {name:"浅香 孝太郎(KOTARO)", img:"https://i.imgur.com/7eJxl8o.png", id:"asakakotaro"},
-  {name:"髙谷 京平(KYOHEI)", img:"https://i.imgur.com/CLU1cPO.png", id:"takayakyohei"},
-  {name:"田中 蒔(MAKI)", img:"https://i.imgur.com/No6Nybr.png", id:"tanakamaki"},
-  {name:"山根 武蔵(MUSASHI)", img:"https://i.imgur.com/Ou2XuDa.png", id:"yamanemusashi"},
-  {name:"土田 央修(OSUKE)", img:"https://i.imgur.com/Xs0WjIn.png", id:"tsuchidaosuke"},
-  {name:"堀野 蓮(H.REN)", img:"https://i.imgur.com/FQEx0JM.png", id:"horinoren"},
-  {name:"小清水 蓮(KO.REN)", img:"https://i.imgur.com/S8Ij9OZ.png", id:"koshimizuren"},
-  {name:"チェン・リッキー(RICKEY)", img:"https://i.imgur.com/DnnZVAT.png", id:"chenrickey"},
-  {name:"神元 理丘(RIKU)", img:"https://i.imgur.com/jwJ9CLd.png", id:"kamimotoriku"},
-  {name:"鳩場 陸人(H.RIKUTO)", img:"https://i.imgur.com/JdCFbCb.png", id:"hatobarikuto"},
-  {name:"今江 陸斗(I.RIKUTO)", img:"https://i.imgur.com/jiZZwJu.png", id:"imaerikuto"},
-  {name:"甲斐 陸也(RIKUYA)", img:"https://i.imgur.com/lfiqB2f.png", id:"kairikuya"},
-  {name:"大瀬 凜和(RINTO)", img:"https://i.imgur.com/OT0UHId.png", id:"ohserinto"},
-  {name:"上野 琉偉(U.RUI)", img:"https://i.imgur.com/36XqMd9.png", id:"uenorui"},
-  {name:"飯塚 亮賀(RYOGA)", img:"https://i.imgur.com/ExbaI6W.png", id:"iizukaryoga"},
-  {name:"石田 亮太(RYOTA)", img:"https://i.imgur.com/Ctw95jF.png", id:"ishidaryota"},
-  {name:"岡戸 竜芽(RYUGA)", img:"https://i.imgur.com/fvfLKZj.png", id:"okadoryuga"},
-  {name:"杉山 竜司(RYUJI)", img:"https://i.imgur.com/NeB980M.png", id:"sugiyamaryuji"},
-  {name:"香月 誠太(SEITA)", img:"https://i.imgur.com/def6F6u.png", id:"katsukiseita"},
-  {name:"澤井 星名(SENA)", img:"https://i.imgur.com/Dpzzr9K.png", id:"sawaisena"},
-  {name:"オ・シンヘン(SHINHAENG)", img:"https://i.imgur.com/LH673dA.png", id:"ohshinhaeng"},
-  {name:"岩城 慎二(SHINJI)", img:"https://i.imgur.com/h5rDvjC.png", id:"iwakishinji"},
-  {name:"宮崎 真佑(SHINSUKE)", img:"https://i.imgur.com/xJuj9wW.png", id:"miyazakishinsuke"},
-  {name:"西﨑 柊(N.SHU)", img:"https://i.imgur.com/OZrHFUX.png", id:"nishizakishu"},
-  {name:"山下 柊(Y.SHU)", img:"https://i.imgur.com/642IX8o.png", id:"yamashitashu"},
-  {name:"パク・シヨン(SIYOUNG)", img:"https://i.imgur.com/wSokxJh.png", id:"parksiyoung"},
-  {name:"佐藤 碧空 (S.SORA)", img:"https://i.imgur.com/yF4WJJB.png", id:"satosora"},
-  {name:"東野 蒼汰(SOTA)", img:"https://i.imgur.com/GvLpwfo.png", id:"tonosota"},
-  {name:"藤牧 大雅(F.TAIGA)", img:"https://i.imgur.com/4G2hBRy.png", id:"fujimakitaiga"},
-  {name:"松田 太雅(M.TAIGA)", img:"https://i.imgur.com/tICsJFs.png", id:"matsudataiga"},
-  {name:"金倉 拓未(TAKUMI)", img:"https://i.imgur.com/O3gluG7.png", id:"kanakuratakumi"},
-  {name:"熊部 拓斗(K.TAKUTO)", img:"https://i.imgur.com/NaQURc7.png", id:"kumabetakuto"},
-  {name:"宮里 拓利(M.TAKUTO)", img:"https://i.imgur.com/5B8NMyF.png", id:"miyazatotakuto"},
-  {name:"南平 達矢(TATSUYA)", img:"https://i.imgur.com/jHnmGTs.png", id:"minamihiratatsuya"},
-  {name:"森井 輝(TERU)", img:"https://i.imgur.com/SAo1Rs4.png", id:"moriiteru"},
-  {name:"北林 天虎(TETORA)", img:"https://i.imgur.com/2gCwqHF.png", id:"kitabayashitetora"},
-  {name:"藤芳 辰弥(TOKIYA)", img:"https://i.imgur.com/9prpjvI.png", id:"fujiyoshitokiya"},
-  {name:"増田 倫希(TOMOKI)", img:"https://i.imgur.com/4JSh3HD.png", id:"masudatomoki"},
-  {name:"濱田 永遠(TOWA)", img:"https://i.imgur.com/Yap9beM.png", id:"hamadatowa"},
-  {name:"アギナルド・トリスタン・ジェームス(TRISTAN)", img:"https://i.imgur.com/wyeHbRo.png", id:"aguinaldotristanjames"},
-  {name:"リー・ウェイゼ(WEIZE)", img:"https://i.imgur.com/XNeHaaX.png", id:"liweize"},
-  {name:"ヨハン・エマニュエル(YOHAN)", img:"https://i.imgur.com/RTVMTCA.png", id:"yohanemmanuel"},
-  {name:"矢田 佳暉(YOSHIKI)", img:"https://i.imgur.com/MZbSVDq.png", id:"yadayoshiki"},
-  {name:"後藤 結(YUKI)", img:"https://i.imgur.com/GZTdD57.png", id:"gotoyuki"},
-  {name:"岡田 侑磨(YUMA)", img:"https://i.imgur.com/3hhNQLj.png", id:"okadayuma"},
-  {name:"安部 結蘭(YURA)", img:"https://i.imgur.com/pbC301p.png", id:"abeyura"},
-  {name:"大林 悠成(O.YUSEI)", img:"https://i.imgur.com/tp1fKqI.png", id:"obayashiyusei"},
-  {name:"佐野 由征(S.YUSEI)", img:"https://i.imgur.com/fDql5Tu.png", id:"sanoyusei"},
-  {name:"板倉 悠太(YUTA)", img:"https://i.imgur.com/j6IlxeD.png", id:"itakurayuta"}
-];
-
-const candidates = [
-  {name:"本荘 晃(AKIRA)", img:"https://i.imgur.com/p976l8j.jpeg", id:"honjoakira"},
-  {name:"児島 歩夢(K.AYUMU)", img:"https://i.imgur.com/1jtcgbB.png", id:"kojimaayumu"},
-  {name:"市川 大輝(I.DAIKI)", img:"https://i.imgur.com/72FqxLz.png", id:"ichikawadaiki"},
-  {name:"川村 珀斗(HAKUTO)", img:"https://i.imgur.com/ua7RMig.png", id:"kawamurahakuto"},
-  {name:"村松 遼空(HARUKU)", img:"https://i.imgur.com/3JEtKs6.png", id:"muramatsuharuku"},
-  {name:"髙城 暖人(HARUTO)", img:"https://i.imgur.com/qdXIOpr.png", id:"takagiharuto"},
-  {name:"平島 輝(H.HIKARU)", img:"https://i.imgur.com/P5gzRZh.png", id:"hirashimahikaru"},
-  {name:"櫻井 輝(S.HIKARU)", img:"https://i.imgur.com/h2fBMUv.png", id:"sakuraihikaru"},
-  {name:"佐川 太一(HIROKAZU)", img:"https://i.imgur.com/IlVBYXs.png", id:"sagawahirokazu"},
-  {name:"イ・ヒョンジェ(HYUNJAE)", img:"https://i.imgur.com/wOhvKDu.png", id:"leehyunjae"},
-  {name:"阿部 樹(ITSUKI)", img:"https://i.imgur.com/TaTAc2L.png", id:"abeitsuki"},
-  {name:"イ・ジュンフン(JOONGHOON)", img:"https://i.imgur.com/4utwyOJ.png", id:"leejoonghoon"},
-  {name:"リュウ・カイチ(KAICHI)", img:"https://i.imgur.com/FGbdGcI.png", id:"liukaichi"},
-  {name:"黒﨑 貫汰(KANTA)", img:"https://i.imgur.com/j75eoO7.png", id:"kurosakikanta"},
-  {name:"黄 敬眞(KEISHIN)", img:"https://i.imgur.com/oE7w4D7.png", id:"kokeishin"},
-  {name:"釼持 吉成(KINARI)", img:"https://i.imgur.com/GWAtiwS.png", id:"kenmotsukinari"},
-  {name:"小澤 昂心(KOSHIN)", img:"https://i.imgur.com/pn0zB7F.png", id:"ozawakoshin"},
-  {name:"青沼 昂史朗(KOSHIRO)", img:"https://i.imgur.com/MDhTcs8.png", id:"aonumakoshiro"},
-  {name:"小林 廣(KOU)", img:"https://i.imgur.com/RAoUIhC.png", id:"kobayashikou"},
-  {name:"森 明育(MEI)", img:"https://i.imgur.com/eR0BZVs.png", id:"morimei"},
-  {name:"マイケル ミン・マカフリ(MICHAEL MINH)", img:"https://i.imgur.com/6S8BWAA.png", id:"michaelminhmccaffrey"},
-  {name:"パトリック ファン・レ(PATRICK)", img:"https://i.imgur.com/YRvJQYc.png", id:"patrickphanle"},
-  {name:"笠原 蓮(KA.REN)", img:"https://i.imgur.com/ZLgNm7o.png", id:"kasahararen"},
-  {name:"江口 蓮翔(E.RENTO)", img:"https://i.imgur.com/ewXd8NH.png", id:"eguchirento"},
-  {name:"小林 蓮翔(K.RENTO)", img:"https://i.imgur.com/t2NbxIU.png", id:"kobayashirento"},
-  {name:"落合 利温(RIO)", img:"https://i.imgur.com/HdTZUdu.png", id:"ochiairio"},
-  {name:"水上 琉偉(M.RUI)", img:"https://i.imgur.com/DiUA9bw.png", id:"mizugamirui"},
-  {name:"小谷内 瑠嘉(RUKA)", img:"https://i.imgur.com/V2XnsQ6.png", id:"koyauchiruka"},
-  {name:"齊藤 惺(SEI)", img:"https://i.imgur.com/9HIRvNd.png", id:"saitosei"},
-  {name:"藤本 真成(SHINSEI)", img:"https://i.imgur.com/qTooOuS.png", id:"fujimotoshinsei"},
-  {name:"飯田 柊馬(SHUMA)", img:"https://i.imgur.com/awBBn6j.png", id:"iidashuma"},
-  {name:"松田 颯吾(SOGO)", img:"https://i.imgur.com/Y1MQK3k.png", id:"matsudasogo"},
-  {name:"髙橋 空良(T.SORA)", img:"https://i.imgur.com/czFpgjm.png", id:"takahashisora"},
-  {name:"西田 颯梓(SOSHI)", img:"https://i.imgur.com/51RMIB6.png", id:"nishidasoshi"},
-  {name:"岡本 拓士(O.TAKUTO)", img:"https://i.imgur.com/TGP6sbe.png", id:"okamototakuto"},
-  {name:"大澤 佑冴(YUGO)", img:"https://i.imgur.com/5Gg1E1M.png", id:"osawayugo"},
-  {name:"藤井 雄聖(F.YUSEI)", img:"https://i.imgur.com/prsNOtG.png", id:"fujiiyusei"},
-  {name:"岡本 佑斗(YUTO)", img:"https://i.imgur.com/lzv8Vu5.png", id:"okamotoyuto"}
-];
-  
-  const MAX = 11;
-
-const WITHDRAWN_IDS = new Set([
-  "horieito",
-  "sakuraihikaru"
-]);
-
+const MAX = 11;
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTXFpCzSxBGA2HUi1iiTUAgbRTbKXn2StuWI-Og82Wcv1z02sAN5QMizZztFdC8-7He31T-ecZq8cPa/pub?gid=1769988094&single=true&output=csv";
 
 function displayName(raw){
-  return raw.replace(/\s*\([^)]*\)\s*$/,"").trim();
+  return (raw || "").replace(/\s*\([^)]*\)\s*$/,"").trim();
 }
 
 function buildMap(){
   const map = {};
-  [...traineesOnly, ...candidates].forEach(m=>{
-    map[m.id] = m;
-  });
+  const all = [...(window.traineesOnly||[]), ...(window.candidates||[])];
+  all.forEach(m => { map[m.id] = m; });
   return map;
 }
 
 async function loadRanking(){
-  const memberMap = buildMap();
-  const res = await fetch(CSV_URL, {cache:"no-store"});
-  const text = await res.text();
-  const rows = text.trim().split("\n").slice(1);
+  try{
+    const memberMap = buildMap();
+    const res = await fetch(CSV_URL, {cache:"no-store"});
+    const text = await res.text();
+    const rows = text.trim().split("\n").slice(1);
 
-  let data = rows.map(r=>{
-    const c=r.split(",");
-    return {
-      id:c[0].trim(),
-      votes:Number(c[1]),
-      rank:Number(c[2])
-    };
-  }).sort((a,b)=>a.rank-b.rank);
+    let data = rows.map(r=>{
+      const c=r.split(",");
+      return {
+        id:c[0].trim(),
+        votes:Number(c[1]),
+        rank:Number(c[2])
+      };
+    }).sort((a,b)=>a.rank-b.rank);
 
-  const filtered=[];
-  for(const p of data){
-    if(WITHDRAWN_IDS.has(p.id)) continue;
-    filtered.push(p);
-    if(filtered.length>=MAX) break;
+    const filtered=[];
+    for(const p of data){
+      if(window.WITHDRAWN_IDS && window.WITHDRAWN_IDS.has(p.id)) continue;
+      filtered.push(p);
+      if(filtered.length>=MAX) break;
+    }
+
+    const container=document.getElementById("ranking");
+    container.innerHTML="";
+
+    filtered.forEach(p=>{
+      const m=memberMap[p.id]||{name:p.id,img:""};
+      const jp=displayName(m.name);
+
+      container.innerHTML+=`
+        <div class="card">
+          <div class="avatar">
+            <img src="${m.img}" alt="${jp}"
+              onerror="this.src='https://i.imgur.com/8fK4h6y.png';">
+          </div>
+          <div class="meta">
+            <div class="rank">${p.rank}位</div>
+            <div class="name">${jp}</div>
+            <div class="votes">${Number(p.votes||0).toLocaleString()}票</div>
+            <a class="profileLink" href="./profile.html?id=${p.id}">Profile</a>
+          </div>
+        </div>
+      `;
+    });
+
+  }catch(e){
+    document.getElementById("ranking").innerHTML =
+      "ランキングを取得できませんでした。時間をおいて再読み込みしてください。";
   }
-
-  const container=document.getElementById("ranking");
-  container.innerHTML="";
-
-  filtered.forEach(p=>{
-    const m=memberMap[p.id]||{name:p.id,img:""};
-    const jp=displayName(m.name);
-
-    container.innerHTML+=`
-      <div class="card">
-        <div class="avatar">
-          <img src="${m.img}" alt="${jp}">
-        </div>
-        <div class="meta">
-          <div class="rank">${p.rank}位</div>
-          <div class="name">${jp}</div>
-          <div class="votes">${p.votes.toLocaleString()}票</div>
-          <a class="profileLink" href="./profile.html?id=${p.id}">profile</a>
-        </div>
-      </div>
-    `;
-  });
 }
 
 loadRanking();
 setInterval(loadRanking,30000);
-
 </script>
+
 </body>
 </html>
