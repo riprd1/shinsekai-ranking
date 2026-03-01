@@ -28,8 +28,42 @@ body{
   margin:0 auto;
   padding:28px 18px 70px;
 }
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  color:#fff;
+  text-decoration:none;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.28);
+}
+.btnMain{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 14px;
+  border-radius:999px;
+  font-size:12.5px;
+  font-weight:900;
+  color:#061325;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 8px 22px rgba(0,0,0,.35);
+}
+
 h1{
-  margin:0 0 10px;
+  margin:0 0 6px;
   font-size:18px;
   font-weight:900;
 }
@@ -38,6 +72,11 @@ h1{
   color:var(--sub);
   margin-bottom:14px;
   line-height:1.8;
+}
+.small{
+  font-size:12px;
+  color:rgba(255,255,255,.78);
+  margin-top:6px;
 }
 .grid{
   display:grid;
@@ -55,6 +94,8 @@ h1{
   display:flex;
   gap:12px;
   align-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  backdrop-filter:blur(8px);
 }
 .avatar{
   width:64px;
@@ -65,33 +106,17 @@ h1{
   flex:0 0 auto;
   background:rgba(255,255,255,.06);
 }
-.avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.meta{flex:1; min-width:0;}
-.rank{
-  font-weight:900;
-  font-size:12px;
-  color:var(--accent);
-}
-.name{
-  font-weight:900;
-  font-size:14px;
-  margin-top:4px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.votes{
-  font-size:12px;
-  margin-top:4px;
-  color:var(--sub);
-}
-.profileLink{
+.avatar img{ width:100%; height:100%; object-fit:cover; }
+.meta{ flex:1; min-width:0; }
+.rank{ font-weight:900; font-size:12px; color:var(--accent); }
+.name{ font-weight:900; font-size:14px; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.votes{ font-size:12px; margin-top:4px; color:var(--sub); }
+
+.profileBtn{
   margin-top:8px;
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   font-size:12px;
   font-weight:900;
   color:#061325;
@@ -100,21 +125,20 @@ h1{
   border-radius:999px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
 }
-.profileLink:active{ transform: translateY(1px); }
 
 .notice{
-  margin:10px 0 16px;
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:rgba(8,18,35,.55);
-  color:var(--sub);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  padding:12px;
+  color:rgba(255,255,255,.86);
+  line-height:1.8;
   font-size:12.5px;
-  line-height:1.75;
+  margin-top:12px;
 }
 
 .footer{
-  margin-top:24px;
+  margin-top:22px;
   text-align:center;
 }
 .footer a{
@@ -135,121 +159,156 @@ h1{
 <body>
 <main class="wrap">
 
-<h1>上位11人まとめ</h1>
+  <div class="topbar">
+    <a class="pill" href="./index.html">← トップ</a>
+    <a class="btnMain" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">投票へ移動🗳</a>
+  </div>
 
-<div class="sub">
-  30秒ごとに自動更新されます。<br>
-  もし更新されない場合は、ページを再読み込みしてください。
-</div>
+  <h1>上位11人まとめ</h1>
+  <div class="sub">
+    30秒ごとに自動更新されます。<br>
+    <span id="status" class="small">状態：待機中</span>
+  </div>
 
-<div id="status" class="notice">読み込み中...</div>
-<div id="ranking" class="grid"></div>
+  <div id="ranking" class="grid">読み込み中...</div>
 
-<div class="footer">
-  <a href="./about.html">About</a>
-  <a href="./privacy.html">Privacy</a>
-  <a href="./contact.html">Contact</a>
-</div>
+  <div id="errorBox" class="notice" style="display:none;"></div>
+
+  <div class="footer">
+    <a href="./about.html">About</a>
+    <a href="./privacy.html">Privacy</a>
+    <a href="./contact.html">Contact</a>
+  </div>
 
 </main>
 
+<!-- ✅ data.js を読み込む（profile.html と同じ方式） -->
 <script src="./data.js"></script>
 
 <script>
-/* ========= ここだけあなたのCSV URLにする ========= */
-const RANKING_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTXFpCzSxBGA2HUi1iiTUAgbRTbKXn2StuWI-Og82Wcv1z02sAN5QMizZztFdC8-7He31T-ecZq8cPa/pub?gid=1769988094&single=true&output=csv";
-/* =============================================== */
-
+/* ===== 設定 ===== */
 const MAX = 11;
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTXFpCzSxBGA2HUi1iiTUAgbRTbKXn2StuWI-Og82Wcv1z02sAN5QMizZztFdC8-7He31T-ecZq8cPa/pub?gid=1769988094&single=true&output=csv";
 
+/* ===== 共通 ===== */
 function displayName(raw){
   return (raw || "").replace(/\s*\([^)]*\)\s*$/,"").trim();
 }
-
 function buildMap(){
   const map = {};
   const all = [...(window.traineesOnly||[]), ...(window.candidates||[])];
   all.forEach(m => { map[m.id] = m; });
   return map;
 }
-
-function setStatus(msg){
-  document.getElementById("status").textContent = msg;
+function showError(msg){
+  const box = document.getElementById("errorBox");
+  box.style.display = "block";
+  box.innerHTML = msg;
+}
+function setStatus(txt){
+  document.getElementById("status").textContent = "状態：" + txt;
 }
 
+/* ===== CSV解析（iPhoneで止まりにくいように堅牢化） ===== */
+function parseCSV(text){
+  // 改行は \n でも \r\n でもOKにする
+  const lines = text.trim().split(/\r?\n/);
+  // 1行目ヘッダを除外
+  const rows = lines.slice(1);
+
+  const out = [];
+  for(const line of rows){
+    // 今回のCSVはシンプル想定：id,votes,rank
+    const c = line.split(",");
+    if(c.length < 3) continue;
+
+    const id = (c[0] || "").trim();
+    const votes = Number((c[1] || "0").trim());
+    const rank = Number((c[2] || "0").trim());
+
+    if(!id || !Number.isFinite(votes) || !Number.isFinite(rank)) continue;
+    out.push({id, votes, rank});
+  }
+  return out.sort((a,b)=>a.rank-b.rank);
+}
+
+/* ===== 描画 ===== */
 async function loadRanking(){
+  const container = document.getElementById("ranking");
+  const withdrawn = window.WITHDRAWN_IDS || new Set();
+
   try{
-    // data.js が読めてないとプロフィール照合できないので先にチェック
-    if(!Array.isArray(window.traineesOnly) || !Array.isArray(window.candidates)){
-      setStatus("data.js が読み込めていません。ファイル名（data.js）と場所（同じフォルダ）を確認してください。");
+    setStatus("更新中…");
+    const memberMap = buildMap();
+
+    if(!Object.keys(memberMap).length){
+      // data.js が読み込めてないとここに来る
+      showError(
+        "❌ data.js の読み込みに失敗している可能性があります。<br>" +
+        "・リポジトリに <strong>data.js</strong> があるか<br>" +
+        "・top11.html と <strong>同じ階層</strong>にあるかを確認してください。"
+      );
+      setStatus("失敗");
       return;
     }
 
-    const memberMap = buildMap();
+    const res = await fetch(CSV_URL, { cache:"no-store" });
 
-    // Safari対策：キャッシュを確実に避ける（&_=${Date.now()}）
-    const url = RANKING_CSV_URL + "&_=" + Date.now();
-
-    const res = await fetch(url, { cache:"no-store" });
-    if(!res.ok) throw new Error("CSV取得に失敗しました（HTTP " + res.status + "）");
+    if(!res.ok){
+      throw new Error("CSVの取得に失敗しました（HTTP " + res.status + "）");
+    }
 
     const text = await res.text();
-    const lines = text.trim().split(/\r?\n/);
-    if(lines.length <= 1) throw new Error("CSVが空か、形式が違います");
-
-    // ヘッダーを除外
-    const rows = lines.slice(1);
-
-    let data = rows.map(r=>{
-      const c = r.split(",");
-      return {
-        id: (c[0]||"").trim(),
-        votes: Number((c[1]||"0").trim()),
-        rank: Number((c[2]||"0").trim())
-      };
-    }).filter(x=>x.id && x.rank)
-      .sort((a,b)=>a.rank-b.rank);
-
-    const withdrawn = window.WITHDRAWN_IDS instanceof Set ? window.WITHDRAWN_IDS : new Set();
+    const data = parseCSV(text);
 
     const filtered = [];
     for(const p of data){
-      if(withdrawn.has(p.id)) continue;
+      if(withdrawn && withdrawn.has(p.id)) continue;
       filtered.push(p);
       if(filtered.length >= MAX) break;
     }
 
-    const container = document.getElementById("ranking");
-    container.innerHTML = "";
-
-    if(filtered.length === 0){
-      setStatus("ランキングデータが見つかりませんでした。CSVの列（id,votes,rank）を確認してください。");
+    if(!filtered.length){
+      container.textContent = "データが空です（CSVの中身を確認してください）";
+      setStatus("空データ");
       return;
     }
 
-    filtered.forEach(p=>{
-      const m = memberMap[p.id] || {name:p.id, img:""};
+    container.innerHTML = "";
+    for(const p of filtered){
+      const m = memberMap[p.id] || {name:p.id, img:"https://i.imgur.com/8fK4h6y.png", id:p.id};
       const jp = displayName(m.name);
+
+      const isWithdrawn = withdrawn && withdrawn.has(p.id);
 
       container.insertAdjacentHTML("beforeend", `
         <div class="card">
           <div class="avatar">
-            <img src="${m.img}" alt="${jp}" onerror="this.style.display='none'">
+            <img src="${m.img}" alt="${jp}" onerror="this.src='https://i.imgur.com/8fK4h6y.png';">
           </div>
           <div class="meta">
-            <div class="rank">${p.rank}位</div>
+            <div class="rank">${p.rank}位 ${isWithdrawn ? "（辞退）" : ""}</div>
             <div class="name">${jp}</div>
             <div class="votes">${p.votes.toLocaleString()}票</div>
-            <a class="profileLink" href="./profile.html?id=${encodeURIComponent(p.id)}">Profile</a>
+            <a class="profileBtn" href="./profile.html?id=${encodeURIComponent(p.id)}">PROFILE</a>
           </div>
         </div>
       `);
-    });
+    }
 
-    setStatus("最終更新：" + new Date().toLocaleTimeString("ja-JP") + "（30秒ごとに更新）");
+    setStatus("更新完了（" + new Date().toLocaleTimeString("ja-JP") + "）");
   }catch(err){
     console.error(err);
-    setStatus("読み込みに失敗しました： " + err.message + " ／ CSVを直接確認：" + RANKING_CSV_URL);
+    container.textContent = "読み込みに失敗しました。";
+    showError(
+      "❌ ランキングの取得に失敗しました。<br>" +
+      "原因：<strong>" + (err && err.message ? err.message : "不明") + "</strong><br><br>" +
+      "✅ まず確認：<br>" +
+      "1) このCSVがブラウザで開けるか（あなたのURLは開けてOK）<br>" +
+      "2) iPhone Safariで <strong>Google CSVのfetchがブロック</strong>されることがあります<br><br>" +
+      "🔗 CSV：<a href='"+CSV_URL+"' target='_blank' rel='noopener' style='color:#bfe6ff;font-weight:900;'>ここを開く</a>"
+    );
+    setStatus("失敗");
   }
 }
 
