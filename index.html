@@ -10,13 +10,13 @@
   --bg1:#0f1320;
   --bg2:#161b2e;
 
-  /* ★ここが重要：カードの下地を“暗め”に固定して文字が消えないように */
-  --card:rgba(10,14,25,.58);
-  --card2:rgba(10,14,25,.40);
+  /* カードを暗め固定（白文字が消えないように） */
+  --card:rgba(10,14,25,.60);
+  --card2:rgba(10,14,25,.45);
 
-  --line:rgba(255,255,255,.14);
+  --line:rgba(255,255,255,.16);
   --txt:#ffffff;
-  --sub:rgba(255,255,255,.86);
+  --sub:rgba(255,255,255,.88);
 
   --accent:#9a86ff;
   --accent2:#6fc3ff;
@@ -76,7 +76,7 @@ body::before{
   font-weight:800;
   letter-spacing:.04em;
   line-height:1.55;
-  text-shadow:0 2px 16px rgba(0,0,0,.35);
+  text-shadow:0 2px 16px rgba(0,0,0,.4);
 }
 
 .hero p{
@@ -85,7 +85,7 @@ body::before{
   line-height:2.05;
   color:var(--sub);
   font-weight:500;
-  text-shadow:0 1px 14px rgba(0,0,0,.25);
+  text-shadow:0 1px 12px rgba(0,0,0,.35);
 }
 
 .btn{
@@ -123,7 +123,7 @@ h2{
   font-size:16px;
   font-weight:800;
   letter-spacing:.04em;
-  text-shadow:0 2px 12px rgba(0,0,0,.25);
+  text-shadow:0 2px 12px rgba(0,0,0,.3);
 }
 
 ul{
@@ -135,22 +135,27 @@ ul{
   font-weight:500;
 }
 
+/* ===== フッター（ここを修正） ===== */
 .footer{
   margin-top:50px;
   padding-top:20px;
   border-top:1px solid var(--line);
   text-align:center;
-  font-size:12px;
-  color:rgba(255,255,255,.70);
+  font-size:13px;
+  color:rgba(255,255,255,.85);
 }
 
 .footer a{
-  color:rgba(255,255,255,.92);
+  color:#ffffff; /* くっきり白 */
+  font-weight:600;
   text-decoration:none;
-  margin:0 10px;
+  text-shadow:0 2px 8px rgba(0,0,0,.6); /* 背景に負けない */
+  margin:0 12px;
 }
 
-.footer a:hover{ text-decoration:underline; }
+.footer a:hover{
+  text-decoration:underline;
+}
 </style>
 </head>
 
