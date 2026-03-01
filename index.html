@@ -111,6 +111,33 @@ body::after{
   box-shadow:0 8px 22px rgba(0,0,0,.35);
 }
 
+/* ===== ガイド導線（新規） ===== */
+.guides{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.guide{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:.04em;
+  text-decoration:none;
+  color:rgba(255,255,255,.95);
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+  text-shadow:0 1px 8px rgba(0,0,0,.35);
+}
+.guide:hover{
+  border-color:rgba(125,211,255,.55);
+  background:rgba(125,211,255,.18);
+}
+
 .grid{
   margin-top:20px;
   display:grid;
@@ -140,7 +167,7 @@ ul{
   color:var(--sub);
 }
 
-/* ===== 完成版フッター ===== */
+/* ===== フッター（完成版） ===== */
 .footer{
   margin-top:30px;
   padding:18px 12px;
@@ -193,54 +220,67 @@ ul{
 </head>
 
 <body>
-
 <main class="wrap">
 
-<section class="hero">
-  <h1>
-    日プ新世界まとめ（非公式）｜<br>
-    練習生情報・順位・投票リンク
-  </h1>
+  <section class="hero">
+    <h1>
+      日プ新世界まとめ（非公式）｜<br>
+      練習生情報・順位・投票リンク
+    </h1>
 
-  <p>
-    当サイトは、PRODUCE 101 JAPAN 新世界を<br>
-    応援する非公式ファンサイトです。<br>
-    練習生の情報まとめ・順位メモ<br>
-    投票ページへのリンクを掲載します。
-  </p>
+    <p>
+      当サイトは、PRODUCE 101 JAPAN 新世界を<br>
+      応援する非公式ファンサイトです。<br>
+      練習生の情報まとめ・順位メモ<br>
+      投票ページへのリンクを掲載します。
+    </p>
 
-  <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
-    ▶ 今すぐ投票する
-  </a>
-</section>
+    <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+      ▶ 今すぐ投票する
+    </a>
 
-<section class="grid">
+    <!-- ✅ GUIDE導線（孤立ページ防止） -->
+    <div class="guides" aria-label="ガイド">
+      <a class="guide" href="./vote-guide.html">🗳 投票のやり方</a>
+      <a class="guide" href="./ranking-guide.html">📊 ランキングの見方</a>
+    </div>
+  </section>
 
-  <div class="card">
-    <h2>これから追加する内容</h2>
-    <ul>
-      <li>練習生プロフィールまとめ（年齢・出身・身長など）</li>
-      <li>順位の推移（更新ログ）</li>
-      <li>SNSの反応まとめ</li>
-      <li>投票のやり方（初心者向け）</li>
-    </ul>
+  <section class="grid">
+
+    <div class="card">
+      <h2>ガイド</h2>
+      <ul>
+        <li><a href="./vote-guide.html" style="color:var(--accent); font-weight:700; text-decoration:none;">投票のやり方</a>（初心者向け）</li>
+        <li><a href="./ranking-guide.html" style="color:var(--accent); font-weight:700; text-decoration:none;">ランキングの見方</a>（更新・確認方法）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>これから追加する内容</h2>
+      <ul>
+        <li>練習生プロフィールまとめ（年齢・出身・身長など）</li>
+        <li>順位の推移（更新ログ）</li>
+        <li>SNSの反応まとめ</li>
+        <li>上位11人のまとめページ</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>注意</h2>
+      <ul>
+        <li>当サイトは非公式です。公式とは関係ありません。</li>
+        <li>権利者様からのご連絡には速やかに対応します。</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <div class="footer">
+    <a href="./about.html">About</a>
+    <a href="./privacy.html">Privacy</a>
+    <a href="./contact.html">Contact</a>
   </div>
-
-  <div class="card">
-    <h2>注意</h2>
-    <ul>
-      <li>当サイトは非公式です。公式とは関係ありません。</li>
-      <li>権利者様からのご連絡には速やかに対応します。</li>
-    </ul>
-  </div>
-
-</section>
-
-<div class="footer">
-  <a href="./about.html">About</a>
-  <a href="./privacy.html">Privacy</a>
-  <a href="./contact.html">Contact</a>
-</div>
 
 </main>
 </body>
