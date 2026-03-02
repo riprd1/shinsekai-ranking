@@ -32,6 +32,44 @@ body{
   position:relative;
 }
 
+/* ===== 目次 ===== */
+.toc{
+  background:rgba(255,255,255,.75);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+  backdrop-filter:blur(6px);
+  margin:20px 0;
+}
+.tocTitle{
+  font-weight:900;
+  margin:0 0 10px;
+  font-size:14px;
+  color:#111827;
+}
+.toc a{
+  display:block;
+  padding:10px 12px;
+  margin:8px 0;
+  border-radius:12px;
+  text-decoration:none;
+  color:#1f2937;
+  background:rgba(255,255,255,.8);
+  border:1px solid var(--line);
+  transition:.2s ease;
+  font-weight:800;
+  font-size:13px;
+}
+.toc a:hover{
+  transform:translateY(-1px);
+  background:#fff;
+}
+.toc small{
+  color:#6b7280;
+  font-weight:700;
+}
+
 /* ===== 追加カラー設定 ===== */
 .blueSeries{ color:#0ea5e9; }
 .blueName{ color:#0284c7; font-weight:900; }
@@ -146,13 +184,6 @@ h1{
   color:#111827;
 }
 
-.lead{
-  color:var(--sub);
-  font-size:14px;
-  line-height:1.9;
-  margin:0 0 18px;
-}
-
 .section{
   margin-top:18px;
   background:var(--card);
@@ -220,19 +251,23 @@ h1{
 
 <h1>日プ新世界とは？歴代PRODUCE 101 JAPANまとめ</h1>
 
-<section class="section">
+<div class="toc">
+  <div class="tocTitle">目次</div>
+  <a href="#s1">2. PRODUCE 101 JAPAN（2019）</a>
+  <a href="#s2">3. PRODUCE 101 JAPAN SEASON2（2021）</a>
+  <a href="#girls">4. PRODUCE 101 JAPAN THE GIRLS（2023）</a>
+  <a href="#shinsekai">日プ新世界 公式情報</a>
+</div>
 
+<section class="section" id="s1">
 <h2 class="h2 blueSeries">2. PRODUCE 101 JAPAN（2019）</h2>
-
 <p class="p">
 最終回は幕張メッセで開催され、11人組グローバルボーイズグループ 
 <span class="blueName">JO1</span> が誕生。
 </p>
-
 <p class="p">
 ファンネームは <span class="jamColor">JAM</span>。
 </p>
-
 <p class="officialLink">
 公式サイト：
 <a href="https://jo1.jp" target="_blank" rel="noopener">https://jo1.jp</a>
@@ -240,17 +275,15 @@ h1{
 
 <hr class="hr">
 
+<section class="section" id="s2">
 <h2 class="h2 blueSeries">3. PRODUCE 101 JAPAN SEASON2（2021）</h2>
-
 <p class="p">
 最終回を経て、11人組ボーイズグループ 
 <span class="blueName">INI</span> が誕生。
 </p>
-
 <p class="p">
 ファンネームは <span class="miniColor">MINI</span>。
 </p>
-
 <p class="officialLink">
 公式サイト：
 <a href="https://ini-official.com" target="_blank" rel="noopener">https://ini-official.com</a>
@@ -258,17 +291,15 @@ h1{
 
 <hr class="hr">
 
+<section class="section" id="girls">
 <h2 class="h2 pinkSeries">4. PRODUCE 101 JAPAN THE GIRLS（2023）</h2>
-
 <p class="p">
 11人組ガールズグループ 
 <span class="meiColor">ME:I</span> が誕生し、デビュー後は音楽活動を中心に注目を集めています。
 </p>
-
 <p class="p">
 ファンネームは <span class="youmeColor">YOU:ME</span>。
 </p>
-
 <p class="officialLink">
 公式サイト：
 <a href="https://me-i.jp" target="_blank" rel="noopener">https://me-i.jp</a>
@@ -276,8 +307,8 @@ h1{
 
 <hr class="hr">
 
+<section class="section" id="shinsekai">
 <h2 class="h2">日プ新世界 公式情報</h2>
-
 <p class="officialLink">
 公式サイト：
 <a href="https://produce101.jp" target="_blank" rel="noopener">https://produce101.jp</a>
