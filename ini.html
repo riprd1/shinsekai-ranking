@@ -214,11 +214,46 @@ body::after{
   background:#e5e7eb;
   margin:14px 0;
 }
+
+/* ===== 追加：フッター（追加） ===== */
+.footer{
+  margin-top:34px;
+  padding:18px 12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  border-radius:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.footer a{
+  display:inline-block;
+  padding:10px 18px;
+  margin:6px 8px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+
+  color:#ffffff;
+  text-decoration:none;
+
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+
+  transition:.2s ease;
+}
+
+.footer a:hover{
+  transform:translateY(-2px);
+}
+/* ===== 追加ここまで ===== */
 </style>
 </head>
 
 <body>
 <main class="wrap">
+
+<a href="./index.html" class="detailBtn">トップへ戻る</a>
 
 <div class="hero">
   <img class="heroImg" src="https://i.imgur.com/9my4Znh.jpeg" alt="PRODUCE 101 JAPAN 新世界" loading="lazy">
@@ -464,6 +499,12 @@ INIは、2021年6月13日に結成されたグローバルボーイズグルー�
 </p>
 
 </section>
+
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
 
 </main>
 
