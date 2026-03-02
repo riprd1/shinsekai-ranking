@@ -7,89 +7,158 @@
 
 <style>
 :root{
-  --bg1:#061325;
-  --bg2:#0b2040;
-  --card:rgba(8,18,35,.72);
-  --line:rgba(255,255,255,.12);
-  --txt:#f7fbff;
-  --sub:rgba(255,255,255,.88);
-  --accent:#7dd3ff;
-  --accent2:#4da3ff;
+  --bg:#ffffff;
+  --card:#ffffff;
+  --line:#e5e7eb;
+
+  --txt:#111827;
+  --sub:#4b5563;
+
+  --accent:#2563eb;
+  --accent2:#7dd3fc;
+
+  --shadow:0 16px 40px rgba(0,0,0,.08);
 }
+
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
   color:var(--txt);
-  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  background:var(--bg);
+  overflow-x:hidden;
+  position:relative;
 }
+
+/* ===== 背景：シャボン玉＋波 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(44px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(125,211,252,.38), transparent 45%),
+    radial-gradient(circle at 72% 18%, rgba(196,181,253,.38), transparent 46%),
+    radial-gradient(circle at 42% 78%, rgba(253,186,116,.30), transparent 46%),
+    radial-gradient(circle at 82% 72%, rgba(147,197,253,.30), transparent 48%),
+    radial-gradient(circle at 30% 52%, rgba(167,243,208,.28), transparent 48%),
+    radial-gradient(circle at 60% 55%, rgba(252,165,165,.24), transparent 50%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(60% 110% at 20% 35%, rgba(125,211,252,.22), transparent 62%),
+    radial-gradient(65% 120% at 85% 30%, rgba(196,181,253,.22), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(253,186,116,.18), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -36px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
+}
+
+/* ===== layout ===== */
 .wrap{
   max-width:900px;
   margin:0 auto;
-  padding:28px 18px 70px;
+  padding:44px 18px 90px;
 }
+
 .topbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:12px;
-  margin-bottom:12px;
+  margin-bottom:18px;
 }
+
+/* 戻るボタン */
 .pill{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:8px 12px;
-  border-radius:999px;
-  font-size:12px;
+  padding:10px 16px;
+  border-radius:12px;
+  font-size:14px;
   font-weight:900;
-  color:#fff;
+  color:var(--txt);
   text-decoration:none;
-  background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.85);
+  border:1px solid var(--line);
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+  transition:.2s ease;
 }
+.pill:hover{
+  background:#f9fafb;
+  transform:translateY(-1px);
+}
+
+/* 投票ボタン */
 .btnMain{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:9px 14px;
-  border-radius:999px;
-  font-size:12.5px;
+  padding:10px 18px;
+  border-radius:12px;
+  font-size:14px;
   font-weight:900;
-  color:#061325;
+  color:#fff;
   text-decoration:none;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 8px 22px rgba(0,0,0,.35);
+  box-shadow:0 12px 26px rgba(37,99,235,.25);
+  transition:.2s ease;
 }
+.btnMain:hover{
+  transform:translateY(-2px);
+}
+
 h1{
-  margin:0 0 6px;
-  font-size:18px;
+  margin:0 0 8px;
+  font-size:20px;
   font-weight:900;
+  color:#111827;
 }
+
 .sub{
-  font-size:13px;
+  font-size:14px;
   color:var(--sub);
-  margin-bottom:14px;
-  line-height:1.8;
+  margin-bottom:20px;
+  line-height:1.9;
 }
+
+/* ===== ranking grid ===== */
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:16px;
 }
 @media (min-width:760px){
   .grid{grid-template-columns:repeat(3,1fr);}
 }
+
 .card{
-  background:var(--card);
+  background:rgba(255,255,255,.92);
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:12px;
+  border-radius:20px;
+  padding:16px;
   display:flex;
-  gap:12px;
+  gap:14px;
   align-items:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(6px);
 }
+
 .avatar{
   width:64px;
   height:64px;
@@ -99,60 +168,81 @@ h1{
   justify-content:center;
   font-weight:900;
   font-size:20px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#061325;
+  background:linear-gradient(135deg,#e0f2fe,#ede9fe);
+  color:#111827;
+  border:1px solid #e5e7eb;
   flex:0 0 auto;
 }
+
 .meta{flex:1}
+
 .rank{
   font-weight:900;
-  font-size:12px;
+  font-size:13px;
   color:var(--accent);
 }
+
 .name{
   font-weight:900;
-  font-size:14px;
-  margin-top:4px;
+  font-size:15px;
+  margin-top:6px;
+  color:#111827;
 }
+
 .votes{
-  font-size:12px;
-  margin-top:4px;
+  font-size:13px;
+  margin-top:6px;
   color:var(--sub);
 }
+
 .profileBtn{
-  margin-top:8px;
+  margin-top:10px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
-  font-weight:900;
-  color:#061325;
-  text-decoration:none;
-  padding:6px 10px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-}
-.notice{
-  margin-top:18px;
   font-size:13px;
-  line-height:1.9;
-  color:rgba(255,255,255,.85);
+  font-weight:900;
+  color:#fff;
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 10px 22px rgba(37,99,235,.22);
+  transition:.2s ease;
 }
+.profileBtn:hover{
+  transform:translateY(-2px);
+}
+
+.notice{
+  margin-top:24px;
+  font-size:14px;
+  line-height:1.9;
+  color:#6b7280;
+}
+
 .footer{
-  margin-top:22px;
+  margin-top:28px;
   text-align:center;
 }
 .footer a{
   display:inline-block;
-  margin:6px 8px;
+  margin:8px 10px;
   padding:8px 16px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:900;
-  color:#fff;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:800;
+  color:#2563eb;
   text-decoration:none;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.70);
+  border:1px solid var(--line);
+  box-shadow:0 10px 22px rgba(0,0,0,.05);
+  transition:.2s ease;
+}
+.footer a:hover{
+  transform:translateY(-1px);
+  background:#ffffff;
+  text-decoration:underline;
 }
 </style>
 </head>
