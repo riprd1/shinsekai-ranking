@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>INIの主な経歴・年表｜日プ新世界まとめ（非公式）</title>
+<meta name="description" content="INIの主な経歴・年表（抜粋）を時系列でまとめた非公式ファン向けページ。PRODUCE 101 JAPAN SEASON2（2021）から誕生したINIの主な出来事を整理。" />
+
+<style>
+:root{
+  --bg:#ffffff;
+  --card:rgba(255,255,255,.92);
+  --line:#e5e7eb;
+  --txt:#111827;
+  --sub:#4b5563;
+  --accent:#2563eb;
+  --accent2:#7dd3fc;
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:var(--bg);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== カラー設定 ===== */
+.blueSeries{ color:#0ea5e9; font-weight:900; }
+.blueName{ color:#0284c7; font-weight:900; }
+.jamColor{ color:#dc2626; font-weight:900; }
+.miniColor{ color:#2563eb; font-weight:900; }
+.pinkSeries{ color:#ec4899; font-weight:900; }
+.meiColor{ color:#db2777; font-weight:900; }
+.youmeColor{ color:#f472b6; font-weight:900; }
+
+/* ===== 目次 ===== */
+.toc{
+  margin:20px 0;
+  background:rgba(255,255,255,.85);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.tocTitle{
+  font-weight:900;
+  margin-bottom:10px;
+  font-size:14px;
+}
+.toc a{
+  display:block;
+  padding:8px 10px;
+  margin:6px 0;
+  border-radius:10px;
+  text-decoration:none;
+  color:#1f2937;
+  background:#f9fafb;
+  font-size:13px;
+  font-weight:700;
+}
+.toc a:hover{
+  background:#eef2ff;
+}
+
+/* ===== 目次を見やすくする機能 ===== */
+.tocToggle{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(37,99,235,.25);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  font-size:14px;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.tocToggle:active{ transform:translateY(1px); }
+.tocList{ display:none; }
+.tocList.show{ display:block; }
+
+/* ===== ヘッダー画像 ===== */
+.hero{
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,.75);
+  margin:0 0 18px;
+}
+.heroImg{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.heroTitle{
+  padding:14px 16px;
+  font-weight:900;
+  font-size:18px;
+  line-height:1.4;
+  color:#111827;
+  background:rgba(255,255,255,.92);
+  border-top:1px solid var(--line);
+}
+
+/* ===== 戻るボタン（追加） ===== */
+.backBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  margin:14px 0 0;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(37,99,235,.25);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  font-size:14px;
+  text-decoration:none;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+}
+.backBtn:active{ transform:translateY(1px); }
+
+.officialLink{
+  margin-top:6px;
+  font-size:12px;
+}
+.officialLink a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:700;
+}
+.officialLink a:hover{
+  text-decoration:underline;
+}
+
+/* ===== 背景 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(44px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(125,211,252,.38), transparent 45%),
+    radial-gradient(circle at 72% 18%, rgba(196,181,253,.38), transparent 46%),
+    radial-gradient(circle at 42% 78%, rgba(253,186,116,.30), transparent 46%),
+    radial-gradient(circle at 82% 72%, rgba(147,197,253,.30), transparent 48%),
+    radial-gradient(circle at 30% 52%, rgba(167,243,208,.28), transparent 48%),
+    radial-gradient(circle at 60% 55%, rgba(252,165,165,.24), transparent 50%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(60% 110% at 20% 35%, rgba(125,211,252,.22), transparent 62%),
+    radial-gradient(65% 120% at 85% 30%, rgba(196,181,253,.22), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(253,186,116,.18), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -36px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
+}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:44px 18px 90px;
+}
+
+.section{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.h2{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:900;
+}
+
+.p{
+  margin:0 0 12px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+
+.hr{
+  height:1px;
+  background:#e5e7eb;
+  margin:14px 0;
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<div class="hero">
+  <img class="heroImg" src="https://i.imgur.com/9my4Znh.jpeg" alt="PRODUCE 101 JAPAN 新世界" loading="lazy">
+  <div class="heroTitle">INIの主な経歴・年表（抜粋）</div>
+</div>
+
+<div class="toc">
+  <div class="tocTitle">目次</div>
+
+  <button type="button" class="tocToggle" onclick="toggleToc()" aria-controls="tocList" aria-expanded="false">
+    <span>目次一覧をひらく</span>
+    <span id="tocChevron">▼</span>
+  </button>
+
+  <div class="tocList" id="tocList">
+    <a href="#about">1. INIとは</a>
+    <a href="#timeline">2. 主な歩み（抜粋）</a>
+    <a href="#official">3. 公式サイト</a>
+  </div>
+
+  <a class="backBtn" href="./history.html">← 歴代シリーズ解説へ戻る</a>
+</div>
+
+<section class="section" id="about">
+<h2 class="h2 blueSeries">1. INIとは</h2>
+
+<p class="p">
+INIは、2021年の『PRODUCE 101 JAPAN SEASON2』から誕生した11人組ボーイズグループです。
+結成は2021年6月13日。
+</p>
+
+<p class="p">
+テーマ曲は「Let Me Fly〜その未来へ〜」。
+センターは木村柾哉が担当し、番組の顔として注目を集めました。
+</p>
+
+<p class="p">
+ファンネームは <span class="miniColor">MINI</span>。
+「Me（私）＋INI」を意味し、INIとファンが一体となって歩んでいくという想いが込められています。
+</p>
+</section>
+
+<hr class="hr">
+
+<section class="section" id="timeline">
+<h2 class="h2 blueSeries">2. 主な歩み（抜粋）</h2>
+
+<p class="p">
+2021年11月3日、デビューシングル『A』をリリースし正式デビュー。
+デイリーチャートで初登場1位を記録し、初週売上がハーフミリオンを超えるなど大きな話題となりました。
+</p>
+
+<p class="p">
+同年11月には初のファンミーティング「INI 1ST FAN MEETING」を開催し、多くの観客を動員。
+年末にかけては音楽賞での受賞や、海外授賞式への出演も重なり、勢いを強めていきました。
+</p>
+
+<p class="p">
+2022年は冠ラジオ番組『From INI』がスタート。
+2ndシングル『I』のリリースでは、前作に続く記録的なセールスが注目を集めました。
+同年後半には初のアリーナツアーを開催し、全国規模でライブ活動が大きく広がりました。
+</p>
+
+<p class="p">
+2023年はシングル『DROP That』が主要チャートで首位を獲得するなど、作品面でも存在感を強化。
+韓国の音楽番組への出演や、2度目のアリーナツアーの開催など、活動の幅をさらに広げました。
+</p>
+
+<p class="p">
+2024年は京セラドーム大阪で単独公演を実施し、ライブ面で大きな節目に。
+7thシングル『THE VIEW』は主要チャートでの好成績が話題となり、地上波冠番組「INITIME MUSIC」も放送開始となりました。
+</p>
+
+<p class="p">
+2025年は「INITIME MUSIC」連動のライブイベントを開催。
+3度目のアリーナツアー『2025 INI 3RD ARENA LIVE TOUR [XQUARE]』を実施し、年末にはウィンターシングル『THE WINTER MAGIC』をリリース。
+タイトル曲「Present」はメンバーが作詞に関わり、セールス面でも大きな注目を集めました。
+</p>
+
+<p class="p">
+2026年はライブの映画化作品の公開や、8thシングル『PULSE』の発売が予定されています。
+</p>
+</section>
+
+<hr class="hr">
+
+<section class="section" id="official">
+<h2 class="h2">3. 公式サイト</h2>
+
+<p class="officialLink">
+公式サイト：
+<a href="https://ini-official.com" target="_blank" rel="noopener">https://ini-official.com</a>
+</p>
+
+<a class="backBtn" href="./history.html">← 歴代シリーズ解説へ戻る</a>
+</section>
+
+</main>
+
+<script>
+function toggleToc(){
+  const list = document.getElementById("tocList");
+  const btn = document.querySelector(".tocToggle");
+  const chevron = document.getElementById("tocChevron");
+  const isOpen = list.classList.toggle("show");
+  btn.setAttribute("aria-expanded", String(isOpen));
+  chevron.textContent = isOpen ? "▲" : "▼";
+}
+</script>
+
+</body>
+</html>
