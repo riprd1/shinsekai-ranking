@@ -11,13 +11,10 @@
   --bg:#ffffff;
   --card:rgba(255,255,255,.92);
   --line:#e5e7eb;
-
   --txt:#111827;
   --sub:#4b5563;
-
   --accent:#2563eb;
   --accent2:#7dd3fc;
-
   --shadow:0 16px 40px rgba(0,0,0,.08);
 }
 
@@ -32,7 +29,58 @@ body{
   position:relative;
 }
 
-/* ===== 背景：シャボン玉＋波 ===== */
+/* ===== カラー設定 ===== */
+.blueSeries{ color:#0ea5e9; font-weight:900; }
+.blueName{ color:#0284c7; font-weight:900; }
+.jamColor{ color:#dc2626; font-weight:900; }
+.miniColor{ color:#2563eb; font-weight:900; }
+.pinkSeries{ color:#ec4899; font-weight:900; }
+.meiColor{ color:#db2777; font-weight:900; }
+.youmeColor{ color:#f472b6; font-weight:900; }
+
+/* ===== 目次 ===== */
+.toc{
+  margin:20px 0;
+  background:rgba(255,255,255,.85);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.tocTitle{
+  font-weight:900;
+  margin-bottom:10px;
+  font-size:14px;
+}
+.toc a{
+  display:block;
+  padding:8px 10px;
+  margin:6px 0;
+  border-radius:10px;
+  text-decoration:none;
+  color:#1f2937;
+  background:#f9fafb;
+  font-size:13px;
+  font-weight:700;
+}
+.toc a:hover{
+  background:#eef2ff;
+}
+
+.officialLink{
+  margin-top:6px;
+  font-size:12px;
+}
+.officialLink a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:700;
+}
+.officialLink a:hover{
+  text-decoration:underline;
+}
+
+/* ===== 背景 ===== */
 body::before,
 body::after{
   content:"";
@@ -69,96 +117,11 @@ body::after{
   100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
 }
 
-/* ===== layout ===== */
 .wrap{
   max-width:900px;
   margin:0 auto;
   padding:44px 18px 90px;
 }
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.pill{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 16px;
-  border-radius:12px;
-  font-size:14px;
-  font-weight:900;
-  color:var(--txt);
-  text-decoration:none;
-  background:rgba(255,255,255,.85);
-  border:1px solid var(--line);
-  box-shadow:0 10px 24px rgba(0,0,0,.06);
-  transition:.2s ease;
-}
-.pill:hover{ background:#f9fafb; transform:translateY(-1px); }
-
-.btnMain{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 18px;
-  border-radius:12px;
-  font-size:14px;
-  font-weight:900;
-  color:#fff;
-  text-decoration:none;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 12px 26px rgba(37,99,235,.25);
-  transition:.2s ease;
-}
-.btnMain:hover{ transform:translateY(-2px); }
-
-h1{
-  margin:0 0 10px;
-  font-size:22px;
-  font-weight:900;
-  color:#111827;
-  letter-spacing:.2px;
-}
-.lead{
-  color:var(--sub);
-  font-size:14px;
-  line-height:1.9;
-  margin:0 0 18px;
-}
-
-.toc{
-  background:rgba(255,255,255,.75);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:16px;
-  box-shadow:0 12px 30px rgba(0,0,0,.06);
-  backdrop-filter:blur(6px);
-}
-.tocTitle{
-  font-weight:900;
-  margin:0 0 10px;
-  font-size:14px;
-}
-.toc a{
-  display:block;
-  padding:10px 12px;
-  margin:8px 0;
-  border-radius:12px;
-  text-decoration:none;
-  color:#1f2937;
-  background:rgba(255,255,255,.8);
-  border:1px solid var(--line);
-  transition:.2s ease;
-  font-weight:800;
-  font-size:13px;
-}
-.toc a:hover{ transform:translateY(-1px); background:#fff; }
-.toc small{ color:#6b7280; font-weight:700; }
 
 .section{
   margin-top:18px;
@@ -167,87 +130,25 @@ h1{
   border-radius:22px;
   padding:18px;
   box-shadow:var(--shadow);
-  backdrop-filter:blur(6px);
 }
+
 .h2{
   margin:0 0 10px;
   font-size:16px;
   font-weight:900;
-  color:#111827;
 }
+
 .p{
   margin:0 0 12px;
   color:#374151;
   font-size:14px;
   line-height:2.0;
 }
-.badgeRow{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:10px 0 4px;
-}
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:7px 10px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:900;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.85);
-  color:#111827;
-}
-.badge b{ color:var(--accent); }
 
 .hr{
   height:1px;
   background:#e5e7eb;
   margin:14px 0;
-  border-radius:999px;
-}
-
-.noteBox{
-  background:rgba(37,99,235,.06);
-  border:1px solid rgba(37,99,235,.18);
-  border-radius:16px;
-  padding:14px;
-  color:#1f2937;
-  font-size:13px;
-  line-height:1.9;
-}
-.noteBox b{ color:var(--accent); }
-
-.notice{
-  margin-top:18px;
-  font-size:13px;
-  line-height:1.9;
-  color:#6b7280;
-}
-
-.footer{
-  margin-top:28px;
-  text-align:center;
-}
-.footer a{
-  display:inline-block;
-  margin:8px 10px;
-  padding:8px 16px;
-  border-radius:10px;
-  font-size:13px;
-  font-weight:800;
-  color:#2563eb;
-  text-decoration:none;
-  background:rgba(255,255,255,.70);
-  border:1px solid var(--line);
-  box-shadow:0 10px 22px rgba(0,0,0,.05);
-  transition:.2s ease;
-}
-.footer a:hover{
-  transform:translateY(-1px);
-  background:#ffffff;
-  text-decoration:underline;
 }
 </style>
 </head>
@@ -255,113 +156,150 @@ h1{
 <body>
 <main class="wrap">
 
-<div class="topbar">
-<a class="pill" href="./index.html">← トップへ</a>
-<a class="btnMain" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">投票へ移動🗳</a>
-</div>
-
 <h1>日プ新世界とは？歴代PRODUCE 101 JAPANまとめ</h1>
-<p class="lead">
-「日プ新世界」は、韓国発のサバイバルオーディション番組『PRODUCE 101』シリーズを原点とする
-日本版プロジェクトの新シリーズです。<br>
-本ページでは、これまで放送された日本版シリーズ（無印／SEASON2／THE GIRLS）の概要を、
-初めての方にも分かりやすく整理してご紹介します。
-</p>
 
-<div class="toc" aria-label="目次">
+<div class="toc">
   <div class="tocTitle">目次</div>
   <a href="#about">1. 日プシリーズとは（概要）</a>
-  <a href="#s1">2. PRODUCE 101 JAPAN（2019） <small>（JO1誕生）</small></a>
-  <a href="#s2">3. PRODUCE 101 JAPAN SEASON2（2021） <small>（INI誕生）</small></a>
-  <a href="#girls">4. PRODUCE 101 JAPAN THE GIRLS（2023） <small>（ME:I誕生）</small></a>
-  <a href="#shinsekai">5. そして日プ新世界へ（今後の注目点）</a>
+  <a href="#s1">2. PRODUCE 101 JAPAN（2019）</a>
+  <a href="#s2">3. PRODUCE 101 JAPAN SEASON2（2021）</a>
+  <a href="#s3">4. PRODUCE 101 JAPAN THE GIRLS（2023）</a>
+  <a href="#official">5. 日プ新世界 公式情報</a>
 </div>
-
-<!-- 以下本文は構造そのまま、文章のみ自然化済み -->
 
 <section class="section" id="about">
 <h2 class="h2">1. 日プシリーズとは（概要）</h2>
 <p class="p">
-日プ（PRODUCE 101 JAPANシリーズ）は、視聴者投票によってデビューメンバーが決定する
-参加型オーディション番組です。<br>
-原作である韓国版『PRODUCE 101』は、I.O.I / Wanna One / IZ*ONE / X1 などの
-グループを輩出し、大きな注目を集めました。
+日プ（PRODUCE 101 JAPANシリーズ）は、視聴者投票によって
+デビューメンバーが決定する参加型オーディション番組です。
+韓国発の『PRODUCE 101』を原点とし、
+日本独自の形で展開されています。
 </p>
-<div class="noteBox">
-<b>当サイトについて</b><br>
-このページは非公式のファン向け情報まとめです。公式とは一切関係ありません。<br>
-記載内容はできるだけ正確に整備していますが、正確性・最新性を保証するものではありません。
-</div>
+<p class="p">
+練習生はテーマ曲評価、ポジション評価、コンセプト評価など
+複数のミッションを経て成長していき、
+最終的に国民プロデューサー（視聴者）の投票によって
+デビューグループが決定します。
+</p>
 </section>
+
+<hr class="hr">
 
 <section class="section" id="s1">
-<h2 class="h2">2. PRODUCE 101 JAPAN（2019）</h2>
+<h2 class="h2 blueSeries">2. PRODUCE 101 JAPAN（2019）</h2>
+
 <p class="p">
-2019年に放送された日本版第1弾では、101人の練習生が参加。
-各種評価を経て、最終的に視聴者投票により11人のデビューメンバーが決定しました。
+最終回は幕張メッセで開催され、11人組グローバルボーイズグループ 
+<span class="blueName">JO1</span> が誕生。
 </p>
+
 <p class="p">
-最終回は幕張メッセで開催され、11人組グローバルボーイズグループ <b>JO1</b> が誕生。
-2020年3月のデビュー以降、音楽活動を中心に幅広く活躍しています。
+シグナルソング（テーマ曲）は「ツカメ〜It's Coming〜」。
+センターは川尻蓮が務め、番組の象徴的な存在として注目を集めました。
 </p>
+
 <p class="p">
-ファンネームは <b>JAM</b>。
-「JO1 And Me」に由来すると紹介されています。
+ファンネームは <span class="jamColor">JAM</span>。
+「JO1 And Me」の頭文字に由来し、ファン（Me）が加わることでJO1が完成するという意味が込められています。
+</p>
+
+<p class="officialLink">
+公式サイト：
+<a href="https://jo1.jp" target="_blank" rel="noopener">https://jo1.jp</a>
 </p>
 </section>
+
+<hr class="hr">
 
 <section class="section" id="s2">
-<h2 class="h2">3. PRODUCE 101 JAPAN SEASON2（2021）</h2>
+<h2 class="h2 blueSeries">3. PRODUCE 101 JAPAN SEASON2（2021）</h2>
+
 <p class="p">
-2021年に放送された第2弾では、オンライン評価制度など新しい形式が導入されました。
-映像評価を通じた投票が行われ、番組開始前から注目を集めました。
+最終回を経て、11人組ボーイズグループ 
+<span class="blueName">INI</span> が誕生。
 </p>
+
 <p class="p">
-最終回を経て、11人組ボーイズグループ <b>INI</b> が誕生。
-デビュー後も継続的に作品を発表しています。
+テーマ曲は「Let Me Fly〜その未来へ〜」。
+センターは木村柾哉が担当し、番組開始時から高い評価を受けていました。
 </p>
+
 <p class="p">
-ファンネームは <b>MINI</b> とされています。
+ファンネームは <span class="miniColor">MINI</span>。
+「Me（私）＋INI」を意味し、INIとファンが一体となって歩んでいくという想いが込められています。
+</p>
+
+<p class="officialLink">
+公式サイト：
+<a href="https://ini-official.com" target="_blank" rel="noopener">https://ini-official.com</a>
 </p>
 </section>
 
-<section class="section" id="girls">
-<h2 class="h2">4. PRODUCE 101 JAPAN THE GIRLS（2023）</h2>
+<hr class="hr">
+
+<section class="section" id="s3">
+<h2 class="h2 pinkSeries">4. PRODUCE 101 JAPAN THE GIRLS（2023）</h2>
+
 <p class="p">
-2023年には、日本版初の女性グループオーディションが開催されました。
-評価制度を経て、最終回でデビューメンバーが決定しました。
+11人組ガールズグループ 
+<span class="meiColor">ME:I</span> が誕生し、デビュー後は音楽活動を中心に注目を集めています。
 </p>
+
 <p class="p">
-11人組ガールズグループ <b>ME:I</b> が誕生し、
-デビュー後は音楽活動を中心に注目を集めています。
+テーマ曲は「LEAP HIGH!」。
+センターは笠原桃奈が務め、番組の顔として注目を集めました。
 </p>
+
 <p class="p">
-ファンネームは <b>YOU:ME</b> と紹介されています。
+ファンネームは <span class="youmeColor">YOU:ME</span>。
+「YOU（あなた）」と「ME（メンバー）」を繋げた名称で、ファンとグループが共に夢に向かって歩んでいくという意味が込められています。
+</p>
+
+<p class="officialLink">
+公式サイト：
+<a href="https://me-i.jp" target="_blank" rel="noopener">https://me-i.jp</a>
 </p>
 </section>
 
-<section class="section" id="shinsekai">
-<h2 class="h2">5. そして日プ新世界へ（今後の注目点）</h2>
-<p class="p">
-これまでのシリーズを通じて、視聴者参加型の仕組みが定着し、
-多くのファンに支持されるプロジェクトへと発展してきました。
+<hr class="hr">
+
+<section class="section" id="official">
+<h2 class="h2">5. 日プ新世界 公式情報</h2>
+
+<p class="officialLink">
+公式サイト：
+<a href="https://produce101.jp" target="_blank" rel="noopener">https://produce101.jp</a>
 </p>
+
 <p class="p">
-「日プ新世界」でも、新たな挑戦や進化が期待されています。
-今後どのようなメンバーが注目を集めるのか、多くのファンが関心を寄せています。
+「PRODUCE 101 JAPAN 新世界」は、
+JO1・INI・ME:Iを輩出してきた
+日本最大級のサバイバルオーディション番組
+「PRODUCE 101 JAPAN」シリーズの第4弾として始動したプロジェクトです。
 </p>
+
+<p class="p">
+本作ではシリーズ初となる
+“全世界配信”および“全世界投票”が実施され、
+国境を越えた視聴者参加型オーディションへと進化しました。
+日本国内にとどまらず、
+世界中のファンが投票に参加できる点が大きな特徴です。
+</p>
+
+<p class="p">
+2019年のSEASON1ではJO1、
+2021年のSEASON2ではINI、
+2023年のTHE GIRLSではME:Iが誕生しました。
+そして2026年、「新世界」では
+全世界がプロデュースする日本発グローバルボーイズグループの誕生が予定されています。
+</p>
+
+<p class="p">
+“SHINSEKAI, Meet the world”というメッセージのもと、
+シリーズは新たなステージへと進もうとしています。
+</p>
+
 </section>
-
-<div class="notice">
-※当サイトは非公式のファン向け情報まとめサイトです。番組公式とは一切関係ありません。<br>
-※記載内容はできるだけ正確に整備していますが、正確性・最新性を保証するものではありません。
-</div>
-
-<div class="footer">
-<a href="./about.html">About</a>
-<a href="./privacy.html">Privacy</a>
-<a href="./contact.html">Contact</a>
-</div>
 
 </main>
 </body>
