@@ -67,6 +67,27 @@ body{
   background:#eef2ff;
 }
 
+/* ===== 目次：ボタン化（追加） ===== */
+.tocToggle{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(37,99,235,.25);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  font-size:14px;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.tocToggle:active{ transform:translateY(1px); }
+.tocList{ display:none; margin-top:12px; }
+.tocList.show{ display:block; }
+
 .officialLink{
   margin-top:6px;
   font-size:12px;
@@ -160,11 +181,21 @@ body::after{
 
 <div class="toc">
   <div class="tocTitle">目次</div>
-  <a href="#about">1. 日プシリーズとは（概要）</a>
-  <a href="#s1">2. PRODUCE 101 JAPAN（2019）</a>
-  <a href="#s2">3. PRODUCE 101 JAPAN SEASON2（2021）</a>
-  <a href="#s3">4. PRODUCE 101 JAPAN THE GIRLS（2023）</a>
-  <a href="#official">5. 日プ新世界 公式情報</a>
+
+  <!-- 目次：押せるのが分かるボタン（追加） -->
+  <button type="button" class="tocToggle" onclick="toggleToc()" aria-controls="tocList" aria-expanded="false">
+    <span>目次一覧をひらく</span>
+    <span id="tocChevron">▼</span>
+  </button>
+
+  <!-- 目次リンク一覧（元の文字はそのまま保持） -->
+  <div class="tocList" id="tocList">
+    <a href="#about">1. 日プシリーズとは（概要）</a>
+    <a href="#s1">2. PRODUCE 101 JAPAN（2019）</a>
+    <a href="#s2">3. PRODUCE 101 JAPAN SEASON2（2021）</a>
+    <a href="#s3">4. PRODUCE 101 JAPAN THE GIRLS（2023）</a>
+    <a href="#official">5. 日プ新世界 公式情報</a>
+  </div>
 </div>
 
 <section class="section" id="about">
@@ -265,42 +296,25 @@ body::after{
 
 <section class="section" id="official">
 <h2 class="h2">5. 日プ新世界 公式情報</h2>
-
 <p class="officialLink">
 公式サイト：
 <a href="https://produce101.jp" target="_blank" rel="noopener">https://produce101.jp</a>
 </p>
-
-<p class="p">
-「PRODUCE 101 JAPAN 新世界」は、
-JO1・INI・ME:Iを輩出してきた
-日本最大級のサバイバルオーディション番組
-「PRODUCE 101 JAPAN」シリーズの第4弾として始動したプロジェクトです。
-</p>
-
-<p class="p">
-本作ではシリーズ初となる
-“全世界配信”および“全世界投票”が実施され、
-国境を越えた視聴者参加型オーディションへと進化しました。
-日本国内にとどまらず、
-世界中のファンが投票に参加できる点が大きな特徴です。
-</p>
-
-<p class="p">
-2019年のSEASON1ではJO1、
-2021年のSEASON2ではINI、
-2023年のTHE GIRLSではME:Iが誕生しました。
-そして2026年、「新世界」では
-全世界がプロデュースする日本発グローバルボーイズグループの誕生が予定されています。
-</p>
-
-<p class="p">
-“SHINSEKAI, Meet the world”というメッセージのもと、
-シリーズは新たなステージへと進もうとしています。
-</p>
-
 </section>
 
 </main>
+
+<!-- 目次開閉（追加） -->
+<script>
+function toggleToc(){
+  const list = document.getElementById("tocList");
+  const btn = document.querySelector(".tocToggle");
+  const chevron = document.getElementById("tocChevron");
+  const isOpen = list.classList.toggle("show");
+  btn.setAttribute("aria-expanded", String(isOpen));
+  chevron.textContent = isOpen ? "▲" : "▼";
+}
+</script>
+
 </body>
 </html>
