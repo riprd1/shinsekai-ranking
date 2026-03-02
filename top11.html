@@ -70,7 +70,6 @@ body::after{
 
 /* ===== layout ===== */
 .wrap{
-  width: min(900px, 100%);
   max-width:900px;
   margin:0 auto;
   padding:44px 18px 90px;
@@ -141,7 +140,7 @@ h1{
 /* ===== ranking grid ===== */
 .grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:repeat(2,1fr);
   gap:16px;
 }
 @media (min-width:760px){
@@ -158,9 +157,6 @@ h1{
   align-items:center;
   box-shadow:var(--shadow);
   backdrop-filter:blur(6px);
-
-  /* ★追加：カード内に必ず収める */
-  overflow:hidden;
 }
 
 .avatar{
@@ -178,11 +174,7 @@ h1{
   flex:0 0 auto;
 }
 
-/* ★差し替え：flex子要素が縮めるようにする（これが本命） */
-.meta{
-  flex:1;
-  min-width:0;
-}
+.meta{flex:1}
 
 .rank{
   font-weight:900;
@@ -217,10 +209,6 @@ h1{
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   box-shadow:0 10px 22px rgba(37,99,235,.22);
   transition:.2s ease;
-
-  /* ★追加：ボタンがはみ出さない */
-  max-width:100%;
-  white-space:nowrap;
 }
 .profileBtn:hover{
   transform:translateY(-2px);
