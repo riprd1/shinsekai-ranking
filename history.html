@@ -113,6 +113,24 @@ body{
   border-top:1px solid var(--line);
 }
 
+/* ===== 追加：詳細ページへのボタン（追加） ===== */
+.detailBtn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.detailBtn:hover{
+  transform:translateY(-2px);
+}
+
 .officialLink{
   margin-top:6px;
   font-size:12px;
@@ -264,6 +282,10 @@ body::after{
 公式サイト：
 <a href="https://jo1.jp" target="_blank" rel="noopener">https://jo1.jp</a>
 </p>
+
+<!-- 追加：JO1詳細ページリンク（追加） -->
+<a href="jo1.html" class="detailBtn">JO1の主な経歴・年表はこちら</a>
+
 </section>
 
 <hr class="hr">
