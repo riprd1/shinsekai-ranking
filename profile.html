@@ -119,8 +119,33 @@ body{
 
 .note{
   font-size:13px;
-  line-height:1.9;
-  color:rgba(255,255,255,.85);
+  line-height:1.95;
+  color:rgba(255,255,255,.88);
+}
+
+.kv{
+  margin-top:10px;
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap:8px 12px;
+  font-size:13px;
+  color:rgba(255,255,255,.90);
+}
+.kv div{
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+}
+.kv .k{
+  font-weight:900;
+  color:rgba(255,255,255,.92);
+}
+.smallWarn{
+  margin-top:12px;
+  font-size:12px;
+  line-height:1.85;
+  color:rgba(255,255,255,.72);
 }
 
 .footer{
@@ -164,6 +189,7 @@ body{
 
 </main>
 
+<!-- データ（id, name など） -->
 <script src="./data.js"></script>
 
 <script>
@@ -171,47 +197,371 @@ function getParam(name){
   const u = new URL(location.href);
   return u.searchParams.get(name);
 }
-
 function displayName(raw){
   return (raw || "").replace(/\s*\([^)]*\)\s*$/,"").trim();
 }
-
 function buildMap(){
   const map = {};
   const all = [...(window.traineesOnly||[]), ...(window.candidates||[])];
   all.forEach(m => { map[m.id] = m; });
   return map;
 }
+function firstCharJP(name){
+  const s = (name||"").trim();
+  return s ? s.charAt(0) : "?";
+}
 
-/* ★ メンバー別詳細プロフィール */
+/* ★ 11人分：詳細プロフィール（長文） */
 const profileDetails = {
+
+  /* ========= 安部 結蘭 ========= */
   "abeyura": `
     <div class="sectionTitle">プロフィール概要</div>
     <div class="note">
-      2005年6月16日生まれ、茨城県出身。身長175cm。<br>
-      MBTIはISTP。自分を表すキーワードは「幸せの青い鳥」。<br><br>
-      趣味は語学を学び実践すること。特技はピアノと習字。
+      センター経験もあり注目度が高い、語学・音楽にも強い多才タイプ。<br>
+      「できることが多い」だけでなく、面倒見の良さが語られることも多い練習生です。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2005/06/16</div>
+      <div class="k">出身地</div><div>茨城県</div>
+      <div class="k">身長</div><div>175</div>
+      <div class="k">趣味</div><div>語学を学んで実践すること</div>
+      <div class="k">特技</div><div>ピアノ、習字</div>
+      <div class="k">MBTI</div><div>ISTP</div>
+      <div class="k">キーワード</div><div>幸せの青い鳥</div>
     </div>
 
     <div class="hr"></div>
 
-    <div class="sectionTitle">パフォーマンスの強み</div>
+    <div class="sectionTitle">経歴・エピソード</div>
     <div class="note">
-      ダンス・ラップ・ボーカルをバランスよくこなすオールラウンダー。<br>
-      韓国語も堪能で、発音や表現力の高さが魅力。<br><br>
-      『日プ新世界』ではシグナルソング「新世界（SHINSEKAI）」でセンターを務め、
-      番組の象徴的存在として注目を集めている。
+      ダンス・ラップ・歌に加えて韓国語もこなす「オールラウンダー」として語られがち。<br>
+      ピアノが弾けるなど音楽面の引き出しもあり、パフォーマンスの表現力に期待が集まります。<br><br>
+      過去に「PROJECT7（通称：プジェ）」に参加し、最終的に第3回で脱落（最終順位26位）という情報が広く知られています。<br>
+      番組内で韓国語を教えてあげるなど、面倒見の良い姿が印象に残ったという声も。<br><br>
+      日プ新世界ではシグナルソング「新世界（SHINSEKAI）」でセンターを務めています。
+    </div>
+  `,
+
+  /* ========= 加藤 大樹 ========= */
+  "katodaiki": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      “綺麗なお顔”と話題になり、SNS上で注目度が高い練習生。<br>
+      クリエイティブ（衣装・メイク）に強く、世界観づくりが得意そうな雰囲気も魅力です。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2004/10/08</div>
+      <div class="k">出身地</div><div>愛知県</div>
+      <div class="k">身長</div><div>178</div>
+      <div class="k">趣味</div><div>衣装作り、メイク、緑色集め</div>
+      <div class="k">特技</div><div>パフェ作り</div>
+      <div class="k">MBTI</div><div>ENTP</div>
+      <div class="k">キーワード</div><div>緑のプリンス</div>
     </div>
 
     <div class="hr"></div>
 
-    <div class="sectionTitle">過去の活動</div>
+    <div class="sectionTitle">経歴・エピソード</div>
     <div class="note">
-      オーディション番組「PROJECT7（通称：プジェ）」に参加。<br>
-      第3回で脱落（最終順位26位）。<br><br>
-      番組内では韓国語を教えるなど面倒見の良さも印象的だった。
+      “バズり散らかしている”と表現されるほど、ファンの間で拡散されやすいタイプ。<br>
+      過去にTikTokでバズった経験がある、という話題もあります。<br><br>
+      シグナルソング「新世界（SHINSEKAI）」では、エンディング妖精として印象に残る表情が話題になったという声も。<br><br>
+      以前は「ミドリダイキ」として活動していたという情報があり、Instagramのフォロワーが約4.6万人という話題も見られます。<br>
+      また、韓国のサバ番「MAKE MATE（通称：MA1）」出演経験がある、という言及もあります。
+    </div>
+
+    <div class="smallWarn">
+      ※過去活動の記載は、公開情報・ファンの言及などを元に整理しています。誤りがあればお問い合わせからご連絡ください。
+    </div>
+  `,
+
+  /* ========= 田中 蒔 ========= */
+  "tanakamaki": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      宣材や1分PRで「圧倒的ビジュアル」「オーラがある」と話題になった練習生。<br>
+      何者感のある雰囲気が魅力で、今後の伸びしろに期待が集まっています。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2004/06/06</div>
+      <div class="k">出身地</div><div>静岡県</div>
+      <div class="k">身長</div><div>173</div>
+      <div class="k">趣味</div><div>スポーツ全般</div>
+      <div class="k">特技</div><div>ドラム</div>
+      <div class="k">MBTI</div><div>ENTP</div>
+      <div class="k">キーワード</div><div>挑戦</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">注目ポイント</div>
+    <div class="note">
+      現時点では、過去に大きな芸能活動（オーディション／ドラマ／舞台など）があったという確定的な情報は少なめ。<br>
+      そのぶん「今までどこに隠れていたの？！」「突然現れた逸材」みたいな反応が多い印象です。<br><br>
+      ファンの間では、JO1の與那城奨さん／INIの田島将吾さんに似ているという声が出ることもあり、ビジュアル面の注目度はかなり高め。<br><br>
+      ここから“実力が見える場面”が増えるほど評価が大きく伸びそうなタイプです。
+    </div>
+  `,
+
+  /* ========= 小清水 蓮 ========= */
+  "koshimizuren": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      コンセプトポスター公開の時点から「王子様みたい」「1pick確定」と話題になった練習生。<br>
+      かわいらしい見た目と、PRで見せたギャップが魅力です。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2006/04/10</div>
+      <div class="k">出身地</div><div>宮崎県</div>
+      <div class="k">身長</div><div>170</div>
+      <div class="k">趣味</div><div>ゲーム、アニメ鑑賞、サッカー</div>
+      <div class="k">特技</div><div>水泳</div>
+      <div class="k">MBTI</div><div>ESFP</div>
+      <div class="k">キーワード</div><div>猫</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      1分PRでは得意な水泳を“床で披露”するなど、見た目とのギャップに驚く声も。<br><br>
+      過去にオーディション番組やドラマ、モデル、舞台などの情報は現時点では見当たりにくく、日プ新世界が本格的なスタートになる可能性が高いと言われています。<br><br>
+      既に完成された雰囲気から、JO1の白岩瑠姫さん・INIの後藤威尊さんっぽいという声も出ており、
+      「白のイメージがある」というファンの印象もよく見かけます。
+    </div>
+  `,
+
+  /* ========= パク・シヨン ========= */
+  "parksiyoung": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      日本語が上手で、制作・編集・作曲などクリエイティブ面にも強いタイプ。<br>
+      デビュー経験もあり、完成度の高さに期待が集まります。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2003/05/06</div>
+      <div class="k">出身地</div><div>キョンギド</div>
+      <div class="k">身長</div><div>178</div>
+      <div class="k">趣味</div><div>写真編集、デザイン、動画編集、映画鑑賞、音楽鑑賞、想像すること</div>
+      <div class="k">特技</div><div>写真編集、動画編集、作曲、振り付け、ジョーダン（ブレイクダンスの技）</div>
+      <div class="k">MBTI</div><div>INFP</div>
+      <div class="k">キーワード</div><div>白色の絵の具</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      子役としての経験があると言われており、<br>
+      2015年のドラマ「K-COP」に“悪い生徒”役で出演、2018年にはApril「Tinker Bell」のMV出演という情報があります。<br><br>
+      2018年のオーディション番組「Under19」に出演し、最終結果は19位（デビューならず）。<br>
+      その後、2021年3月17日にボーイズグループ「MIRAE（未来少年）」としてデビューした経歴が語られています。<br><br>
+      1分PRで一人称に「吾輩」「それがし」などを使う独特さがあり、クセになるPRとして話題になることも。<br>
+      デビュー経験＋語学力＋表現力で、グループに必要な“芯”になり得る存在として注目されています。
+    </div>
+
+    <div class="smallWarn">
+      ※出演歴・活動歴は公開情報・ファンの言及などを元に整理しています。誤りがあればご連絡ください。
+    </div>
+  `,
+
+  /* ========= 小野 慶人 ========= */
+  "onokeito": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      美容・自己プロデュースに強く、SNSでも話題になりやすい練習生。<br>
+      真面目さとストーリー性のある自己紹介が印象に残るタイプです。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2000/07/25</div>
+      <div class="k">出身地</div><div>高知県</div>
+      <div class="k">身長</div><div>172</div>
+      <div class="k">趣味</div><div>美容、自分磨き、自炊、推し活</div>
+      <div class="k">特技</div><div>継続、野球、ギター、頬の皮膚を伸ばせる</div>
+      <div class="k">MBTI</div><div>ENTJ</div>
+      <div class="k">キーワード</div><div>マラソンランナー</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      大学3年生のときに芸能界入り。<br>
+      「Popteen」専属メンズモデルとして“けいてぃ”名義で活動していたと言われています。<br>
+      2021年1月配信のTikTokドラマ「恋は青春より青し。」に出演。<br><br>
+      ABEMAの恋愛リアリティ「明日も好きでいて、いいですか？」シーズン2に出演した経歴も。<br><br>
+      会社員をしながら美容系インフルエンサーとして、メイク用品紹介などの発信を始めたというストーリーも魅力。<br>
+      肌がとても綺麗で、コンセプトポスター公開時点から話題になりました。<br><br>
+      1分PRでは自身の生い立ちを語り、真面目な姿が印象的だったという声が多いです。
+    </div>
+  `,
+
+  /* ========= 土田 央修 ========= */
+  "tsuchidaosuke": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      韓国語×歌声×愛らしい雰囲気が魅力の練習生。<br>
+      サバ番経験もあり、場数と表現力に期待が集まっています。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2003/05/15</div>
+      <div class="k">出身地</div><div>愛知県</div>
+      <div class="k">身長</div><div>164</div>
+      <div class="k">趣味</div><div>猫と遊ぶ、読書、ダンス、長風呂</div>
+      <div class="k">特技</div><div>自己管理、右手がずっと勝つじゃんけん、車が高速で通り過ぎる時の音、みんなの写真を撮る</div>
+      <div class="k">MBTI</div><div>INFJ</div>
+      <div class="k">キーワード</div><div>克己心</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      韓国のサバ番「BOYS PLANET」に19歳の時に出演し、中盤で脱落したと言われています。<br><br>
+      韓国語・日本語のバイリンガルで、<br>
+      1分PRでも愛らしい雰囲気と素敵な歌声が印象的だったという声が多いです。<br><br>
+      自己管理が得意というプロフィール通り、丁寧に積み上げるタイプとして応援されやすい存在です。
+    </div>
+  `,
+
+  /* ========= 飯塚 亮賀 ========= */
+  "iizukaryoga": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      公開前から“誰この人？”と期待が集まり、登場後も独特なPRで一気に話題になった練習生。<br>
+      かわいさと強い顔面で「内容が入ってこない」と言われることもある愛されキャラです。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2005/01/21</div>
+      <div class="k">出身地</div><div>群馬県</div>
+      <div class="k">身長</div><div>175</div>
+      <div class="k">趣味</div><div>アニメ鑑賞、サッカー、ゲーム</div>
+      <div class="k">特技</div><div>サッカーボールを頭の上に乗せて歩くこと</div>
+      <div class="k">MBTI</div><div>INTP</div>
+      <div class="k">キーワード</div><div>ヲタク</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      コンセプトポスター公開時点で“飯塚亮賀さんらしき人物”が出てきたと話題になり、<br>
+      「韓国系の顔でかっこいい」「名前早く教えて！」と期待の声が多かった印象。<br><br>
+      練習生公開＆1分PRでは、足つぼマットの上で縄跳びをしながら自己紹介するという癖の強いPRが注目を集めました。<br>
+      平気そうに見えて普通に痛がる姿に「可愛すぎる」「顔面が強くて内容が入ってこない」などの反応も。<br><br>
+      現時点では、過去のオーディション番組出演やドラマ・モデル・舞台などの情報は多くなく、<br>
+      これから実力が見える場面が増えるほど評価が伸びそうなタイプです。
+    </div>
+  `,
+
+  /* ========= 後藤 結 ========= */
+  "gotoyuki": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      既に知名度・人気があり、投稿の反応も強い“拡散型”の練習生。<br>
+      可愛らしさとダンス力の両方で注目されやすいタイプです。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2007/12/24</div>
+      <div class="k">出身地</div><div>神奈川県</div>
+      <div class="k">身長</div><div>180</div>
+      <div class="k">趣味</div><div>観察</div>
+      <div class="k">特技</div><div>ロックダンス</div>
+      <div class="k">MBTI</div><div>INFJ</div>
+      <div class="k">キーワード</div><div>未完成</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      2024年開催の「男子高生ミスターコン」に関東エリアからエントリーし、ファイナリスト＆審査員特別賞受賞という情報があります。<br><br>
+      2025年1月1日に「WEGO SCHOOL」アオハル部員8期生に加入し、モデル活動もしていたと言われています。<br>
+      さらに2025年1月放送のABEMA「今日、好きになりました。」卒業編2025 in ソウルに出演。<br><br>
+      今日好きでの知名度やTikTokでのダンス投稿もあり、公開投稿では「いいね・再生が強い」と驚かれることも。<br><br>
+      1分PRでは名前の紙を破ってしまい「…あ…」となる可愛らしい一面が話題に。<br>
+      コメント欄でも「縁起悪いけど面白い」「健気で応援したい」などの声が上がっていました。<br><br>
+      ダンスも上手いと言われており、今後の活躍に期待です。
+    </div>
+  `,
+
+  /* ========= 照井 康祐 ========= */
+  "teruikosuke": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      EXPG出身と言われ、ダンスの土台が強い練習生。<br>
+      PRのクセも強く、SNSで話題になりやすいタイプです。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2007/12/02</div>
+      <div class="k">出身地</div><div>千葉県</div>
+      <div class="k">身長</div><div>174</div>
+      <div class="k">趣味</div><div>好きなアーティストのLIVE映像を見ること</div>
+      <div class="k">特技</div><div>ダンス、ラップ</div>
+      <div class="k">MBTI</div><div>ISTP</div>
+      <div class="k">キーワード</div><div>変幻自在</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      中学生時代からLDH運営のEXPG練習生として所属していたと言われています（期間は明らかでないという見方も）。<br><br>
+      2024年4月2日に2期生として「DBSing」に加入し、キレのあるダンスで人気が高かったという話題が見られます。<br>
+      2024年12月に選抜メンバーが「SEVENIC」としてデビュー決定となるも、照井康祐さんはデビューメンバーに選ばれず。<br>
+      2025年1月末で「DBSign」を脱退したと言われています。<br><br>
+      コンセプトポスター公開時には、練習生公開前から「誰このイケメン」「JO1の豆ちゃんっぽい」などの声が多数。<br>
+      1分PRではブリッジをしながら自己紹介するなど、癖のあるPRでTikTokやXでも話題に。<br><br>
+      ダンスは申し分ない実力と言われ、歌やラップは今後の伸びしろとして期待されています。
+    </div>
+  `,
+
+  /* ========= 矢田 佳暉 ========= */
+  "yadayoshiki": `
+    <div class="sectionTitle">プロフィール概要</div>
+    <div class="note">
+      “王子様”系ビジュアルに、低音ボイス＆甘い歌声のギャップが魅力。<br>
+      ボーカル枠として期待する声が多い練習生です。
+    </div>
+
+    <div class="kv">
+      <div class="k">生年月日</div><div>2004/06/18</div>
+      <div class="k">出身地</div><div>奈良県</div>
+      <div class="k">身長</div><div>177</div>
+      <div class="k">趣味</div><div>マカロン作り、ギター</div>
+      <div class="k">特技</div><div>バク転、ルービックキューブ</div>
+      <div class="k">MBTI</div><div>ENFP</div>
+      <div class="k">キーワード</div><div>令和のリトルプリンス</div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sectionTitle">経歴・エピソード</div>
+    <div class="note">
+      2025年7月放送の韓国発サバイバル番組「現役歌王JAPAN」に出演したという情報があり、<br>
+      低音ボイスと甘い歌声で人気があったと語られています。<br><br>
+      本選第2次戦の「1対1指名バトル」で敗退という結果になったと言われる一方で、<br>
+      “現役0年目”という周囲を驚かせるような才能の持ち主として評価する声も。TOP10まで勝ち進んだという話題もあります。<br><br>
+      日プ新世界でもデビューを願うファンが多く、<br>
+      1分PRではギターを弾きながら歌声を披露。「王子様みたい」「このビジュアルから出る低音が癒し」「ボーカル枠はこの子」などの反応が見られました。
+    </div>
+
+    <div class="smallWarn">
+      ※番組での成績・表現は公開情報・ファンの言及などを元に整理しています。誤りがあればご連絡ください。
     </div>
   `
+
 };
 
 (function render(){
@@ -239,7 +589,7 @@ const profileDetails = {
   }
 
   const jp = displayName(m.name);
-  const firstLetter = jp.charAt(0);
+  const firstLetter = firstCharJP(jp);
 
   card.innerHTML = `
     <div class="header">
@@ -262,6 +612,12 @@ const profileDetails = {
         詳細プロフィールは準備中です。
       </div>
     `}
+
+    <div class="hr"></div>
+    <div class="smallWarn">
+      ※当サイトは非公式ファンサイトです。公式とは関係ありません。<br>
+      ※記載内容はできるだけ正確に整備しますが、正確性・最新性を保証するものではありません。
+    </div>
   `;
 })();
 </script>
