@@ -158,6 +158,9 @@ h1{
   align-items:center;
   box-shadow:var(--shadow);
   backdrop-filter:blur(6px);
+
+  /* ★追加：カード内に必ず収める */
+  overflow:hidden;
 }
 
 .avatar{
@@ -175,7 +178,11 @@ h1{
   flex:0 0 auto;
 }
 
-.meta{flex:1}
+/* ★差し替え：flex子要素が縮めるようにする（これが本命） */
+.meta{
+  flex:1;
+  min-width:0;
+}
 
 .rank{
   font-weight:900;
@@ -210,6 +217,10 @@ h1{
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   box-shadow:0 10px 22px rgba(37,99,235,.22);
   transition:.2s ease;
+
+  /* ★追加：ボタンがはみ出さない */
+  max-width:100%;
+  white-space:nowrap;
 }
 .profileBtn:hover{
   transform:translateY(-2px);
