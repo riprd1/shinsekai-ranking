@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>日プ新世界とは？歴代PRODUCE 101 JAPANまとめ｜日プ新世界まとめ（非公式）</title>
+<meta name="description" content="日プ新世界とは？PRODUCE 101 JAPAN（無印/SEASON2/THE GIRLS）を中立的に分かりやすくまとめた非公式ファン向け解説ページ。" />
+
+<style>
+:root{
+  --bg:#ffffff;
+  --card:rgba(255,255,255,.92);
+  --line:#e5e7eb;
+
+  --txt:#111827;
+  --sub:#4b5563;
+
+  --accent:#2563eb;
+  --accent2:#7dd3fc;
+
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:var(--bg);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== 背景：シャボン玉＋波 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(44px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(125,211,252,.38), transparent 45%),
+    radial-gradient(circle at 72% 18%, rgba(196,181,253,.38), transparent 46%),
+    radial-gradient(circle at 42% 78%, rgba(253,186,116,.30), transparent 46%),
+    radial-gradient(circle at 82% 72%, rgba(147,197,253,.30), transparent 48%),
+    radial-gradient(circle at 30% 52%, rgba(167,243,208,.28), transparent 48%),
+    radial-gradient(circle at 60% 55%, rgba(252,165,165,.24), transparent 50%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(60% 110% at 20% 35%, rgba(125,211,252,.22), transparent 62%),
+    radial-gradient(65% 120% at 85% 30%, rgba(196,181,253,.22), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(253,186,116,.18), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -36px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
+}
+
+/* ===== layout ===== */
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:44px 18px 90px;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 16px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:900;
+  color:var(--txt);
+  text-decoration:none;
+  background:rgba(255,255,255,.85);
+  border:1px solid var(--line);
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+  transition:.2s ease;
+}
+.pill:hover{ background:#f9fafb; transform:translateY(-1px); }
+
+.btnMain{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 18px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:900;
+  color:#fff;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(37,99,235,.25);
+  transition:.2s ease;
+}
+.btnMain:hover{ transform:translateY(-2px); }
+
+h1{
+  margin:0 0 10px;
+  font-size:22px;
+  font-weight:900;
+  color:#111827;
+  letter-spacing:.2px;
+}
+.lead{
+  color:var(--sub);
+  font-size:14px;
+  line-height:1.9;
+  margin:0 0 18px;
+}
+
+.toc{
+  background:rgba(255,255,255,.75);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+  backdrop-filter:blur(6px);
+}
+.tocTitle{
+  font-weight:900;
+  margin:0 0 10px;
+  font-size:14px;
+}
+.toc a{
+  display:block;
+  padding:10px 12px;
+  margin:8px 0;
+  border-radius:12px;
+  text-decoration:none;
+  color:#1f2937;
+  background:rgba(255,255,255,.8);
+  border:1px solid var(--line);
+  transition:.2s ease;
+  font-weight:800;
+  font-size:13px;
+}
+.toc a:hover{ transform:translateY(-1px); background:#fff; }
+.toc small{ color:#6b7280; font-weight:700; }
+
+.section{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(6px);
+}
+.h2{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:900;
+  color:#111827;
+}
+.p{
+  margin:0 0 12px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+.badgeRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0 4px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  color:#111827;
+}
+.badge b{ color:var(--accent); }
+
+.hr{
+  height:1px;
+  background:#e5e7eb;
+  margin:14px 0;
+  border-radius:999px;
+}
+
+.noteBox{
+  background:rgba(37,99,235,.06);
+  border:1px solid rgba(37,99,235,.18);
+  border-radius:16px;
+  padding:14px;
+  color:#1f2937;
+  font-size:13px;
+  line-height:1.9;
+}
+.noteBox b{ color:var(--accent); }
+
+.notice{
+  margin-top:18px;
+  font-size:13px;
+  line-height:1.9;
+  color:#6b7280;
+}
+
+.footer{
+  margin-top:28px;
+  text-align:center;
+}
+.footer a{
+  display:inline-block;
+  margin:8px 10px;
+  padding:8px 16px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:800;
+  color:#2563eb;
+  text-decoration:none;
+  background:rgba(255,255,255,.70);
+  border:1px solid var(--line);
+  box-shadow:0 10px 22px rgba(0,0,0,.05);
+  transition:.2s ease;
+}
+.footer a:hover{
+  transform:translateY(-1px);
+  background:#ffffff;
+  text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="topbar">
+    <a class="pill" href="./index.html">← トップへ</a>
+    <a class="btnMain" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">投票へ移動🗳</a>
+  </div>
+
+  <h1>日プ新世界とは？歴代PRODUCE 101 JAPANまとめ</h1>
+  <p class="lead">
+    「日プ新世界」は、韓国発のサバイバルオーディション番組『PRODUCE 101』の日本版として展開されているプロジェクトの最新シリーズです。<br>
+    ここでは、これまでの日本版シリーズ（無印／SEASON2／THE GIRLS）を中立的に分かりやすくまとめます。
+  </p>
+
+  <div class="toc" aria-label="目次">
+    <div class="tocTitle">目次</div>
+    <a href="#about">1. 日プシリーズとは <small>（概要）</small></a>
+    <a href="#s1">2. PRODUCE 101 JAPAN（2019） <small>（JO1誕生）</small></a>
+    <a href="#s2">3. PRODUCE 101 JAPAN SEASON2（2021） <small>（INI誕生）</small></a>
+    <a href="#girls">4. PRODUCE 101 JAPAN THE GIRLS（2023） <small>（ME:I誕生）</small></a>
+    <a href="#shinsekai">5. そして日プ新世界へ <small>（今後の注目点）</small></a>
+  </div>
+
+  <section class="section" id="about">
+    <h2 class="h2">1. 日プシリーズとは（概要）</h2>
+    <p class="p">
+      日プ（PRODUCE 101 JAPANシリーズ）は、視聴者投票を通じてデビューメンバーが決定するオーディション企画です。<br>
+      韓国で生まれた『PRODUCE 101』は、I.O.I / Wanna One / IZ*ONE / X1 などを輩出し、世界的な人気を集めました。
+    </p>
+    <div class="noteBox">
+      <b>当サイトについて</b><br>
+      このページは非公式のファン向け情報まとめです。公式とは一切関係ありません。<br>
+      記載内容はできるだけ正確に整備しますが、正確性・最新性を保証するものではありません。
+    </div>
+  </section>
+
+  <section class="section" id="s1">
+    <h2 class="h2">2. PRODUCE 101 JAPAN（2019）</h2>
+
+    <div class="badgeRow">
+      <span class="badge"><b>デビュー</b> JO1</span>
+      <span class="badge"><b>テーマ曲</b> ツカメ〜It's Coming〜</span>
+      <span class="badge"><b>センター</b> 川尻蓮</span>
+      <span class="badge"><b>代表</b> ナインティナイン</span>
+    </div>
+
+    <div class="hr"></div>
+
+    <p class="p">
+      2019年に放送された第1弾では、多数の応募者の中から選ばれた101人が参加。<br>
+      シグナルソング評価、ポジション評価、グループ評価、コンセプト評価などを経て、
+      視聴者投票によってデビューメンバー11人が決定しました。
+    </p>
+
+    <p class="p">
+      最終回は幕張メッセで開催され、11人組グローバルボーイズグループ <b>JO1</b> が誕生。<br>
+      JO1は2020年3月にデビューし、その後も継続的に作品を発表しながら活動を広げています。
+    </p>
+
+    <p class="p">
+      ファンネームは <b>JAM</b>。<br>
+      「JO1 And Me」の頭文字を取った名称で、グループとファンが一体となる意味が込められているとされています。
+    </p>
+  </section>
+
+  <section class="section" id="s2">
+    <h2 class="h2">3. PRODUCE 101 JAPAN SEASON2（2021）</h2>
+
+    <div class="badgeRow">
+      <span class="badge"><b>デビュー</b> INI</span>
+      <span class="badge"><b>テーマ曲</b> Let Me Fly〜その未来へ〜</span>
+      <span class="badge"><b>センター</b> 木村柾哉</span>
+      <span class="badge"><b>特徴</b> オンライン投票要素</span>
+    </div>
+
+    <div class="hr"></div>
+
+    <p class="p">
+      第2弾は2021年に放送。社会状況の影響もあり、従来とは異なる形式が導入されました。<br>
+      練習生の「1分PR」やパフォーマンス映像などをもとに投票を行う仕組みが話題となり、
+      番組開始前に参加者が絞り込まれる展開も含め、これまでにないスタイルとして注目されました。
+    </p>
+
+    <p class="p">
+      最終回を経て、11人組ボーイズグループ <b>INI</b> が誕生。<br>
+      デビュー後はリリースやライブなどを重ね、ファン層を広げています。
+    </p>
+
+    <p class="p">
+      ファンネームは <b>MINI</b>。<br>
+      「Me（私）＋INI」などの意味合いが込められていると説明されることが多いです。
+    </p>
+  </section>
+
+  <section class="section" id="girls">
+    <h2 class="h2">4. PRODUCE 101 JAPAN THE GIRLS（2023）</h2>
+
+    <div class="badgeRow">
+      <span class="badge"><b>デビュー</b> ME:I</span>
+      <span class="badge"><b>テーマ曲</b> LEAP HIGH!</span>
+      <span class="badge"><b>センター</b> 笠原桃奈</span>
+      <span class="badge"><b>日本版初</b> 女性グループ</span>
+    </div>
+
+    <div class="hr"></div>
+
+    <p class="p">
+      2023年には、日本版として初めての女性グループオーディションが開催。<br>
+      グループ評価、ポジション評価、コンセプト評価などを経て、最終回でデビューメンバーが決定しました。
+    </p>
+
+    <p class="p">
+      11人組ガールズグループ <b>ME:I</b> が誕生し、デビュー後は音楽活動を中心に注目を集めています。
+    </p>
+
+    <p class="p">
+      ファンネームは <b>YOU:ME</b>。<br>
+      ファン（YOU）とメンバー（ME）が共に歩むという意味が込められている、と説明されることがあります。
+    </p>
+  </section>
+
+  <section class="section" id="shinsekai">
+    <h2 class="h2">5. そして日プ新世界へ（今後の注目点）</h2>
+
+    <p class="p">
+      これまでのシリーズを通じて、視聴者参加型の投票システムや評価制度が定着し、
+      多くのファンに支持される企画へと発展してきました。
+    </p>
+
+    <p class="p">
+      「日プ新世界」でも、歴代シリーズで培われた“参加型”の魅力を受け継ぎつつ、
+      新しい形の挑戦や進化が期待されています。<br>
+      今後どのようなメンバーが注目され、どんなグループが誕生するのか、多くのファンが見守っています。
+    </p>
+
+    <div class="noteBox">
+      <b>更新について</b><br>
+      情報は状況により変わる場合があります。誤りや追加情報があれば、Contactフォームからご連絡ください。
+    </div>
+  </section>
+
+  <div class="notice">
+    ※当サイトは非公式のファン向け情報まとめサイトです。番組公式とは一切関係ありません。<br>
+    ※記載内容はできるだけ正確に整備しますが、正確性・最新性を保証するものではありません。
+  </div>
+
+  <div class="footer">
+    <a href="./about.html">About</a>
+    <a href="./privacy.html">Privacy</a>
+    <a href="./contact.html">Contact</a>
+  </div>
+
+</main>
+</body>
+</html>
