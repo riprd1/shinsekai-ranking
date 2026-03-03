@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>JO1の主な経歴・年表（抜粋）｜日プ新世界まとめ（非公式）</title>
-<meta name="description" content="JO1の主な経歴・年表（抜粋）。PRODUCE 101 JAPAN（2019）から誕生したJO1の主な出来事をまとめた非公式ファン向けページ。" />
+<meta name="description" content="JO1の主な経歴・年表（抜粋）を、ポイントが伝わる形でまとめた非公式ファン向けページ。" />
 
 <style>
 :root{
@@ -67,7 +67,7 @@ body{
   background:#eef2ff;
 }
 
-/* ===== 目次を見やすくする機能 ===== */
+/* ===== 目次を見やすくする機能（追加） ===== */
 .tocToggle{
   width:100%;
   padding:12px 12px;
@@ -89,7 +89,7 @@ body{
 .tocList{ display:none; }
 .tocList.show{ display:block; }
 
-/* ===== ヘッダー画像 ===== */
+/* ===== ヘッダー画像（追加） ===== */
 .hero{
   border-radius:22px;
   overflow:hidden;
@@ -113,26 +113,22 @@ body{
   border-top:1px solid var(--line);
 }
 
-/* ===== 戻るリンク（追加） ===== */
-.backRow{
-  margin:0 0 12px;
-}
-.backBtn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 14px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.85);
-  text-decoration:none;
-  color:#111827;
+/* ===== 追加：詳細ページへのボタン（追加） ===== */
+.detailBtn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+  border-radius:12px;
   font-weight:900;
-  font-size:13px;
-  box-shadow:0 10px 22px rgba(0,0,0,.05);
+  font-size:14px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
 }
-.backBtn:hover{
-  background:#ffffff;
+.detailBtn:hover{
+  transform:translateY(-2px);
 }
 
 .officialLink{
@@ -218,6 +214,39 @@ body::after{
   background:#e5e7eb;
   margin:14px 0;
 }
+
+/* ===== 追加：フッター（追加） ===== */
+.footer{
+  margin-top:34px;
+  padding:18px 12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  border-radius:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.footer a{
+  display:inline-block;
+  padding:10px 18px;
+  margin:6px 8px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+
+  color:#ffffff;
+  text-decoration:none;
+
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+
+  transition:.2s ease;
+}
+
+.footer a:hover{
+  transform:translateY(-2px);
+}
+/* ===== 追加ここまで ===== */
 </style>
 </head>
 
@@ -225,13 +254,12 @@ body::after{
 <main class="wrap">
 
 <div class="hero">
-  <img class="heroImg" src="https://i.imgur.com/9my4Znh.jpeg" alt="JO1" loading="lazy">
+  <img class="heroImg" src="https://i.imgur.com/9my4Znh.jpeg" alt="PRODUCE 101 JAPAN 新世界" loading="lazy">
   <div class="heroTitle">JO1の主な経歴・年表（抜粋）</div>
 </div>
 
-<div class="backRow">
-  <a class="backBtn" href="./history.html">← 歴代シリーズ解説へ戻る</a>
-</div>
+<a href="index.html" class="detailBtn">トップへ戻る</a>
+<a href="history.html" class="detailBtn">歴代シリーズ解説へ戻る</a>
 
 <div class="toc">
   <div class="tocTitle">目次</div>
@@ -242,75 +270,237 @@ body::after{
   </button>
 
   <div class="tocList" id="tocList">
-    <a href="#jo1">1. JO1（概要）</a>
-    <a href="#timeline">2. JO1の主な歩み（抜粋）</a>
-    <a href="#official">3. 公式サイト</a>
+    <a href="#about">1. JO1について</a>
+    <a href="#y2020">2. 2020年</a>
+    <a href="#y2021">3. 2021年</a>
+    <a href="#y2022">4. 2022年</a>
+    <a href="#y2023">5. 2023年</a>
+    <a href="#y2024">6. 2024年</a>
+    <a href="#y2025">7. 2025年</a>
+    <a href="#y2026">8. 2026年</a>
   </div>
 </div>
 
-<section class="section" id="jo1">
-<h2 class="h2 blueSeries">1. JO1（概要）</h2>
+<section class="section" id="about">
+<h2 class="h2 blueSeries">1. JO1について</h2>
 
 <p class="p">
-『PRODUCE 101 JAPAN（2019）』の最終回は幕張メッセで開催され、11人組グローバルボーイズグループ
-<span class="blueName">JO1</span> が誕生。
+JO1は、オーディション番組「PRODUCE 101 JAPAN」から誕生した11人組グローバルボーイズグループです。
 </p>
 
 <p class="p">
-シグナルソング（テーマ曲）は「ツカメ〜It's Coming〜」。
-センターは川尻蓮が務め、番組の象徴的な存在として注目を集めました。
+デビュー以降、作品の記録更新、国内外でのライブ展開、メディア出演を重ねながら、
+“年を追うごとにスケールが増していく”成長の軌跡を積み重ねてきました。
 </p>
-
-<p class="p">
-ファンネームは <span class="jamColor">JAM</span>。
-「JO1 And Me」の頭文字に由来し、ファン（Me）が加わることでJO1が完成するという意味が込められています。
-</p>
-</section>
-
-<hr class="hr">
-
-<section class="section" id="timeline">
-<h2 class="h2 blueSeries">2. JO1の主な歩み（抜粋）</h2>
-
-<p class="p">
-2020年にシングル『PROTOSTAR』でデビュー。以降、作品リリースを重ねながら活動の規模を広げていきました。
-</p>
-
-<p class="p">
-2021年には韓国の音楽番組への出演や、有観客ライブの開催など話題が続き、5thシングル『WANDERING』は主要ランキングで上位を記録し、初週売上が50万枚を超えるなどグループの勢いを示す節目となりました。
-</p>
-
-<p class="p">
-2022年はドキュメンタリー映画の公開、ラジオ番組『JO1のオールナイトニッポンX』の開始、2ndアルバム『KIZUNA』のリリースなど活動の幅がさらに拡大。全国ツアーも行い、年末にはNHK紅白歌合戦に初出場しました。
-</p>
-
-<p class="p">
-2023年はシングル『TROPICAL NIGHT』のリリースやアリーナツアーの開催に加え、海外都市を回るツアーも実施。京セラドーム大阪での単独公演を行うなど、ライブ面でも大きな節目を迎え、紅白歌合戦には2年連続で出演しています。
-</p>
-
-<p class="p">
-2024年は配信シングルの発表や韓国音楽番組への出演、8thシングル『HITCHHIKER』のリリース、夏フェス出演などを通じて注目度を高めました。年末にはライブツアーを行い、翌年のワールドツアー開催が発表され、紅白歌合戦には3年連続で出演しました。
-</p>
-
-<p class="p">
-2025年は初のワールドツアーを開催し、東京ドームでの単独公演も実施。さらにドキュメンタリー映画第2弾の公開や、デビュー5周年を記念した野外イベントなど、節目に合わせた大型企画が続きました。
-</p>
-
-<p class="p">
-2026年はライブ映画の全国公開が発表され、春にはライブツアー『JO1DER SHOW 2026 'EIEN 永縁'』の開催が予定されています。
-</p>
-</section>
-
-<hr class="hr">
-
-<section class="section" id="official">
-<h2 class="h2">3. 公式サイト</h2>
 
 <p class="officialLink">
 公式サイト：
 <a href="https://jo1.jp" target="_blank" rel="noopener">https://jo1.jp</a>
 </p>
+
 </section>
+
+<hr class="hr">
+
+<section class="section" id="y2020">
+<h2 class="h2 blueSeries">2. 2020年</h2>
+
+<p class="p">
+3月4日、シングル『PROTOSTAR』をリリースし、デビュー。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2021">
+<h2 class="h2 blueSeries">3. 2021年</h2>
+
+<p class="p">
+2月25日、韓国の音楽番組『M COUNTDOWN』に初出演。
+「Shine A Light」と「伝えられるなら」の2曲を披露しました。
+</p>
+
+<p class="p">
+11月19日 - 21日、初の有観客ライブ『2021 JO1 LIVE “OPEN THE DOOR”』を幕張メッセにて開催。
+3日間全5公演で4万5000人を動員。（金城碧海は活動休止）
+</p>
+
+<p class="p">
+12月15日、5thシングル『WANDERING』をリリース。
+各種ランキングで1位を獲得し、リード曲「僕らの季節」はBillboard Japan Hot 100で総合首位を獲得。
+初週売上は51.6万枚を超え、グループ初のハーフミリオンを達成しました。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2022">
+<h2 class="h2 blueSeries">4. 2022年</h2>
+
+<p class="p">
+3月11日、ドキュメンタリー映画『JO1 THE MOVIE 『未完成』-Go to the TOP-』が東宝系にて全国公開。
+</p>
+
+<p class="p">
+4月7日、ニッポン放送にて初のレギュラーラジオ番組『JO1のオールナイトニッポンX』が放送開始。
+メインパーソナリティは白岩が担当し、週替わりでメンバーがゲスト出演。（2026年現時点もレギュラー放送中）
+</p>
+
+<p class="p">
+5月25日、2ndアルバム『KIZUNA』をリリース。
+オリコン、Billboard JAPAN各チャートで1位を獲得し、ダウンロード・アルバム・チャートでも初の1位を記録しました。
+</p>
+
+<p class="p">
+6月12日、サンリオとの新キャラ開発プロジェクトの始動が発表。
+10月26日にキャラクターチーム名が「JOCHUM」に決定したことが発表されました。
+</p>
+
+<p class="p">
+9月3日 - 10月23日、初のアリーナツアー『2022 JO1 1ST ARENA LIVE TOUR ‘KIZUNA’』を開催。
+全国5都市・全13公演で11万人を動員。金城碧海は復帰後11人で初めての有観客LIVEとなりました。
+</p>
+
+<p class="p">
+10月12日、6thシングル『MIDNIGHT SUN』をリリース。
+初週売上は60万枚を超え、Billboard JAPAN週間シングル・セールス・チャートで1位。
+リード曲「Supercali」はBillboard Japan Hot 100で2位を獲得しました。
+</p>
+
+<p class="p">
+12月31日、『第73回NHK紅白歌合戦』に初出場。デビュー曲「無限大」を披露。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2023">
+<h2 class="h2 blueSeries">5. 2023年</h2>
+
+<p class="p">
+4月5日、7thシングル『TROPICAL NIGHT』をリリース。
+各チャートで1位を獲得し、リード曲「Tiger」はBillboard Japan Hot 100／ダウンロード・ソングで1位を記録。
+</p>
+
+<p class="p">
+8月5日 - 10月19日、アリーナツアー『2023 JO1 2ND ARENA LIVE TOUR 'BEYOND THE DARK’』を開催。
+ツアー初日に、グループ初の単独ドーム公演の開催決定が発表されました。
+</p>
+
+<p class="p">
+11月1日 - 12月8日、初のアジアツアー『2023 JO1 1ST ASIA TOUR 'BEYOND THE DARK' LIMITED EDITION』を開催。
+（ジャカルタ・バンコク・台北・上海）
+</p>
+
+<p class="p">
+11月24日 - 25日、京セラドーム大阪にて初の単独ドーム公演『BEYOND THE DARK:RISE'』を2日間開催。
+8月から4ヶ月にわたる本ツアーは全15公演、延べ20万人を動員しました。
+</p>
+
+<p class="p">
+12月31日、『第74回NHK紅白歌合戦』に2年連続出場。白組トップバッターとして『NEWSmile』を披露。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2024">
+<h2 class="h2 blueSeries">6. 2024年</h2>
+
+<p class="p">
+2月19日、配信シングル「Aqua」をデジタルリリース。
+ヘアケアブランド「Sorule」のCMソングとして書き下ろされた曲。
+</p>
+
+<p class="p">
+5月23日 - 29日、『M COUNTDOWN』を始めとする6つの韓国音楽番組に出演。
+韓国デビューをしていないアーティストとしては異例の快挙として話題に。
+</p>
+
+<p class="p">
+5月29日、8thシングル『HITCHHIKER』をリリース。
+オリコン、Billboard JAPANで1位を獲得し、リード曲「Love seeker」はBillboard JAPAN Japan Hot 100で1位。
+初週売上は73.8万枚を超え、グループ最高売上を更新しました。
+</p>
+
+<p class="p">
+7月27日 - 28日、4年ぶり2度目のファンミーティング『2024 JO1 “JAM感謝祭” 〜SUMMER FESTIVAL〜』をKアリーナ横浜にて開催。
+</p>
+
+<p class="p">
+8月17日 - 18日、『SUMMER SONIC 2024』に初出演。
+自身の夏フェス初となるバンド編成でパフォーマンスを披露しました。
+</p>
+
+<p class="p">
+11月23日 - 12月28日、ライブツアー『JO1DER SHOW 2024 ‘WHEREVER WE ARE’』を開催。
+ライブネーションジャパンと日本人アーティストとして初のパートナーシップ締結が発表され、
+2025年のワールドツアー開催も発表されました。
+</p>
+
+<p class="p">
+12月31日、『第75回NHK紅白歌合戦』に3年連続出場。「Love seeker」を披露。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2025">
+<h2 class="h2 blueSeries">7. 2025年</h2>
+
+<p class="p">
+2月15日 - 3月30日、初のワールドツアー『JO1 WORLD TOUR JO1DER SHOW 2025 ‘WHEREVER WE ARE’』を開催。
+台北公演を皮切りに、ソウル公演では新曲「BE CLASSIC」を韓国語で歌唱しました。
+</p>
+
+<p class="p">
+4月20日 - 21日、『JO1DER SHOW 2025 'WHEREVER WE ARE' IN TOKYO DOME』を開催。
+グループ初となる東京ドーム単独公演を2日間実施し、2日間で約10万人を動員。
+ツアー全体では約25万人を動員しました。
+</p>
+
+<p class="p">
+7月4日、ドキュメンタリー映画第2弾『JO1 THE MOVIE『未完成』-Bon Voyage-』が全国公開。
+</p>
+
+<p class="p">
+10月18日 - 19日、デビュー5周年スペシャルイベント『JO1 5th Anniversary 〜祭り〜』を海の森水上競技場 特設会場にて開催。
+2日間で約3万人を動員しました。
+</p>
+
+<p class="p">
+（この年：初のワールドツアー／ベストアルバム発売）
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2026">
+<h2 class="h2 blueSeries">8. 2026年</h2>
+
+<p class="p">
+1月30日、ライブ映画『JO1DER SHOW 2025 'WHEREVER WE ARE' IN TOKYO DOME - LIVE FILM』が全国公開。
+</p>
+
+<p class="p">
+4月8日 - 4月23日、ライブツアー『JO1DER SHOW 2026 'EIEN 永縁'』を開催予定。
+</p>
+
+</section>
+
+<!-- ===== 追加：各ページリンク（追加） ===== -->
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
+<!-- ===== 追加ここまで ===== -->
 
 </main>
 
