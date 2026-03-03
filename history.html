@@ -89,8 +89,9 @@ body{
 .tocList{ display:none; }
 .tocList.show{ display:block; }
 
-/* ===== ヘッダー画像（追加） ===== */
+/* ===== ヘッダー画像（修正） ===== */
 .hero{
+  position:relative;
   border-radius:22px;
   overflow:hidden;
   border:1px solid var(--line);
@@ -104,13 +105,18 @@ body{
   display:block;
 }
 .heroTitle{
-  padding:14px 16px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:100%;
+  text-align:center;
   font-weight:900;
-  font-size:18px;
+  font-size:clamp(20px,4vw,36px);
   line-height:1.4;
-  color:#111827;
-  background:rgba(255,255,255,.92);
-  border-top:1px solid var(--line);
+  color:#ffffff;
+  text-shadow:0 6px 20px rgba(0,0,0,.6);
+  padding:0 16px;
 }
 
 /* ===== 追加：詳細ページへのボタン（追加） ===== */
@@ -254,8 +260,11 @@ body::after{
 <main class="wrap">
 
 <div class="hero">
-  <img class="heroImg" src="https://i.imgur.com/9my4Znh.jpeg" alt="PRODUCE 101 JAPAN 新世界" loading="lazy">
-  <div class="heroTitle">PRODUCE 101 JAPAN 新世界とは｜歴代シリーズ解説</div>
+  <img class="heroImg" src="https://i.imgur.com/fu3TXCa.jpeg" alt="PRODUCE 101 JAPAN 新世界" loading="lazy">
+  <div class="heroTitle">
+    PRODUCE 101 JAPAN 新世界とは<br>
+    歴代シリーズ解説
+  </div>
 </div>
 
 <!-- ===== 追加：トップへ戻る（上部） ===== -->
@@ -425,13 +434,11 @@ JO1・INI・ME:Iを輩出してきた
 
 </section>
 
-<!-- ===== 変更：フッターはAbout/Privacy/Contactのみ（横並び） ===== -->
 <div class="footer">
   <a href="./about.html">About</a>
   <a href="./privacy.html">Privacy</a>
   <a href="./contact.html">Contact</a>
 </div>
-<!-- ===== 変更ここまで ===== -->
 
 </main>
 
