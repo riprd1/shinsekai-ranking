@@ -210,11 +210,16 @@ body::after{
 .grade{
   font-weight:900;
   padding:0 .25em;
-  text-shadow:0 2px 10px rgba(0,0,0,.18);
+  font-size:1.2em;
+  letter-spacing:.05em;
+  text-shadow:
+    0 0 4px rgba(0,0,0,.8),
+    0 2px 8px rgba(0,0,0,.8),
+    0 0 12px rgba(0,0,0,.6);
 }
 .gradeA{ color:#ff69b4; }
 .gradeB{ color:#ff8c00; }
-.gradeC{ color:#ffff00; text-shadow:0 2px 12px rgba(0,0,0,.35); }
+.gradeC{ color:#ffff00; text-shadow:0 0 4px rgba(0,0,0,.9), 0 2px 8px rgba(0,0,0,.85), 0 0 14px rgba(0,0,0,.75); }
 .gradeD{ color:#00ff7f; }
 .gradeF{ color:#a9a9a9; }
 </style>
@@ -340,33 +345,33 @@ body::after{
           に移ります。（レベル分けテストは2話に分かれます）
         </p>
 
-      </div>
-    </details>
+        <details class="flowDetails">
+          <summary>▼レベル分けテストとは...</summary>
+          <div class="flowBody">
 
-    <details class="flowDetails">
-      <summary>▼レベル分けテストとは...</summary>
-      <div class="flowBody">
+            <p class="p">
+              会場に集まった練習生は
+              それぞれチームに別れています。
+              2~6人などが多く、中には1人で挑む練習生もいます。
+              そのチーム毎に歌、ダンス、ラップなど
+              決められた課題曲を披露し
+              その時点での評価（
+              <span class="grade gradeA">A</span>／
+              <span class="grade gradeB">B</span>／
+              <span class="grade gradeC">C</span>／
+              <span class="grade gradeD">D</span>／
+              <span class="grade gradeF">F</span>
+              ）５段階評価が決められます。
+            </p>
 
-        <p class="p">
-          会場に集まった練習生は
-          それぞれチームに別れています。
-          2~6人などが多く、中には1人で挑む練習生もいます。
-          そのチーム毎に歌、ダンス、ラップなど
-          決められた課題曲を披露し
-          その時点での評価（
-          <span class="grade gradeA">A</span>・
-          <span class="grade gradeB">B</span>・
-          <span class="grade gradeC">C</span>・
-          <span class="grade gradeD">D</span>・
-          <span class="grade gradeF">F</span>
-          ）５段階評価が決められます。
-        </p>
+            <p class="p">
+              中にはアカペラで歌って貰えますか？
+              ダンスを見たいです。などトレーナー陣から
+              即興パフォーマンスを要求される練習生もいます。
+            </p>
 
-        <p class="p">
-          中にはアカペラで歌って貰えますか？
-          ダンスを見たいです。などトレーナー陣から
-          即興パフォーマンスを要求される練習生もいます。
-        </p>
+          </div>
+        </details>
 
       </div>
     </details>
@@ -384,4 +389,3 @@ body::after{
 </main>
 </body>
 </html>
-
