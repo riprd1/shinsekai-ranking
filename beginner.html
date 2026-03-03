@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>初心者向け｜日プって何話構成？｜日プ新世界まとめ（非公式）</title>
+<meta name="description" content="PRODUCE 101 JAPAN 新世界を初めて見る人向けに、何話構成かを過去シーズンを参考に分かりやすく解説（非公式）" />
+
+<style>
+:root{
+  --bg:#ffffff;
+  --card:rgba(255,255,255,.92);
+  --line:#e5e7eb;
+  --txt:#111827;
+  --sub:#4b5563;
+  --accent:#2563eb;
+  --accent2:#7dd3fc;
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:var(--bg);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== カラー設定（既存と同じ系統） ===== */
+.blueSeries{ color:#0ea5e9; font-weight:900; }
+.pinkSeries{ color:#ec4899; font-weight:900; }
+
+/* 追加：強調色 */
+.redEm{ color:#dc2626; font-weight:900; }
+.aquaEm{ color:#38bdf8; font-weight:900; }
+.royalBlueEm{ color:#2563eb; font-weight:900; }
+
+/* ===== 背景 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(44px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(125,211,252,.38), transparent 45%),
+    radial-gradient(circle at 72% 18%, rgba(196,181,253,.38), transparent 46%),
+    radial-gradient(circle at 42% 78%, rgba(253,186,116,.30), transparent 46%),
+    radial-gradient(circle at 82% 72%, rgba(147,197,253,.30), transparent 48%),
+    radial-gradient(circle at 30% 52%, rgba(167,243,208,.28), transparent 48%),
+    radial-gradient(circle at 60% 55%, rgba(252,165,165,.24), transparent 50%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(60% 110% at 20% 35%, rgba(125,211,252,.22), transparent 62%),
+    radial-gradient(65% 120% at 85% 30%, rgba(196,181,253,.22), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(253,186,116,.18), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -36px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
+}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:44px 18px 90px;
+}
+
+.section{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.p{
+  margin:0 0 12px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+
+.hr{
+  height:1px;
+  background:#e5e7eb;
+  margin:14px 0;
+}
+
+/* 見出し（影ありで少し大きく） */
+.bigHead{
+  margin:0 0 12px;
+  font-size:clamp(18px, 4.8vw, 26px);
+  font-weight:900;
+  line-height:1.35;
+  letter-spacing:.02em;
+  text-shadow:0 6px 18px rgba(0,0,0,.18);
+}
+
+/* 注意書きカード（薄め） */
+.note{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(37,99,235,.18);
+  border-radius:18px;
+  padding:14px 14px;
+  box-shadow:0 10px 26px rgba(37,99,235,.10);
+}
+
+/* ボタン（既存系） */
+.detailBtn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.detailBtn:hover{ transform:translateY(-2px); }
+
+/* フッター */
+.footer{
+  margin-top:34px;
+  padding:18px 12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  border-radius:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.footer a{
+  display:inline-block;
+  padding:10px 18px;
+  margin:6px 8px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  color:#ffffff;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.footer a:hover{ transform:translateY(-2px); }
+
+/* ===== 追加：折りたたみ（details/summary） ===== */
+.flowWrap{ margin-top:14px; }
+
+.flowDetails{
+  margin:14px 0;
+  border:1px solid rgba(37,99,235,.18);
+  border-radius:18px;
+  background:rgba(255,255,255,.80);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.flowDetails > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 14px;
+  font-weight:900;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.flowDetails > summary::-webkit-details-marker{ display:none; }
+
+.flowDetails > summary::after{
+  content:"▼";
+  font-weight:900;
+  opacity:.8;
+  transition:.18s ease;
+}
+
+.flowDetails[open] > summary::after{
+  transform:rotate(180deg);
+}
+
+.flowBody{
+  padding:0 14px 14px;
+}
+
+.flowBody .p{ margin-top:10px; }
+
+/* 追加：評価ランク色＋シャドウ */
+.grade{
+  font-weight:900;
+  padding:0 .25em;
+  text-shadow:0 2px 10px rgba(0,0,0,.18);
+}
+.gradeA{ color:#ff69b4; }
+.gradeB{ color:#ff8c00; }
+.gradeC{ color:#ffff00; text-shadow:0 2px 12px rgba(0,0,0,.35); }
+.gradeD{ color:#00ff7f; }
+.gradeF{ color:#a9a9a9; }
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<a href="./index.html" class="detailBtn">トップへ戻る</a>
+
+<section class="section" id="episodes">
+  <h1 class="bigHead">日プって何話構成？</h1>
+
+  <div class="note">
+    <p class="p" style="margin:0;">
+      ※このページは過去シーズンを参考にした内容のため、<b>日プ新世界の話数・流れは実際と異なる場合があります</b>。<br>
+      また、過去オーディションのネタバレを含む可能性があります。
+    </p>
+  </div>
+
+  <hr class="hr">
+
+  <p class="p">
+    まず、過去の日プがどんなものだったかを、簡単に紹介します。
+  </p>
+
+  <p class="p">
+    <span class="royalBlueEm">PRODUCE 101 JAPAN（通称：無印）</span><br>
+    2019年9月25日から12月11日の期間で行われ、<span class="redEm">全12話</span>配信されました。
+  </p>
+
+  <p class="p">
+    <span class="blueSeries">PRODUCE 101 JAPAN Season2（通称：日プ2）</span><br>
+    2021年4月8日から6月13日の期間で行われ、<span class="redEm">全12話</span>配信されました。
+  </p>
+
+  <p class="p">
+    <span class="pinkSeries">PRODUCE 101 JAPAN THE GIRLS（通称：日プ女子）</span><br>
+    2023年10月5日から12月16日の期間で行われ、<span class="redEm">全12話</span>配信されました。
+  </p>
+
+  <p class="p">
+    その間、どのシリーズもYouTubeで未公開シーンや様々なイベントを収めた投稿が継続的に公開されていました。
+  </p>
+
+  <hr class="hr">
+
+  <p class="p">
+    過去シーズンを参考にすると、今回のPRODUCE 101 JAPAN SHINSEKAIも
+    <span class="redEm">全12話</span>構成になる可能性が高いと考えられます。
+  </p>
+
+  <p class="p">
+    そして、先日<span class="royalBlueEm">101DAY</span>（練習生101お披露イベント）にて、
+    ファイナル放送日が<span class="aquaEm">6月6日</span>に決定した旨が発表されたため、
+    初回放送（配信）日からファイナルまでの期間も「約2〜3か月」スパンで進行する形が想定されます。
+  </p>
+
+  <a href="./ranking-guide.html" class="detailBtn">ランキングの見方へ</a>
+  <a href="./vote-guide.html" class="detailBtn">投票のやり方へ</a>
+
+  <hr class="hr">
+
+  <div class="flowWrap">
+
+    <details class="flowDetails">
+      <summary>日プシリーズの放送内容の流れ：▼1話目</summary>
+      <div class="flowBody">
+
+        <p class="p">
+          練習生の登場（顔合わせ）〜トレーナー陣の登場。があります。
+        </p>
+
+        <p class="p">
+          過去シリーズの方針のままであれば
+          練習生は各2~6人程のチームに分かれていて基本的には1人ずつ登場する訳ではありません。
+          チームで登場した順に好きな順位の座席に
+          座ることができます。
+        </p>
+
+        <p class="p">
+          ただ、その人の性格で分かれるものになる為、101位に座る練習生もいれば他の席には目もくれず1位に堂々と座る練習生もいるのが1つの見所です。
+        </p>
+
+        <p class="p">
+          【ポイント①】<br>
+          そして、もし1位や自分の座りたい席に
+          誰か違う練習生が座っていた場合どうなるか...
+        </p>
+
+        <p class="p">
+          それは、練習生同士で何かしらの対決をして
+          その対決に勝った方が椅子に座るという事になっています。（過去シーズンは、対決内容は挑戦者が決めれるものになっていました。）
+        </p>
+
+        <p class="p">
+          過去シリーズで行われた対決は
+          手押し相撲、腕相撲、じゃんけん、早口言葉対決、変顔バトルなどです。
+        </p>
+
+        <p class="p">
+          【ポイント②】<br>
+          そして、ここでプデュシリーズのジンクスがあります。
+        </p>
+
+        <p class="p">
+          それは...<br>
+          初回の席決めで最終的に一位の席に
+          座った人はデビューできない。というジンクスです。
+        </p>
+
+        <p class="p">
+          日プは元々韓国発のオーディションで
+          I.O.IやWanna Oneなどを輩出した番組で
+          韓国のプデュで出来たジンクスになります。
+        </p>
+
+        <p class="p">
+          その後、席決めが終わればトレーナー陣の登場があり、さっそく
+          <span class="redEm">レベル分けテスト</span>
+          に移ります。（レベル分けテストは2話に分かれます）
+        </p>
+
+      </div>
+    </details>
+
+    <details class="flowDetails">
+      <summary>▼レベル分けテストとは...</summary>
+      <div class="flowBody">
+
+        <p class="p">
+          会場に集まった練習生は
+          それぞれチームに別れています。
+          2~6人などが多く、中には1人で挑む練習生もいます。
+          そのチーム毎に歌、ダンス、ラップなど
+          決められた課題曲を披露し
+          その時点での評価（A.B.C.D.F）５段階評価が決められます。
+        </p>
+
+        <p class="p">
+          中にはアカペラで歌って貰えますか？
+          ダンスを見たいです。などトレーナー陣から
+          即興パフォーマンスを要求される練習生もいます。
+          <br>
+          <span class="grade gradeA">A</span>は#ff69b4の色
+          <span class="grade gradeB">B</span>は#ff8c00の色
+          <span class="grade gradeC">C</span>は#ffff00の色
+          <span class="grade gradeD">D</span> は#00ff7fの色
+          <span class="grade gradeF">F</span>は#a9a9a9の色にしたい。
+          それぞれシャドウをつけて見やすくして。
+        </p>
+
+      </div>
+    </details>
+
+  </div>
+
+</section>
+
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
+
+</main>
+</body>
+</html>
