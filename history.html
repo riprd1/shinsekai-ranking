@@ -91,7 +91,6 @@ body{
 
 /* ===== ヘッダー画像（修正） ===== */
 .hero{
-  position:relative;
   border-radius:22px;
   overflow:hidden;
   border:1px solid var(--line);
@@ -104,19 +103,19 @@ body{
   height:auto;
   display:block;
 }
+/* ===== ヘッダーの外に出す見出し（追加） ===== */
 .heroTitle{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:100%;
-  text-align:center;
+  margin:0 0 18px;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px 16px;
   font-weight:900;
-  font-size:clamp(20px,4vw,36px);
+  font-size:clamp(18px,3.5vw,26px);
   line-height:1.4;
-  color:#ffffff;
-  text-shadow:0 6px 20px rgba(0,0,0,.6);
-  padding:0 16px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  color:#111827;
 }
 
 /* ===== 追加：詳細ページへのボタン（追加） ===== */
@@ -261,10 +260,11 @@ body::after{
 
 <div class="hero">
   <img class="heroImg" src="https://i.imgur.com/fu3TXCa.jpeg" alt="PRODUCE 101 JAPAN 新世界" loading="lazy">
-  <div class="heroTitle">
-    PRODUCE 101 JAPAN 新世界とは<br>
-    歴代シリーズ解説
-  </div>
+</div>
+
+<div class="heroTitle">
+  PRODUCE 101 JAPAN 新世界とは<br>
+  －歴代シリーズ解説－
 </div>
 
 <!-- ===== 追加：トップへ戻る（上部） ===== -->
