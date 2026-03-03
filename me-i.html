@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ME:Iの主な経歴・年表（抜粋）｜日プ新世界まとめ（非公式）</title>
+<meta name="description" content="ME:Iの主な経歴・年表（抜粋）を、ポイントが伝わる形でまとめた非公式ファン向けページ。" />
+
+<style>
+:root{
+  --bg:#ffffff;
+  --card:rgba(255,255,255,.92);
+  --line:#e5e7eb;
+  --txt:#111827;
+  --sub:#4b5563;
+  --accent:#2563eb;
+  --accent2:#7dd3fc;
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:var(--bg);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== カラー設定 ===== */
+.blueSeries{ color:#0ea5e9; font-weight:900; }
+.blueName{ color:#0284c7; font-weight:900; }
+.jamColor{ color:#dc2626; font-weight:900; }
+.miniColor{ color:#2563eb; font-weight:900; }
+.pinkSeries{ color:#ec4899; font-weight:900; }
+.meiColor{ color:#db2777; font-weight:900; }
+.youmeColor{ color:#f472b6; font-weight:900; }
+
+/* ===== 追加：YOU:MEをピンクに（追加） ===== */
+.youmePink{ color:#ec4899; font-weight:900; }
+
+/* ===== 追加：THIS IS ME:I を大きく＆ピンク（追加） ===== */
+.thisIsMeiBig{
+  font-weight:900;
+  font-size:32px;
+  text-align:center;
+  color:#ec4899;
+}
+
+/* ===== 目次 ===== */
+.toc{
+  margin:20px 0;
+  background:rgba(255,255,255,.85);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.tocTitle{
+  font-weight:900;
+  margin-bottom:10px;
+  font-size:14px;
+}
+.toc a{
+  display:block;
+  padding:8px 10px;
+  margin:6px 0;
+  border-radius:10px;
+  text-decoration:none;
+  color:#1f2937;
+  background:#f9fafb;
+  font-size:13px;
+  font-weight:700;
+}
+.toc a:hover{
+  background:#eef2ff;
+}
+
+/* ===== 目次を見やすくする機能（追加） ===== */
+.tocToggle{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(37,99,235,.25);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  font-size:14px;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.tocToggle:active{ transform:translateY(1px); }
+.tocList{ display:none; }
+.tocList.show{ display:block; }
+
+/* ===== ヘッダー画像（追加） ===== */
+.hero{
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  background:rgba(255,255,255,.75);
+  margin:0 0 18px;
+}
+.heroImg{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.heroTitle{
+  padding:14px 16px;
+  font-weight:900;
+  font-size:18px;
+  line-height:1.4;
+  color:#111827;
+  background:rgba(255,255,255,.92);
+  border-top:1px solid var(--line);
+}
+
+/* ===== 追加：詳細ページへのボタン（追加） ===== */
+.detailBtn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.detailBtn:hover{
+  transform:translateY(-2px);
+}
+
+.officialLink{
+  margin-top:6px;
+  font-size:12px;
+}
+.officialLink a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:700;
+}
+.officialLink a:hover{
+  text-decoration:underline;
+}
+
+/* ===== 背景 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(44px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(125,211,252,.38), transparent 45%),
+    radial-gradient(circle at 72% 18%, rgba(196,181,253,.38), transparent 46%),
+    radial-gradient(circle at 42% 78%, rgba(253,186,116,.30), transparent 46%),
+    radial-gradient(circle at 82% 72%, rgba(147,197,253,.30), transparent 48%),
+    radial-gradient(circle at 30% 52%, rgba(167,243,208,.28), transparent 48%),
+    radial-gradient(circle at 60% 55%, rgba(252,165,165,.24), transparent 50%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(60% 110% at 20% 35%, rgba(125,211,252,.22), transparent 62%),
+    radial-gradient(65% 120% at 85% 30%, rgba(196,181,253,.22), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(253,186,116,.18), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -36px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
+}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:44px 18px 90px;
+}
+
+.section{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.h2{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:900;
+}
+
+.p{
+  margin:0 0 12px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+
+.hr{
+  height:1px;
+  background:#e5e7eb;
+  margin:14px 0;
+}
+
+/* ===== 追加：フッター（追加） ===== */
+.footer{
+  margin-top:34px;
+  padding:18px 12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  border-radius:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.footer a{
+  display:inline-block;
+  padding:10px 18px;
+  margin:6px 8px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+
+  color:#ffffff;
+  text-decoration:none;
+
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+
+  transition:.2s ease;
+}
+
+.footer a:hover{
+  transform:translateY(-2px);
+}
+/* ===== 追加ここまで ===== */
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<div class="hero">
+  <img class="heroImg" src="https://i.imgur.com/9my4Znh.jpeg" alt="PRODUCE 101 JAPAN 新世界" loading="lazy">
+  <div class="heroTitle">ME:Iの主な経歴・年表（抜粋）</div>
+</div>
+
+<a href="index.html" class="detailBtn">トップへ戻る</a>
+<a href="history.html" class="detailBtn">歴代シリーズ解説へ戻る</a>
+
+<div class="toc">
+  <div class="tocTitle">目次</div>
+
+  <button type="button" class="tocToggle" onclick="toggleToc()" aria-controls="tocList" aria-expanded="false">
+    <span>目次一覧をひらく</span>
+    <span id="tocChevron">▼</span>
+  </button>
+
+  <div class="tocList" id="tocList">
+    <a href="#about">1. ME:Iについて</a>
+    <a href="#y2024">2. 2024年</a>
+    <a href="#y2025">3. 2025年</a>
+    <a href="#y2026">4. 2026年</a>
+    <a href="#present">9. ME:Iの現在地</a>
+  </div>
+</div>
+
+<section class="section" id="about">
+<h2 class="h2 pinkSeries">1. ME:Iについて</h2>
+
+<p class="p">
+<span class="meiColor">ME:I</span>は、日本最大級のサバイバルオーディション番組『PRODUCE 101 JAPAN』シリーズ第3弾、
+シリーズ初のガールズ版『PRODUCE 101 JAPAN THE GIRLS』の最終デビュー組により結成された11人組グローバルガールズグループです。
+</p>
+
+<p class="p">
+2024年4月17日、デビューシングル『MIRAI』の表題曲「Click」でデビュー。
+以降はライブ・番組・CM・フェス出演など活動の幅を広げながら、確実に存在感を高めてきました。
+</p>
+
+<p class="officialLink">
+公式サイト：
+<a href="https://me-i.jp" target="_blank" rel="noopener">https://me-i.jp</a>
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2024">
+<h2 class="h2 pinkSeries">2. 2024年</h2>
+
+<p class="p">
+1月14日、公式YouTubeチャンネルにて公式ファンネームが <span class="youmePink">YOU:ME（ユーミー）</span> に決定。
+</p>
+
+<p class="p">
+2月26日、公式キャラクター『ME:EYE（ミャイ）』を発表。（とても可愛いマスコットキャラクターの誕生でYOU:ME大歓喜♪）
+</p>
+
+<p class="p">
+3月7日 - 4月11日、グループ初の冠番組『ME:Iの夢みたい！』をLeminoにて独占無料配信。
+</p>
+
+<p class="p">
+3月27日 - 4月14日、初のファンコンサート『2024 ME:I LAUNCHING SHOW ME:ICONIC』を東京・大阪の2都市全9公演で開催。
+計6.5万人を動員。最終公演は国立代々木競技場第一体育館で開催し、大盛況で幕を閉じました。
+</p>
+
+<p class="p">
+4月3日、NTTドコモ「Galaxy S24 Ultra」テレビCMに初出演。デビュー曲「Click」がCMソングに起用。
+</p>
+
+<p class="p">
+4月17日、デビューシングル『MIRAI』を発売。初週20万枚以上を売り上げ。
+</p>
+
+<p class="p">
+4月29日付「オリコン週間シングルランキング」で初登場1位を獲得。
+</p>
+
+<p class="p">
+5月10日、日本レコード協会・ゴールドディスク『プラチナ』に認定。
+</p>
+
+<p class="p">
+7月11日、メンバーごとの公式キャラクター『ME:EYE's（ミャイズ）』誕生＆メンバーカラー発表。
+</p>
+
+<p class="p">
+7月27日、アメリカ・ロサンゼルス『KCON LA 2024 M COUNTDOWN』に出演し、「Hi-Five」韓国語バージョンを初披露。
+スペシャルステージではTWICE「SET ME FREE」をカバー。
+</p>
+
+<p class="p">
+8月24日・25日、ファンコンサート『2024 ME:ICONIC Hi-SUMMER』をAICHI SKY EXPO Hall Aで3公演開催し、計2.5万人を動員。
+</p>
+
+<p class="p">
+8月28日、2ndシングル『Hi-Five』をリリース。
+Billboard JAPAN『JAPAN HOT 100』で自身初の1位を獲得。9月10日、日本レコード協会・ゴールドディスク『プラチナ』に認定。
+</p>
+
+<p class="p">
+9月22日、『ROCK IN JAPAN FESTIVAL 2024 in HITACHINAKA』GRASS STAGEに初出演。ME:Iにとって初の野外フェス出演。
+</p>
+
+<p class="p">
+11月21日、映画『モアナと伝説の海2』日本版エンドソングアーティストにME:I起用が決定。
+同日、『第66回 輝く！日本レコード大賞』新人賞を受賞（最優秀新人賞候補）。
+</p>
+
+<p class="p">
+11月22日、『Mnet Asian Music Awards（MAMA）』初出演。「FAVORITE NEW ASIAN ARTIST」を受賞。
+</p>
+
+<p class="p">
+12月11日・12日、ファンコンサート『2024 ME:ICONIC Sweet Holiday』を幕張メッセで2公演開催、約2.6万人を動員。
+</p>
+
+<p class="p">
+12月31日、『第75回NHK紅白歌合戦』に初出場。トップバッターとして「Click」を披露。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2025">
+<h2 class="h2 pinkSeries">3. 2025年</h2>
+
+<p class="p">
+1月27日 - 2月2日、『LAPOSTA 2025 Supported by docomo』開催。
+1月31日 - 2月2日は東京ドームで合同ライブを開催。
+</p>
+
+<p class="p">
+3月28日、新曲「Ready Go」がテレビアニメ『ポケットモンスター』新章「メガボルテージ」EDテーマに決定。
+</p>
+
+<p class="p">
+4月16日、3rdシングル『MUSE』を発売。
+「MUSE」と「Ready Go」をタイトルとしたグループ初のダブルタイトルシングル。初週約20万枚を売り上げ。
+</p>
+
+<p class="p">
+4月24日 - 30日、韓国の音楽番組5番組に出演。
+（『M COUNTDOWN』『THE SHOW』『Music Bank』『SHOW CHAMPION』『SHOW!音楽中心』）
+</p>
+
+<p class="p">
+5月13日、日本レコード協会・ゴールドディスク『プラチナ』に認定。
+</p>
+
+<p class="p">
+7月17日、NTTドコモ「Galaxy Z Fold 7」テレビCMに出演。新曲「THIS IS ME:I」がCMソングに起用。
+</p>
+
+<p class="p">
+7月26日 - 8月31日、初の全国アリーナツアー『2025 ME:I 1ST ARENA LIVE TOUR "THIS IS ME:I"』を全6都市13公演で開催。
+</p>
+
+<p class="p">
+8月31日、適応障害で長期活動休止していたメンバーのTSUZUMIが活動再開を発表。
+同日のツアーファイナルでは後ろ姿がモニターに映し出され、振り返りのサプライズで会場が大歓喜となりました。
+</p>
+
+<p class="p">
+9月13日、『ROCK IN JAPAN FESTIVAL』に2年連続出演。
+</p>
+
+<p class="p">
+12月13日・14日、ツアー追加公演『2025 ME:I 1ST ARENA LIVE TOUR "THIS IS ME:I" ENCORE IN TOKYO』を有明アリーナで開催。
+2日間で2万人超を動員。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="y2026">
+<h2 class="h2 pinkSeries">4. 2026年</h2>
+
+<p class="p">
+1月9日、デジタルシングル『LとR』をリリース。
+</p>
+
+<p class="p">
+2月15日、「Samsung Galaxy presents TGC in あいち・なごや 2026 by TOKYO GIRLS COLLECTION」に出演。
+「Galaxy with ME:I」タイアップソングとして新曲「Best Match」を世界初披露。
+</p>
+
+<p class="p">
+2月26日、NTTドコモ「Galaxy S26 Ultra」テレビCMに出演。新曲「Best Match」がCMソングに起用。
+</p>
+
+</section>
+
+<hr class="hr">
+
+<section class="section" id="present">
+<h2 class="h2 pinkSeries">9. ME:Iの現在地</h2>
+
+<p class="p">
+日プシリーズ初の女性版オーディションから生まれた11人組のグローバルガールズグループ <span class="meiColor">ME:I</span>。
+JO1、INIと人気のグループが生まれ世間的には期待が高まる一方、当時は事務所に男性グループのみが所属していたこともあり、
+日プガールズを否定する声も多かった。
+</p>
+
+<p class="p">
+その中開催された『PRODUCE 101 JAPAN THE GIRLS』。
+ポジション評価、グループ評価などを重ねる毎にファンを獲得し続け、確実に実力で存在感を示していった。
+</p>
+
+<p class="p">
+ポジション評価で披露された ちゃんみな「美人」というステージでは、現ME:Iの村上璃杏、清水恵子らがオリジナルラップを披露し、
+SNSなどでもとても話題となった。2026年3月時点での再生数は675万再生という凄まじい記録を叩き出している。
+</p>
+
+<p class="p">
+その他にも、唯一無二の歌声でファンを魅了する高見文寧や、ダンスといえばこの人――石井蘭。
+様々な個性が集まったME:Iだからこそ、ステージごとに新しい表情を見せてくれる。
+</p>
+
+<p class="p">
+活動を重ねる中で、バラエティやSNSでの発信も増え、着々とファンを獲得し知名度を上げていった。
+紅白出場、レコード大賞新人賞の受賞など、結果としても実力が証明されていく一年になった。
+</p>
+
+<p class="p">
+ただ、活動休止メンバーが多く出たり、体調不良、理由不明な休止などがあった事から、
+<span class="youmePink">YOU:ME</span>は不安な日々を過ごす事が多かった。
+</p>
+
+<p class="p">
+2025年にも様々な問題が起きてしまい、グループから数名の脱退者が出た。
+悲しみの中で「これからの未来が明るくない」と感じてしまう人も多かったと思う。
+</p>
+
+<p class="p">
+それでも、ME:I本人らはいつでも明るい笑顔と、ME:Iならではのパフォーマンス、バラエティ力を、
+YouTubeやステージで届け続けていた。どんな時でも、前に進む姿を見せてくれた。
+</p>
+
+<p class="p">
+外部の仕事も沢山あり、これからの未来が期待できるME:I。
+大変なことが多く理不尽な事も多い世の中だが、周りには支えてくれる<span class="youmePink">YOU:ME</span>が居る。
+</p>
+
+<p class="p">
+これからも、ME:Iらしく突き進んで行って欲しい。
+</p>
+
+<p class="p thisIsMeiBig">
+THIS IS ME:I
+</p>
+
+<p class="p" style="text-align:center;">
+これからもME:Iらしく。
+</p>
+
+</section>
+
+<!-- ===== 追加：各ページリンク（追加） ===== -->
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
+<!-- ===== 追加ここまで ===== -->
+
+</main>
+
+<script>
+function toggleToc(){
+  const list = document.getElementById("tocList");
+  const btn = document.querySelector(".tocToggle");
+  const chevron = document.getElementById("tocChevron");
+  const isOpen = list.classList.toggle("show");
+  btn.setAttribute("aria-expanded", String(isOpen));
+  chevron.textContent = isOpen ? "▲" : "▼";
+}
+</script>
+
+</body>
+</html>
