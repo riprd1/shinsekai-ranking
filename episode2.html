@@ -1,1 +1,427 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>初心者向け｜日プ 2話目（予想）｜日プ新世界まとめ（非公式）</title>
+<meta name="description" content="PRODUCE 101 JAPAN 新世界を初めて見る人向けに、2話目の流れ（予想）と過去シリーズの初回クラス分け結果（JO1/INI）を分かりやすく解説（非公式）" />
 
+<style>
+:root{
+  --bg:#ffffff;
+  --card:rgba(255,255,255,.92);
+  --line:#e5e7eb;
+  --txt:#111827;
+  --sub:#4b5563;
+  --accent:#2563eb;
+  --accent2:#7dd3fc;
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:var(--bg);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== カラー設定（既存と同じ系統） ===== */
+.blueSeries{ color:#0ea5e9; font-weight:900; }
+.pinkSeries{ color:#ec4899; font-weight:900; }
+
+/* 追加：強調色 */
+.redEm{ color:#dc2626; font-weight:900; }
+.aquaEm{ color:#38bdf8; font-weight:900; }
+.royalBlueEm{ color:#2563eb; font-weight:900; }
+
+/* 追加：シリーズ見出し色指定 */
+.s1Blue{ color:#2563eb; font-weight:900; }      /* PRODUCE 101 JAPAN（無印） */
+.s2Aqua{ color:#38bdf8; font-weight:900; }      /* Season2（日プ2） */
+.s3Pink{ color:#ec4899; font-weight:900; }      /* THE GIRLS（日プ女子） */
+.shinMidnight{ color:#191970; font-weight:900; }/* 新世界 */
+
+/* ===== 背景 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(44px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(125,211,252,.38), transparent 45%),
+    radial-gradient(circle at 72% 18%, rgba(196,181,253,.38), transparent 46%),
+    radial-gradient(circle at 42% 78%, rgba(253,186,116,.30), transparent 46%),
+    radial-gradient(circle at 82% 72%, rgba(147,197,253,.30), transparent 48%),
+    radial-gradient(circle at 30% 52%, rgba(167,243,208,.28), transparent 48%),
+    radial-gradient(circle at 60% 55%, rgba(252,165,165,.24), transparent 50%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(60% 110% at 20% 35%, rgba(125,211,252,.22), transparent 62%),
+    radial-gradient(65% 120% at 85% 30%, rgba(196,181,253,.22), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(253,186,116,.18), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -36px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
+}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:44px 18px 90px;
+}
+
+.section{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.p{
+  margin:0 0 12px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+
+.hr{
+  height:1px;
+  background:#e5e7eb;
+  margin:14px 0;
+}
+
+/* 見出し（影ありで少し大きく） */
+.bigHead{
+  margin:0 0 12px;
+  font-size:clamp(18px, 4.8vw, 26px);
+  font-weight:900;
+  line-height:1.35;
+  letter-spacing:.02em;
+  text-shadow:0 6px 18px rgba(0,0,0,.18);
+}
+
+/* サブ見出し */
+.midHead{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:900;
+}
+
+/* 注意書きカード */
+.note{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(37,99,235,.18);
+  border-radius:18px;
+  padding:14px 14px;
+  box-shadow:0 10px 26px rgba(37,99,235,.10);
+}
+
+/* ボタン（既存系） */
+.detailBtn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.detailBtn:hover{ transform:translateY(-2px); }
+
+/* フッター */
+.footer{
+  margin-top:34px;
+  padding:18px 12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  border-radius:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.footer a{
+  display:inline-block;
+  padding:10px 18px;
+  margin:6px 8px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  color:#ffffff;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.footer a:hover{ transform:translateY(-2px); }
+
+/* ===== 折りたたみ（details/summary） ===== */
+.flowWrap{ margin-top:14px; }
+
+.flowDetails{
+  margin:14px 0;
+  border:1px solid rgba(37,99,235,.18);
+  border-radius:18px;
+  background:rgba(255,255,255,.80);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.flowDetails > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 14px;
+  font-weight:900;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.flowDetails > summary::-webkit-details-marker{ display:none; }
+
+.flowDetails > summary::after{
+  content:"▼";
+  font-weight:900;
+  opacity:.8;
+  transition:.18s ease;
+}
+
+.flowDetails[open] > summary::after{
+  transform:rotate(180deg);
+}
+
+.flowBody{
+  padding:0 14px 14px;
+}
+
+.flowBody .p{ margin-top:10px; }
+
+/* ===== ランク表示（強め黒シャドウ） ===== */
+.grade{
+  font-weight:900;
+  padding:0 .25em;
+  font-size:1.05em;
+  letter-spacing:.05em;
+  text-shadow:
+    0 0 4px rgba(0,0,0,.95),
+    0 2px 10px rgba(0,0,0,.92),
+    0 0 16px rgba(0,0,0,.75);
+}
+.gradeA{ color:#FF69B4; }
+.gradeB{ color:#FF8C00; }
+.gradeC{
+  color:#FFFF00;
+  text-shadow:
+    0 0 5px rgba(0,0,0,.98),
+    0 2px 12px rgba(0,0,0,.95),
+    0 0 18px rgba(0,0,0,.85);
+}
+.gradeD{ color:#00ff7f; }
+.gradeF{ color:#a9a9a9; }
+
+/* ===== リスト見やすく ===== */
+.list{
+  margin:0;
+  padding-left:18px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+.blockLine{ margin:10px 0 0; }
+
+/* ===== ふりがな（ruby）少し小さめ ===== */
+ruby{ font-weight:900; }
+rt{
+  font-size:.62em;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:rgba(17,24,39,.75);
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<a href="./beginner.html" class="detailBtn">初心者ページへ戻る</a>
+<a href="./index.html" class="detailBtn">トップへ戻る</a>
+
+<section class="section" id="ep2">
+  <h1 class="bigHead">▼2話目（予想）</h1>
+
+  <div class="flowWrap">
+    <details class="flowDetails">
+      <summary>折りたたみをひらく（2話目の内容）</summary>
+      <div class="flowBody">
+
+        <p class="p"><b>・レベル分けテスト（後半）、シグナルソングの練習。</b></p>
+
+        <div class="note">
+          <p class="p" style="margin:0;">
+            ⚠️レベル分けテストは本編の放送で<br>
+            全ての練習生が放送される訳ではありません。<br>
+            （YouTubeにて全て公開されます。）
+          </p>
+        </div>
+
+        <p class="p">
+          レベル分けテスト時は、各チーム毎に決められた課題曲を<br>
+          トレーナー陣、他の練習生を前に披露します。<br>
+          その場で審議されクラスが発表されるので<br>
+          見ている側もとても緊張する場面だと思います。
+        </p>
+
+        <p class="p">
+          その後、シグナルソングが発表され<br>
+          クラスごとに数日間練習を重ねます。<br>
+          ここで、ダンスをしたことがない人や、覚えが遅い人は<br>
+          とても苦労しますし、人一倍努力が必要な為精神的にも辛い場面になってしまいます。
+        </p>
+
+        <hr class="hr">
+
+        <p class="p" style="font-weight:900; margin-bottom:6px;">過去シリーズのシグナルソング</p>
+
+        <p class="p">
+          <span class="s1Blue">PRODUCE 101 JAPAN（無印）</span><br>
+          シグナルソング: ツカメ～It's Coming～
+        </p>
+
+        <p class="p">
+          <span class="s2Aqua">PRODUCE 101 JAPAN season2（日プ2）</span><br>
+          シグナルソング: Let Me Fly～その未来へ～
+        </p>
+
+        <p class="p">
+          <span class="s3Pink">PRODUCE 101 JAPAN THE GIRLS（日プ女子）</span><br>
+          シグナルソング: LEAP HIGH! 〜明日へ、めいっぱい〜
+        </p>
+
+        <p class="p">
+          <span class="shinMidnight">★PRODUCE 101 JAPAN 新世界（日プ新世界）</span><br>
+          シグナルソング: 新世界（SHINSEKAI）
+        </p>
+
+        <p class="p" style="margin-top:-2px;">
+          ★:今回のシグナルソング。
+        </p>
+
+        <p class="p">
+          【ポイント③】辛い場面でも食らいつく練習生や他のクラスの上手な人を捕まえて教えてもらおうと努力する練習生などこの時点で練習生同士のストーリーが生まれていたり、教え方の内容でぶつかったりするなんて事も見れて、見応えがあります！
+        </p>
+
+        <p class="p" style="font-weight:900;">
+          3話目に続きます。
+        </p>
+
+      </div>
+    </details>
+  </div>
+
+  <hr class="hr">
+
+  <h2 class="midHead">過去シリーズでの<br>初回クラス分け結果（<span class="s1Blue">(JO1)</span>、<span class="s2Aqua">(INI)</span>）</h2>
+
+  <p class="p">
+    過去のシリーズでデビューしたメンバーが<br>
+    初めのクラス分け評価でどのクラスにいたかをまとめます。
+  </p>
+
+  <hr class="hr">
+
+  <p class="p" style="font-weight:900;">
+    <span class="s1Blue">(PRODUCE 101 JAPAN（無印）)</span>では… <span class="s1Blue">(JO1)</span>のメンバー
+  </p>
+
+  <ul class="list">
+    <li><ruby>木全翔也<rt>きまたしょうや</rt></ruby>（<span class="grade gradeA">Aクラス</span>）</li>
+    <li><ruby>豆原一成<rt>まめはらいっせい</rt></ruby>（<span class="grade gradeA">Aクラス</span>）</li>
+    <li><ruby>川尻蓮<rt>かわしりれん</rt></ruby>（<span class="grade gradeA">Aクラス</span>）</li>
+    <li><ruby>佐藤景瑚<rt>さとうけいご</rt></ruby>（<span class="grade gradeA">Aクラス</span>）</li>
+
+    <li><ruby>河野純喜<rt>こうのじゅんき</rt></ruby>（<span class="grade gradeB">Bクラス</span>）</li>
+    <li><ruby>川西拓実<rt>かわにしたくみ</rt></ruby>（<span class="grade gradeB">Bクラス</span>）</li>
+    <li><ruby>金城碧海<rt>きんじょうすかい</rt></ruby>（<span class="grade gradeB">Bクラス</span>）</li>
+    <li><ruby>與那城奨<rt>よなしろしょう</rt></ruby>（<span class="grade gradeB">Bクラス</span>）</li>
+
+    <li><ruby>白岩瑠姫<rt>しろいわるき</rt></ruby>（<span class="grade gradeC">Cクラス</span>）</li>
+    <li><ruby>鶴房汐恩<rt>つるぼうしおん</rt></ruby>（<span class="grade gradeC">Cクラス</span>）</li>
+    <li><ruby>大平祥生<rt>おおひらしょうせい</rt></ruby>（<span class="grade gradeC">Cクラス</span>）</li>
+  </ul>
+
+  <p class="p blockLine">
+    このような評価となっておりました。<br>
+    この中で歌もダンスも初心者だったメンバーは川西拓実、與那城奨、河野純喜、金城碧海の4名です。
+  </p>
+
+  <hr class="hr">
+
+  <p class="p" style="font-weight:900;">
+    <span class="s2Aqua">(PRODUCE 101 JAPAN season2(日プ2))</span>では… <span class="s2Aqua">(INI)</span>のメンバー
+  </p>
+
+  <ul class="list">
+    <li><ruby>田島将吾<rt>たじましょうご</rt></ruby>（<span class="grade gradeA">Aクラス</span>）</li>
+    <li><ruby>西洸人<rt>にしひろと</rt></ruby>（<span class="grade gradeA">Aクラス</span>）</li>
+    <li><ruby>尾崎匠海<rt>おざきたくみ</rt></ruby>（<span class="grade gradeA">Aクラス</span>）</li>
+
+    <li><ruby>木村柾哉<rt>きむらまさや</rt></ruby>（<span class="grade gradeB">Bクラス</span>）</li>
+    <li><ruby>髙塚大夢<rt>たかつかひろむ</rt></ruby>（<span class="grade gradeB">Bクラス</span>）</li>
+    <li><ruby>藤牧京介<rt>ふじまききょうすけ</rt></ruby>（<span class="grade gradeB">Bクラス</span>）</li>
+
+    <li><ruby>池崎理人<rt>いけざきりひと</rt></ruby>（<span class="grade gradeC">Cクラス</span>）</li>
+    <li><ruby>後藤威尊<rt>ごとうたける</rt></ruby>（<span class="grade gradeC">Cクラス</span>）</li>
+    <li><ruby>許豊凡<rt>シュウフェンファン</rt></ruby>（<span class="grade gradeC">Cクラス</span>）</li>
+    <li><ruby>松田迅<rt>まつだじん</rt></ruby>（<span class="grade gradeC">Cクラス</span>）</li>
+
+    <li><ruby>佐野雄大<rt>さのゆうだい</rt></ruby>（<span class="grade gradeD">Dクラス</span>）</li>
+  </ul>
+
+  <hr class="hr">
+
+  <p class="p">
+    <span class="s1Blue">(JO1)</span>、<span class="s2Aqua">(INI)</span>のどのメンバーも<span class="grade gradeF">Fクラス</span>は1人もおらず良いクラス評価を貰えていますね。<br>
+    ただ、ここから再評価が行われる為、<br>
+    AクラスだったメンバーがBクラスへ<br>
+    Cクラスだった練習生がAクラスへ<br>
+    など変動があるのが残酷ですが1つの見所です。<br>
+    シグナルソングの練習期間は数日のみですが<br>
+    その数日でFクラスだったあの子？！となるくらいに成長を見せる練習生もいますし、Bクラスが過大評価だったね、とクラスが下がってしまう子もいて心が痛い瞬間もありますがそれもひとつのストーリーで見所のあるものになるはずです。
+  </p>
+
+  <a href="./beginner.html" class="detailBtn">1話目へ戻る</a>
+
+</section>
+
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
+
+</main>
+</body>
+</html>
