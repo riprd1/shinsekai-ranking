@@ -209,6 +209,21 @@ body::after{
   line-height:2.0;
 }
 
+/* ===== 追加：Go To The TOP JO1 を発光させる ===== */
+.goTopGlow{
+  font-weight:900;
+  font-size:clamp(28px, 8vw, 64px);
+  text-align:center;
+  color:#2563eb;
+  letter-spacing:.04em;
+  white-space:nowrap;
+
+  text-shadow:
+    0 4px 18px rgba(37,99,235,.45),
+    0 0 26px rgba(37,99,235,.35),
+    0 0 42px rgba(125,211,252,.35);
+}
+
 .hr{
   height:1px;
   background:#e5e7eb;
@@ -546,7 +561,7 @@ JO1は、オーディション番組「PRODUCE 101 JAPAN」から誕生した11�
 挑戦をやめないでほしい。
 </p>
 
-<p class="p" style="font-weight:900; font-size:32px; text-align:center; color:#1d4ed8;">
+<p class="p goTopGlow">
 Go To The TOP JO1！
 </p>
 <p class="p" style="text-align:center;">
