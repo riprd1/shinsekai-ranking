@@ -209,7 +209,7 @@ body::after{
   font-size:15px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;  /* ★修正：行ズレ防止 */
   gap:10px;
 }
 .flowDetails > summary::-webkit-details-marker{ display:none; }
@@ -218,10 +218,16 @@ body::after{
   font-weight:900;
   opacity:.8;
   transition:.18s ease;
+  margin-left:auto;           /* ★修正：矢印は右端に固定 */
 }
 .flowDetails[open] > summary::after{ transform:rotate(180deg); }
 .flowBody{ padding:0 14px 14px; }
 .flowBody .p{ margin-top:10px; }
+
+/* ★追加：summary内の2行見出しを安定させる */
+.sumWrap{ display:block; }
+.sumTitle{ display:block; }
+.sumImportant{ display:block; color:#dc2626; font-weight:900; }
 
 .list{
   margin:0;
@@ -278,7 +284,7 @@ body::after{
   <hr class="hr">
 
   <p class="p">
-    日プ新世界（PRODUCE 101 JAPAN 新世界）は、<span class="em">Lemino</span>で視聴できます。
+    結論：日プ新世界（PRODUCE 101 JAPAN 新世界）は、<span class="em">Lemino</span>で視聴できます。
   </p>
 
   <div class="btnRow">
@@ -294,7 +300,12 @@ body::after{
   <hr class="hr">
 
   <details class="flowDetails" open>
-    <summary>▼無料で見る？広告は？<br><span style="color:#dc2626;font-weight:900;">（ここが一番大事）</span></summary>
+    <summary>
+      <span class="sumWrap">
+        <span class="sumTitle">▼無料で見る？広告は？</span>
+        <span class="sumImportant">（ここが一番大事）</span>
+      </span>
+    </summary>
     <div class="flowBody">
 
       <p class="p">
