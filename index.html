@@ -7,6 +7,11 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DSEG7+Classic&display=swap');
+@font-face{
+  font-family:"DigitalClock";
+  src:url("./POCKC___.TTF") format("truetype");
+  font-display:swap;
+}
 :root{
   --bg1:#061325;
   --bg2:#0b2040;
@@ -266,7 +271,7 @@ ul{
 /* ===== 追加：投票ボタン中央＋カウントダウン ===== */
 .voteCenter{
   text-align:center;
-  margin-top:20px;
+  margin-top:10px;
 }
 .voteCenter .btn{
   font-size:16px;
@@ -302,7 +307,7 @@ ul{
   100%{transform:translateY(0) scale(1); filter:drop-shadow(0 0 0 rgba(125,211,255,0)); opacity:1}
 }
 .countNum{
-  font-family:"DSEG7 Classic","Courier New",monospace;
+  font-family:"DigitalClock","DSEG7 Classic","Courier New",monospace;
   font-size:clamp(28px, 7.2vw, 52px);
   line-height:1;
   letter-spacing:.06em;
