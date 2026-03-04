@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>日プ新世界はどこで見れる？Lemino配信・見逃し視聴・投票方法まとめ</title>
+<meta name="description" content="日プ新世界（PRODUCE 101 JAPAN 新世界）はどこで見れる？Leminoでの視聴方法、無料期間、広告の違い、投票方法まで初心者向けにまとめました。" />
+
+<style>
+:root{
+  --bg1:#fff7ed;       /* うすオレンジ */
+  --bg2:#ffedd5;       /* もう少し濃い */
+  --card:rgba(255,255,255,.85);
+  --line:rgba(251,146,60,.25); /* orange-400 */
+  --txt:#1f2937;
+  --sub:#374151;
+
+  --accent:#fb923c;    /* orange */
+  --accent2:#f97316;   /* deep orange */
+  --accent3:#fdba74;   /* soft orange */
+  --shadow:0 18px 44px rgba(249,115,22,.18);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== ふわっとオレンジ背景 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(46px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(251,146,60,.32), transparent 46%),
+    radial-gradient(circle at 80% 18%, rgba(253,186,116,.30), transparent 48%),
+    radial-gradient(circle at 50% 80%, rgba(249,115,22,.22), transparent 52%),
+    radial-gradient(circle at 85% 70%, rgba(251,191,36,.18), transparent 54%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(70% 120% at 18% 30%, rgba(253,186,116,.18), transparent 62%),
+    radial-gradient(70% 120% at 85% 35%, rgba(249,115,22,.14), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(251,146,60,.14), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -34px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-12px) scale(1.02); }
+}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:44px 18px 92px;
+}
+
+.section{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.p{
+  margin:0 0 12px;
+  color:var(--sub);
+  font-size:14px;
+  line-height:2.0;
+}
+
+.hr{
+  height:1px;
+  background:rgba(251,146,60,.22);
+  margin:14px 0;
+}
+
+/* 見出し */
+.bigHead{
+  margin:0 0 12px;
+  font-size:clamp(18px, 4.8vw, 26px);
+  font-weight:900;
+  line-height:1.35;
+  letter-spacing:.02em;
+  text-shadow:0 10px 22px rgba(249,115,22,.20);
+}
+
+.midHead{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:900;
+}
+
+/* 強調 */
+.em{
+  font-weight:900;
+  color:#9a3412; /* deep orange/brown */
+}
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12px;
+  color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 10px 22px rgba(249,115,22,.22);
+}
+
+/* 注意カード */
+.note{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(249,115,22,.22);
+  border-radius:18px;
+  padding:14px;
+  box-shadow:0 10px 26px rgba(249,115,22,.12);
+}
+.small{
+  font-size:12.5px;
+  color:rgba(55,65,81,.92);
+  line-height:1.9;
+}
+
+/* ボタン */
+.btnRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  margin-top:10px;
+}
+.detailBtn{
+  display:inline-block;
+  padding:11px 18px;
+  border-radius:14px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 14px 30px rgba(249,115,22,.22);
+  transition:.2s ease;
+}
+.detailBtn:hover{ transform:translateY(-2px); }
+
+.ghostBtn{
+  display:inline-block;
+  padding:11px 18px;
+  border-radius:14px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+  color:#9a3412;
+  background:rgba(255,255,255,.65);
+  border:1px solid rgba(249,115,22,.22);
+  box-shadow:0 10px 24px rgba(249,115,22,.10);
+  transition:.2s ease;
+}
+.ghostBtn:hover{ transform:translateY(-2px); }
+
+.rightNote{
+  flex:1;
+  min-width:220px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(249,115,22,.18);
+  background:rgba(255,255,255,.55);
+  color:rgba(31,41,55,.92);
+  font-weight:800;
+  font-size:12.5px;
+  line-height:1.6;
+}
+
+/* 折りたたみ */
+.flowDetails{
+  margin:14px 0;
+  border:1px solid rgba(249,115,22,.20);
+  border-radius:18px;
+  background:rgba(255,255,255,.78);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.flowDetails > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px;
+  font-weight:900;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.flowDetails > summary::-webkit-details-marker{ display:none; }
+.flowDetails > summary::after{
+  content:"▼";
+  font-weight:900;
+  opacity:.8;
+  transition:.18s ease;
+}
+.flowDetails[open] > summary::after{ transform:rotate(180deg); }
+.flowBody{ padding:0 14px 14px; }
+.flowBody .p{ margin-top:10px; }
+
+.list{
+  margin:0;
+  padding-left:18px;
+  color:var(--sub);
+  font-size:14px;
+  line-height:2.0;
+}
+
+/* フッター */
+.footer{
+  margin-top:34px;
+  padding:18px 12px;
+  border:1px solid rgba(249,115,22,.18);
+  background:rgba(255,255,255,.78);
+  border-radius:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.footer a{
+  display:inline-block;
+  padding:10px 18px;
+  margin:6px 8px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  color:#ffffff;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(249,115,22,.18);
+  transition:.2s ease;
+}
+.footer a:hover{ transform:translateY(-2px); }
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<a href="./index.html" class="ghostBtn">トップへ戻る</a>
+
+<section class="section" id="where">
+  <h1 class="bigHead">日プ新世界はどこで見れる？<br>Lemino配信・見逃し視聴・投票方法まとめ</h1>
+
+  <div class="note">
+    <p class="p" style="margin:0;">
+      <span class="badge">※非公式</span><br>
+      当サイトは非公式のファンサイトです。番組公式とは関係ありません。<br>
+      情報は変更される可能性があるため、最終的には各公式ページもご確認ください。
+    </p>
+  </div>
+
+  <hr class="hr">
+
+  <p class="p">
+    結論：日プ新世界（PRODUCE 101 JAPAN 新世界）は、<span class="em">Lemino</span>で視聴できます。
+  </p>
+
+  <div class="btnRow">
+    <!-- ▼ここをA8のリンクタグに差し替え -->
+    <a href="https://example.com" class="detailBtn" target="_blank" rel="noopener">▶ Leminoで見る（初月無料）</a>
+    <!-- ▲ここをA8のリンクタグに差し替え -->
+    <div class="rightNote">
+      ※当サイトは非公式のファンサイトです。<br>
+      番組公式とは関係ありません。
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <details class="flowDetails" open>
+    <summary>▼無料で見る？広告は？（ここが一番大事）</summary>
+    <div class="flowBody">
+
+      <p class="p">
+        体感として、<span class="em">リアルタイムで見れれば広告が出ない</span>けど、<span class="em">リアルタイム以外で見ると広告が沢山出てきてなかなか見進めれない</span>ことがあります。
+      </p>
+
+      <p class="p">
+        いい所で広告が入ることもあるので、<span class="em">無料期間でストレスフリーにする</span>のはかなりアリです。
+      </p>
+
+      <hr class="hr">
+
+      <p class="p">
+        <span class="badge">コスパ計算</span>
+      </p>
+
+      <p class="p">
+        初回入会の方は初月無料です。<br>
+        もし2ヶ月利用した場合でも、2ヶ月で1,540円なので1ヶ月あたり約770円。<br>
+        1日あたりにすると約51円で利用できる計算になります。
+      </p>
+
+      <div class="note">
+        <p class="p small" style="margin:0;">
+          ※月額：1,540円（税込）を30日換算した目安です。月の日数により変動します。<br>
+          ※一部個別課金コンテンツがある場合があります。
+        </p>
+      </div>
+
+      <div class="btnRow">
+        <!-- ▼ここをA8のリンクタグに差し替え -->
+        <a href="https://example.com" class="detailBtn" target="_blank" rel="noopener">▶ 初月無料でLeminoを試す</a>
+        <!-- ▲ここをA8のリンクタグに差し替え -->
+        <a href="#vote" class="ghostBtn">投票のやり方へ</a>
+      </div>
+
+    </div>
+  </details>
+
+</section>
+
+<section class="section" id="howto">
+  <h2 class="midHead">Leminoで視聴する流れ（ざっくり）</h2>
+
+  <ul class="list">
+    <li>Leminoのページへ移動</li>
+    <li>初回なら「初月無料」で登録</li>
+    <li>日プ新世界を検索して再生</li>
+  </ul>
+
+  <div class="note" style="margin-top:12px;">
+    <p class="p small" style="margin:0;">
+      視聴可能デバイス：スマホ、タブレット、PC、テレビ<br>
+      ※対応機種・対象OSはLemino側の案内をご確認ください。
+    </p>
+  </div>
+
+  <div class="btnRow">
+    <!-- ▼ここをA8のリンクタグに差し替え -->
+    <a href="https://example.com" class="detailBtn" target="_blank" rel="noopener">▶ Lemino公式ページへ</a>
+    <!-- ▲ここをA8のリンクタグに差し替え -->
+    <a href="./beginner.html" class="ghostBtn">日プの進み方（1話目）</a>
+  </div>
+</section>
+
+<section class="section" id="vote">
+  <h2 class="midHead">投票方法まとめ（初心者向け）</h2>
+
+  <p class="p">
+    投票は番組公式の案内に従うのが最も確実です。ここでは初心者向けに、迷いがちなポイントだけ整理します。
+  </p>
+
+  <details class="flowDetails">
+    <summary>▼投票の基本</summary>
+    <div class="flowBody">
+      <ul class="list">
+        <li>投票方法・投票期間は回によって変わることがあります</li>
+        <li>公式の投票ページ（または公式アプリ等）で案内されます</li>
+        <li>締切直前は混みやすいので早めが安心です</li>
+      </ul>
+      <div class="btnRow">
+        <a href="./vote-guide.html" class="detailBtn">▶ 投票のやり方（当サイトまとめ）</a>
+        <a href="./ranking-guide.html" class="ghostBtn">ランキングの見方</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="flowDetails">
+    <summary>▼よくある疑問</summary>
+    <div class="flowBody">
+      <p class="p">
+        「どこから投票するの？」「いつまで？」は毎回変わりやすいので、公式案内が出たらそこに合わせて更新していくのが安心です。
+      </p>
+    </div>
+  </details>
+</section>
+
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
+
+</main>
+</body>
+</html>
