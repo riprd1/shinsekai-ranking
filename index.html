@@ -6,6 +6,7 @@
 <title>日プ新世界まとめ｜練習生情報・順位・投票リンク</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DSEG7+Classic&display=swap');
 :root{
   --bg1:#061325;
   --bg2:#0b2040;
@@ -281,24 +282,34 @@ ul{
   margin-top:10px;
   display:flex;
   justify-content:center;
-  gap:18px;
+  align-items:flex-end;
+  gap:14px;
   font-weight:700;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
+  max-width:100%;
 }
 .countBox{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:12px;
-  padding:10px 14px;
-  min-width:70px;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  padding:0;
+  min-width:auto;
+  text-align:center;
 }
 .countNum{
-  font-size:20px;
+  font-family:"DSEG7 Classic","Courier New",monospace;
+  font-size:clamp(22px, 6.2vw, 44px);
+  line-height:1;
+  letter-spacing:.06em;
+  font-variant-numeric:tabular-nums;
+  color:rgba(255,255,255,.96);
+  text-shadow:0 0 10px rgba(125,211,255,.18);
 }
 .countLabel{
   font-size:10px;
   opacity:.7;
-  letter-spacing:.08em;
+  letter-spacing:.14em;
+  margin-top:6px;
 }
 </style>
 </head>
