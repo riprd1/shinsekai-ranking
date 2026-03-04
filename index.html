@@ -111,6 +111,20 @@ body::after{
   box-shadow:0 8px 22px rgba(0,0,0,.35);
 }
 
+/* ★追加：投票ボタン右側に注意書き */
+.heroActions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.heroNote{
+  font-size:12px;
+  line-height:1.6;
+  font-weight:600;
+  color:rgba(255,255,255,.92);
+}
+
 .grid{
   margin-top:20px;
   display:grid;
@@ -267,9 +281,15 @@ ul{
     投票ページへのリンクを掲載します。
   </p>
 
-  <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
-    ▶ 今すぐ投票する
-  </a>
+  <div class="heroActions">
+    <a class="btn" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
+      ▶ 今すぐ投票する
+    </a>
+    <div class="heroNote">
+      ※当サイトは非公式のファンサイトです。<br>
+      番組公式とは関係ありません。
+    </div>
+  </div>
 </section>
 
 <section class="grid">
