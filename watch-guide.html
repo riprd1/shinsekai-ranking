@@ -8,17 +8,17 @@
 
 <style>
 :root{
-  --bg1:#fff7ed;       /* うすオレンジ */
-  --bg2:#ffedd5;       /* もう少し濃い */
+  --bg1:#fff1f6;       /* Lemino寄せ：うすピンク */
+  --bg2:#fff7ed;       /* Lemino寄せ：うすオレンジ */
   --card:rgba(255,255,255,.85);
-  --line:rgba(251,146,60,.25); /* orange-400 */
+  --line:rgba(255,62,165,.20); /* Lemino寄せ：ピンク系ライン */
   --txt:#1f2937;
   --sub:#374151;
 
-  --accent:#fb923c;    /* orange */
-  --accent2:#f97316;   /* deep orange */
-  --accent3:#fdba74;   /* soft orange */
-  --shadow:0 18px 44px rgba(249,115,22,.18);
+  --accent:#ff3ea5;    /* Lemino寄せ：ピンク */
+  --accent2:#ff7a3d;   /* Lemino寄せ：オレンジ */
+  --accent3:#ffd166;   /* Lemino寄せ：やわらか黄 */
+  --shadow:0 18px 44px rgba(255,62,165,.16);
 }
 
 *{box-sizing:border-box}
@@ -45,17 +45,17 @@ body::after{
 }
 body::before{
   background:
-    radial-gradient(circle at 15% 20%, rgba(251,146,60,.32), transparent 46%),
-    radial-gradient(circle at 80% 18%, rgba(253,186,116,.30), transparent 48%),
-    radial-gradient(circle at 50% 80%, rgba(249,115,22,.22), transparent 52%),
-    radial-gradient(circle at 85% 70%, rgba(251,191,36,.18), transparent 54%);
+    radial-gradient(circle at 18% 18%, rgba(255,62,165,.30), transparent 46%),
+    radial-gradient(circle at 82% 22%, rgba(255,122,61,.26), transparent 48%),
+    radial-gradient(circle at 50% 80%, rgba(255,209,102,.18), transparent 54%),
+    radial-gradient(circle at 86% 76%, rgba(255,62,165,.14), transparent 56%);
   animation:bubbles 18s ease-in-out infinite alternate;
 }
 body::after{
   background:
-    radial-gradient(70% 120% at 18% 30%, rgba(253,186,116,.18), transparent 62%),
-    radial-gradient(70% 120% at 85% 35%, rgba(249,115,22,.14), transparent 62%),
-    radial-gradient(70% 120% at 55% 85%, rgba(251,146,60,.14), transparent 62%);
+    radial-gradient(70% 120% at 18% 30%, rgba(255,122,61,.16), transparent 62%),
+    radial-gradient(70% 120% at 85% 35%, rgba(255,62,165,.14), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(255,209,102,.12), transparent 62%);
   animation:waves 22s ease-in-out infinite alternate;
 }
 @keyframes bubbles{
@@ -92,7 +92,7 @@ body::after{
 
 .hr{
   height:1px;
-  background:rgba(251,146,60,.22);
+  background:rgba(255,62,165,.20);
   margin:14px 0;
 }
 
@@ -103,7 +103,7 @@ body::after{
   font-weight:900;
   line-height:1.35;
   letter-spacing:.02em;
-  text-shadow:0 10px 22px rgba(249,115,22,.20);
+  text-shadow:0 10px 22px rgba(255,62,165,.18);
 }
 
 .midHead{
@@ -125,16 +125,16 @@ body::after{
   font-size:12px;
   color:#fff;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 10px 22px rgba(249,115,22,.22);
+  box-shadow:0 10px 22px rgba(255,62,165,.18);
 }
 
 /* 注意カード */
 .note{
   background:rgba(255,255,255,.75);
-  border:1px solid rgba(249,115,22,.22);
+  border:1px solid rgba(255,62,165,.18);
   border-radius:18px;
   padding:14px;
-  box-shadow:0 10px 26px rgba(249,115,22,.12);
+  box-shadow:0 10px 26px rgba(255,62,165,.10);
 }
 .small{
   font-size:12.5px;
@@ -159,7 +159,7 @@ body::after{
   text-decoration:none;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   color:#fff;
-  box-shadow:0 14px 30px rgba(249,115,22,.22);
+  box-shadow:0 14px 30px rgba(255,62,165,.18);
   transition:.2s ease;
 }
 .detailBtn:hover{ transform:translateY(-2px); }
@@ -173,8 +173,8 @@ body::after{
   text-decoration:none;
   color:#9a3412;
   background:rgba(255,255,255,.65);
-  border:1px solid rgba(249,115,22,.22);
-  box-shadow:0 10px 24px rgba(249,115,22,.10);
+  border:1px solid rgba(255,62,165,.18);
+  box-shadow:0 10px 24px rgba(255,62,165,.08);
   transition:.2s ease;
 }
 .ghostBtn:hover{ transform:translateY(-2px); }
@@ -184,7 +184,7 @@ body::after{
   min-width:220px;
   padding:10px 12px;
   border-radius:14px;
-  border:1px solid rgba(249,115,22,.18);
+  border:1px solid rgba(255,62,165,.16);
   background:rgba(255,255,255,.55);
   color:rgba(31,41,55,.92);
   font-weight:800;
@@ -195,7 +195,7 @@ body::after{
 /* 折りたたみ */
 .flowDetails{
   margin:14px 0;
-  border:1px solid rgba(249,115,22,.20);
+  border:1px solid rgba(255,62,165,.16);
   border-radius:18px;
   background:rgba(255,255,255,.78);
   box-shadow:var(--shadow);
@@ -235,7 +235,7 @@ body::after{
 .footer{
   margin-top:34px;
   padding:18px 12px;
-  border:1px solid rgba(249,115,22,.18);
+  border:1px solid rgba(255,62,165,.16);
   background:rgba(255,255,255,.78);
   border-radius:18px;
   text-align:center;
@@ -251,7 +251,7 @@ body::after{
   color:#ffffff;
   text-decoration:none;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 12px 26px rgba(249,115,22,.18);
+  box-shadow:0 12px 26px rgba(255,62,165,.16);
   transition:.2s ease;
 }
 .footer a:hover{ transform:translateY(-2px); }
@@ -268,9 +268,10 @@ body::after{
 
   <div class="note">
     <p class="p" style="margin:0;">
-      <span class="badge">※非公式</span><br>
-      当サイトは非公式のファンサイトです。番組公式とは関係ありません。<br>
-      情報は変更される可能性があるため、最終的には各公式ページもご確認ください。
+      当サイトは非公式のファンサイトです。<br>
+      番組公式とは関係ありません。<br>
+      情報は変更される可能性があるため、<br>
+      最終的には各公式ページもご確認ください。
     </p>
   </div>
 
@@ -293,27 +294,38 @@ body::after{
   <hr class="hr">
 
   <details class="flowDetails" open>
-    <summary>▼無料で見る？広告は？（ここが一番大事）</summary>
+    <summary>▼無料で見る？広告は？<span style="color:#dc2626;font-weight:900;">（ここが一番大事）</span></summary>
     <div class="flowBody">
 
       <p class="p">
-        体感として、<span class="em">リアルタイムで見れれば広告が出ない</span>けど、<span class="em">リアルタイム以外で見ると広告が沢山出てきてなかなか見進めれない</span>ことがあります。
-      </p>
-
-      <p class="p">
-        いい所で広告が入ることもあるので、<span class="em">無料期間でストレスフリーにする</span>のはかなりアリです。
+        リアルタイムで配信を視聴出来れば<br>
+        広告が出ませんが、リアルタイム以外で<br>
+        視聴しようとすると広告が沢山出てきて<br>
+        中々見進めれないことがあります。<br>
+        盛り上がる良い所で広告が入ることも<br>
+        あるので、無料期間でストレスフリーに<br>
+        するのはアリです！
       </p>
 
       <hr class="hr">
 
       <p class="p">
-        <span class="badge">コスパ計算</span>
+        <span class="badge">こんなにお得！</span>
       </p>
 
       <p class="p">
         初回入会の方は初月無料です。<br>
-        もし2ヶ月利用した場合でも、2ヶ月で1,540円なので1ヶ月あたり約770円。<br>
-        1日あたりにすると約51円で利用できる計算になります。
+        もし追加で1ヶ月利用した場合...<br><br>
+        
+        2ヶ月で1,540円（初月無料）<br>
+        1ヶ月あたり約770円。<br>
+        1日あたりにすると<br><br>
+        
+        <span style="color:#dc2626;font-size:22px;font-weight:900;">
+        なんと！約51円！
+        </span><br><br>
+        
+        で利用できる計算になります。
       </p>
 
       <div class="note">
@@ -346,8 +358,10 @@ body::after{
 
   <div class="note" style="margin-top:12px;">
     <p class="p small" style="margin:0;">
-      視聴可能デバイス：スマホ、タブレット、PC、テレビ<br>
-      ※対応機種・対象OSはLemino側の案内をご確認ください。
+      視聴可能デバイス：<br>
+      スマホ、タブレット、PC、テレビ<br><br>
+      ※対応機種・対象OSは<br>
+      Lemino側の案内をご確認ください。
     </p>
   </div>
 
@@ -363,7 +377,8 @@ body::after{
   <h2 class="midHead">投票方法まとめ（初心者向け）</h2>
 
   <p class="p">
-    投票は番組公式の案内に従うのが最も確実です。ここでは初心者向けに、迷いがちなポイントだけ整理します。
+    ここでは、迷いがちなポイントや<br>
+    投票制度の変更等についてまとめています。
   </p>
 
   <details class="flowDetails">
@@ -381,14 +396,6 @@ body::after{
     </div>
   </details>
 
-  <details class="flowDetails">
-    <summary>▼よくある疑問</summary>
-    <div class="flowBody">
-      <p class="p">
-        「どこから投票するの？」「いつまで？」は毎回変わりやすいので、公式案内が出たらそこに合わせて更新していくのが安心です。
-      </p>
-    </div>
-  </details>
 </section>
 
 <div class="footer">
