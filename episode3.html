@@ -1,0 +1,323 @@
+<!-- ▼3話目（beginner.html に貼り付け用：折りたたみ式＋色指定込み／省略なし） -->
+<style>
+/* ▼3話目：このブロック内だけで完結（既存CSSを壊さない前提） */
+.ep3 details{
+  margin:10px 0 14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  border-radius:12px;
+  padding:10px 12px;
+}
+.ep3 summary{
+  cursor:pointer;
+  font-weight:800;
+  list-style:none;
+  outline:none;
+}
+.ep3 summary::-webkit-details-marker{display:none}
+.ep3 summary::before{
+  content:"▶";
+  display:inline-block;
+  margin-right:8px;
+  transform:translateY(-1px);
+  opacity:.9;
+}
+.ep3 details[open] > summary::before{content:"▼"}
+.ep3 .pad{margin-top:10px; line-height:1.95}
+.ep3 ul{margin:8px 0 0; padding-left:18px; line-height:1.95}
+.ep3 li{margin:4px 0}
+.ep3 .lead{margin:0; line-height:1.95}
+
+/* クラス色（ユーザー指定の色コードが未記載のため“仮”で見やすい色を設定） */
+.ep3{
+  --classA:#ffd700; /* Aクラス（仮） */
+  --classB:#87cefa; /* Bクラス（仮） */
+  --classC:#98fb98; /* Cクラス（仮） */
+  --classD:#ffb347; /* Dクラス（仮） */
+  --classF:#ff4d4d; /* Fクラス（仮） */
+}
+
+/* 用語の色指定（要望どおり） */
+.ep3 .t-retest{color:red;font-weight:900}                 /* （レベル分け再評価）は赤色 */
+.ep3 .t-battle{color:purple;font-weight:900}              /* （グループバトル評価）は紫色 */
+.ep3 .t-signal{color:#87cefa;font-weight:900}             /* （シグナルソング）は水色 */
+.ep3 .t-kokupro{color:#7dd3ff;font-weight:900}            /* （国民プロデューサー）は青水色っぽい */
+.ep3 .t-drop{color:#4b0000;font-weight:900;text-shadow:0 0 4px #000} /* （脱落）は赤黒い */
+.ep3 .t-royalA{color:gold;font-weight:900;text-shadow:0 0 6px rgba(0,0,0,.75)} /* （ロイヤルA）は金＋シャドウ */
+
+/* ベネフィット：要望が「緑」「オレンジ」の両方あったので、文字色オレンジ＋緑の発光で“両立” */
+.ep3 .t-benefit{color:orange;font-weight:900;text-shadow:0 0 6px rgba(0,255,0,.50)}
+
+/* クラス表記の見やすさ（指定色で） */
+.ep3 .cA{color:var(--classA);font-weight:900;text-shadow:0 0 6px rgba(0,0,0,.55)}
+.ep3 .cB{color:var(--classB);font-weight:900;text-shadow:0 0 6px rgba(0,0,0,.45)}
+.ep3 .cC{color:var(--classC);font-weight:900;text-shadow:0 0 6px rgba(0,0,0,.45)}
+.ep3 .cD{color:var(--classD);font-weight:900;text-shadow:0 0 6px rgba(0,0,0,.45)}
+.ep3 .cF{color:var(--classF);font-weight:900;text-shadow:0 0 6px rgba(0,0,0,.55)}
+</style>
+
+<div class="ep3">
+  <details>
+    <summary>▼3話目</summary>
+
+    <div class="pad">
+      <p class="lead">
+        折りたたみを広げたら<br>
+        詳細が出るようにしたい。<br><br>
+        <span class="t-retest">レベル分け再評価</span>、<span class="t-battle">グループバトル評価</span>（前半）
+      </p>
+
+      <p class="pad">
+        <span class="t-retest">レベル分け再評価</span>は練習生一人、一人が<br>
+        カメラの前で1人ずつ踊る動画を撮影します。
+      </p>
+
+      <p class="pad">
+        その後、撮影をした映像をトレーナー陣が確認し<br>
+        初回のレベル分けテストから成長したか<br>
+        逆に期待より低くなってしまったか<br>
+        その練習生に将来性や華があるかなどを<br>
+        トレーナー陣が評価していました。
+      </p>
+
+      <p class="pad">
+        【ポイント④】<br>
+        初回<span class="cA">Aクラス</span>で再評価も<span class="cA">Aクラス</span>の場合<br>
+        ファンの間では<span class="t-royalA">ロイヤルA</span>と呼ばれます。
+      </p>
+
+      <p class="pad">
+        シグナルソングのセンター選定について...
+      </p>
+
+      <p class="pad">
+        シグナルソングの選定方法は<br>
+        <span class="cA">Aクラス</span>からセンター決めがあり<br>
+        101名の練習生が良かったと思う<br>
+        練習生に投票してセンターが決まった前例もあります。
+      </p>
+
+      <ul>
+        <li>・日プ無印ではセンターを<span style="color:#0000ff;font-weight:900;">川尻蓮</span>が担当。（Aから選出）</li>
+        <li>・日プ2ではセンターを<span style="color:#ffff00;font-weight:900;text-shadow:0 0 6px rgba(0,0,0,.85);">木村柾哉</span>が担当。（Aから選出）</li>
+        <li>・日プ女子ではセンターを<span style="color:#cab8d9;font-weight:900;">櫻井美羽</span>が担当。（Aから選出）</li>
+      </ul>
+
+      <p class="pad">
+        また、日プ女子ではセンターに加えソロパート選抜も<br>
+        行われた為ソロパートに選ばれた3名の練習生がいます。
+      </p>
+
+      <ul>
+        <li>山本すず（やまもと すず） （現:ME:I）</li>
+        <li>海老原鼓（えびはら つづみ）(現:ME:I)</li>
+        <li>坂口梨乃（さかぐち りの）（現:IS:SUE）</li>
+      </ul>
+
+      <p class="pad">
+        その後、再評価された<span class="cA">Aクラス</span>、<span class="cB">Bクラス</span>、<span class="cC">Cクラス</span>、<span class="cD">Dクラス</span>、<span class="cF">Fクラス</span>のチームで<br>
+        立ち位置などが決められ<span class="t-signal">シグナルソング</span>撮影に挑みます。
+      </p>
+
+      <details>
+        <summary>▼クラス毎の立ち位置・出演時間について</summary>
+        <div class="pad">
+          <p>
+            <span class="cA">Aクラス</span>は、曲の始まり最後まで踊る事ができ<br>
+            映像にも良く抜かれ、綺麗に映ることができ<br>
+            立ち位置もとても良く目立ちます。
+          </p>
+
+          <p>
+            <span class="cB">Bクラス</span>は、BメロぐらいからAレベルの右側、<br>
+            もしくは左側に配置され、1サビを踊ることができます。
+          </p>
+
+          <p>
+            <span class="cC">Cクラス</span>は、曲の2番が始まりBメロぐらいから<br>
+            Bクラスの反対側へ配置され2サビを踊る事が出来ます。
+          </p>
+
+          <p>
+            <span class="cD">Dクラス</span>は曲にもよりますがダンスブレイクなどが<br>
+            B、Cよりも低い位置の周りの台に配置されカメラで<br>
+            抜かれることも少なくなってしまう立ち位置です。
+          </p>
+
+          <p>
+            <span class="cF">Fクラス</span>はラスサビから登場し最後まで踊ります。<br>
+            ただ、映ることがほとんどなく、台にすら上がれない為<br>
+            Dクラスより下の床で踊ることになります。
+          </p>
+
+          <p>
+            このように<span class="cA">Aクラス</span>になれば高待遇ですが<br>
+            レベルが下がるにつれ映る回数、秒数が減り<br>
+            <span class="t-kokupro">国民プロデューサー</span>に見て貰えず初期に<br>
+            <span class="t-drop">脱落</span>していく可能性が高くなってしまいます。
+          </p>
+
+          <p>
+            （ここまでが▼クラス毎の立ち位置・出演時間について）
+          </p>
+        </div>
+      </details>
+
+      <p class="pad">
+        <span class="t-signal">シグナルソング</span>撮影が終われば<br>
+        次は<span class="t-battle">グループバトル評価</span>になります。
+      </p>
+
+      <details>
+        <summary>▼グループバトル評価とは</summary>
+        <div class="pad">
+          <p>
+            8-10曲の課題曲を2組ずつに別れ同じ曲を披露し<br>
+            その課題曲でのチームの勝ち負けやグループ内の1位<br>
+            そしてNo.1のグループを決める評価です。<br>
+            （辞退者などがいた場合人数に変動あり）
+          </p>
+
+          <details>
+            <summary style="color:#0000ff;font-weight:900;">▼日プ無印のグループバトル評価の曲</summary>
+            <div class="pad">
+              <ul>
+                <li>DNA -防弾少年団</li>
+                <li>OVER THE TOP -Hey! Say! JUMP</li>
+                <li>Wherever you are -ONE OK ROCK</li>
+                <li>HAPPY BIRTHDAY -back number</li>
+                <li>HIGHLIGHT -SEVENTEEN</li>
+                <li>WILD WILD WILD -EXILE THE SECOND</li>
+                <li>Lemon -米津玄師</li>
+                <li>タマシイレボリューション -Superfly</li>
+                <li>101オリジナル</li>
+                <li>計9曲</li>
+              </ul>
+              <p class="pad">（ここまでが▼日プ無印のグループバトル評価の曲 ）</p>
+            </div>
+          </details>
+
+          <details>
+            <summary style="color:#87cefa;font-weight:900;">▼日プ2のグループバトル評価の曲</summary>
+            <div class="pad">
+              <ul>
+                <li>無限大 -JO1</li>
+                <li>I NEED U -BTS</li>
+                <li>&LOVE -King & Prince</li>
+                <li>AGEHA -GENERATIONS from EXILE TRIBE</li>
+                <li>Your Number -SHINee</li>
+                <li>計5曲</li>
+              </ul>
+              <p class="pad">（ここまでが▼日プ2のグループバトル評価の曲 ）</p>
+            </div>
+          </details>
+
+          <details>
+            <summary style="color:#ffc0cb;font-weight:900;">▼日プ女子のグループバトル評価の曲</summary>
+            <div class="pad">
+              <ul>
+                <li>How You Like That Japanese Ver. -BLACKPINK</li>
+                <li>LOVE DIVE Japanese Ver. -IVE</li>
+                <li>制服のマネキン -乃木坂46</li>
+                <li>Body＆Soul -SPEED</li>
+                <li>Hype Boy -NewJeans</li>
+                <li>FIESTA Japanese Ver. -IZ*ONE</li>
+                <li>CHEER UP Japanese Ver. -TWICE</li>
+                <li>TOKYO GIRL -Perfume</li>
+                <li>計8曲</li>
+              </ul>
+              <p class="pad">（ここまでが▼日プ女子のグループバトル評価の曲 ）</p>
+            </div>
+          </details>
+
+          <p class="pad">
+            そして、チームの分け方ですが<br>
+            シグナルソングのセンター（安部結蘭）が<br>
+            同じチームになりたい練習生を選び放題できます。<br>
+            その後はくじ引きで選ばれた練習生が好きな練習生を選びます。
+          </p>
+
+          <p class="pad">
+            【ポイント⑤】<br>
+            今回のシグナルソングセンターは安部結蘭くんで<br>
+            安部結蘭くんが選んだチームは【アベンジャーズ】と<br>
+            呼ばれ、過去シリーズでもグループ1位を取ったり<br>
+            高成績を収めることから他のチームから絶対に<br>
+            相手になりたくないと思われるチームです。<br>
+            安部結蘭くんの選ぶ練習生、アベンジャーズと当たる<br>
+            チームがどのようなパフォーマンスを行うのか見所です🔥
+          </p>
+
+          <p class="pad">
+            グループバトル評価では<br>
+            全体のNo.1グループを決めるのは勿論ですが<br>
+            各グループ内の1位を決める事も重要になります。
+          </p>
+
+          <p class="pad">
+            順位の決め方は<span class="t-kokupro">国民プロデューサー</span>による<br>
+            現場での投票で決まります。<br>
+            （その都度、観覧募集などがあり当選者のみ観覧可能）<br>
+            ※日プ新世界の第1回観覧募集は既に終了しています。
+          </p>
+
+          <p class="pad">
+            【ポイント⑥】<br>
+            何故、各チームの1位が重要かというと...<br>
+            過去シリーズでは各チームの1位に2万票が<br>
+            ボーナスポイントとして付与されます。<br>
+            簡単に言えば2万人から票が入ったようなものです。<br>
+            これを<span class="t-benefit">ベネフィット</span>と呼んでいます。<br>
+            1位になれれば総合1位も狙える為とても重要です。
+          </p>
+
+          <p class="pad">
+            （シリーズによってベネフィット内容は異なります）
+          </p>
+
+          <p class="pad">
+            （ベネフィット）は緑色で見やすくして。
+          </p>
+
+          <p class="pad">
+            また、ベネフィットはこの1つだけではなく<br>
+            ・総合評価で全グループ1位になった練習生には5万票<br>
+            ・1位のチームには全員に10万票<br><br>
+            などシリーズによって様々です。<br>
+            今回は新世界ということもありベネフィットが<br>
+            特殊になる可能性もあるため、本編が待ち遠しいですね。
+          </p>
+
+          <p class="pad">
+            課題曲の選択方法は、センターから選択...<br>
+            という訳ではなく、過去シリーズだと障害物リレーや<br>
+            通常のリレーで早い者勝ちなどがありましたので<br>
+            今回どのようになるか楽しみです。
+          </p>
+
+          <p class="pad">
+            （ベネフィット）はオレンジ色で見やすくお願い。
+          </p>
+
+          <p class="pad">
+            （ここまでが▼グループバトル評価とは の内容）
+          </p>
+        </div>
+      </details>
+
+      <p class="pad">
+        （国民プロデューサー）は青水色っぽい色で見やすくして。<br>
+        （脱落）を赤黒い色で見やすくして。<br>
+        (Aクラス、Bクラス、Cクラス、Dクラス、Fクラス)は<br>
+        指定した色で見やすくお願い。<br><br>
+
+        （レベル分け再評価）は赤色で見やすくして。<br><br>
+
+        （グループバトル評価）は紫色にして見やすくして。<br><br>
+
+        （ここまでが▼3話目の内容）
+      </p>
+
+    </div>
+  </details>
+</div>
