@@ -222,6 +222,23 @@ body::after{
 .gradeC{ color:#ffff00; text-shadow:0 0 4px rgba(0,0,0,.9), 0 2px 8px rgba(0,0,0,.85), 0 0 14px rgba(0,0,0,.75); }
 .gradeD{ color:#00ff7f; }
 .gradeF{ color:#a9a9a9; }
+
+/* ===== 動画表示 ===== */
+.videoWrap{
+  margin:16px 0 18px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(37,99,235,.18);
+  background:#000;
+}
+
+.videoWrap iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 9;
+  border:0;
+}
 </style>
 </head>
 
@@ -305,6 +322,16 @@ body::after{
           座ることができます。
         </p>
 
+        <div class="videoWrap">
+          <iframe
+            src="https://www.youtube.com/embed/9zhM9JJa8NQ"
+            title="PRODUCE 101 JAPAN 新世界"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
         <p class="p">
           ただ、その人の性格で分かれるものになる為、101位に座る練習生もいれば他の席には目もくれず1位に堂々と座る練習生もいるのが1つの見所です。
         </p>
@@ -372,6 +399,16 @@ body::after{
               ダンスを見たいです。などトレーナー陣から
               即興パフォーマンスを要求される練習生もいます。
             </p>
+
+            <div class="videoWrap">
+              <iframe
+                src="https://www.youtube.com/embed/M0EOI3hipnk"
+                title="PRODUCE 101 JAPAN 新世界"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
 
             <p class="p" style="margin-top:18px; font-weight:900;">
               なぜFから這い上がる展開が人気なのか。
