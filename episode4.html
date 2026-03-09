@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>初心者向け｜日プ 4話目（予想）｜日プ新世界まとめ（非公式）</title>
+<meta name="description" content="PRODUCE 101 JAPAN 新世界を初めて見る人向けに、4話目の流れ（予想）「グループバトル評価（後半）」「グループバトル結果発表」を分かりやすく解説（非公式）" />
+
+<style>
+:root{
+  --bg:#ffffff;
+  --card:rgba(255,255,255,.92);
+  --line:#e5e7eb;
+  --txt:#111827;
+  --sub:#4b5563;
+  --accent:#2563eb;
+  --accent2:#7dd3fc;
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--txt);
+  background:var(--bg);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== カラー設定（既存と同じ系統） ===== */
+.blueSeries{ color:#0ea5e9; font-weight:900; }
+.pinkSeries{ color:#ec4899; font-weight:900; }
+
+/* 追加：強調色 */
+.redEm{ color:#dc2626; font-weight:900; }
+.aquaEm{ color:#38bdf8; font-weight:900; }
+.royalBlueEm{ color:#2563eb; font-weight:900; }
+
+/* 追加：シリーズ見出し色指定 */
+.s1Blue{ color:#2563eb; font-weight:900; }      /* PRODUCE 101 JAPAN（無印） */
+.s2Aqua{ color:#38bdf8; font-weight:900; }      /* Season2（日プ2） */
+.s3Pink{ color:#ec4899; font-weight:900; }      /* THE GIRLS（日プ女子） */
+.shinMidnight{ color:#191970; font-weight:900; }/* 新世界 */
+
+/* ===== 背景 ===== */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:-25%;
+  pointer-events:none;
+  z-index:-2;
+  filter: blur(44px);
+  opacity:.95;
+}
+body::before{
+  background:
+    radial-gradient(circle at 18% 25%, rgba(125,211,252,.38), transparent 45%),
+    radial-gradient(circle at 72% 18%, rgba(196,181,253,.38), transparent 46%),
+    radial-gradient(circle at 42% 78%, rgba(253,186,116,.30), transparent 46%),
+    radial-gradient(circle at 82% 72%, rgba(147,197,253,.30), transparent 48%),
+    radial-gradient(circle at 30% 52%, rgba(167,243,208,.28), transparent 48%),
+    radial-gradient(circle at 60% 55%, rgba(252,165,165,.24), transparent 50%);
+  animation:bubbles 18s ease-in-out infinite alternate;
+}
+body::after{
+  background:
+    radial-gradient(60% 110% at 20% 35%, rgba(125,211,252,.22), transparent 62%),
+    radial-gradient(65% 120% at 85% 30%, rgba(196,181,253,.22), transparent 62%),
+    radial-gradient(70% 120% at 55% 85%, rgba(253,186,116,.18), transparent 62%);
+  animation:waves 22s ease-in-out infinite alternate;
+}
+@keyframes bubbles{
+  0%{ transform: translate(0px, 0px) scale(1); }
+  100%{ transform: translate(-18px, -36px) scale(1.03); }
+}
+@keyframes waves{
+  0%{ transform: translateX(0px) translateY(0px) scale(1); }
+  100%{ transform: translateX(40px) translateY(-14px) scale(1.02); }
+}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:44px 18px 90px;
+}
+
+.section{
+  margin-top:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.p{
+  margin:0 0 12px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+
+.hr{
+  height:1px;
+  background:#e5e7eb;
+  margin:14px 0;
+}
+
+/* 見出し */
+.bigHead{
+  margin:0 0 12px;
+  font-size:clamp(18px, 4.8vw, 26px);
+  font-weight:900;
+  line-height:1.35;
+  letter-spacing:.02em;
+}
+
+/* サブ見出し */
+.midHead{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:900;
+}
+
+/* 注意書きカード */
+.note{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(37,99,235,.18);
+  border-radius:18px;
+  padding:14px 14px;
+  box-shadow:0 10px 26px rgba(37,99,235,.10);
+}
+
+/* ボタン（既存系） */
+.detailBtn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.detailBtn:hover{ transform:translateY(-2px); }
+
+/* フッター */
+.footer{
+  margin-top:34px;
+  padding:18px 12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  border-radius:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.footer a{
+  display:inline-block;
+  padding:10px 18px;
+  margin:6px 8px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  color:#ffffff;
+  text-decoration:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 26px rgba(37,99,235,.18);
+  transition:.2s ease;
+}
+.footer a:hover{ transform:translateY(-2px); }
+
+/* ===== 折りたたみ（details/summary） ===== */
+.flowWrap{ margin-top:14px; }
+
+.flowDetails{
+  margin:14px 0;
+  border:1px solid rgba(37,99,235,.18);
+  border-radius:18px;
+  background:rgba(255,255,255,.80);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.flowDetails > summary{
+  list-style:none;
+  cursor:pointer;
+  padding:14px 14px;
+  font-weight:900;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.flowDetails > summary::-webkit-details-marker{ display:none; }
+
+.flowDetails > summary::after{
+  content:"▼";
+  font-weight:900;
+  opacity:.8;
+  transition:.18s ease;
+}
+
+.flowDetails[open] > summary::after{
+  transform:rotate(180deg);
+}
+
+.flowBody{
+  padding:0 14px 14px;
+}
+
+.flowBody .p{ margin-top:10px; }
+
+/* ===== ランク表示 ===== */
+.grade{
+  font-weight:900;
+  padding:0 .25em;
+  font-size:1.05em;
+  letter-spacing:.05em;
+}
+.gradeA{ color:#FF69B4; }
+.gradeB{ color:#FF8C00; }
+.gradeC{ color:#FFFF00; }
+.gradeD{ color:#00ff7f; }
+.gradeF{ color:#a9a9a9; }
+
+/* ===== リスト見やすく ===== */
+.list{
+  margin:0;
+  padding-left:18px;
+  color:#374151;
+  font-size:14px;
+  line-height:2.0;
+}
+.blockLine{ margin:10px 0 0; }
+
+/* ===== ふりがな（ruby）少し小さめ ===== */
+ruby{ font-weight:900; }
+rt{
+  font-size:.62em;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:rgba(17,24,39,.75);
+}
+
+/* ===== 4話目用の強調 ===== */
+.groupBattle{ color:#7c3aed; font-weight:900; }
+.benefit{ color:#16a34a; font-weight:900; }
+.redNum{ color:#dc2626; font-weight:900; }
+
+.s1BenefitHead{ color:#0000ff; font-weight:900; }
+.s2BenefitHead{ color:#87cefa; font-weight:900; }
+.s3BenefitHead{ color:#ffc0cb; font-weight:900; }
+
+/* ===== 動画表示 ===== */
+.videoWrap{
+  margin:16px 0 18px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(37,99,235,.18);
+  background:#000;
+}
+
+.videoWrap iframe{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 9;
+  border:0;
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+<a href="./episode3.html" class="detailBtn">前のページへ戻る</a>
+<a href="./index.html" class="detailBtn">トップへ戻る</a>
+
+<section class="section" id="ep4">
+  <h1 class="bigHead">▼4話目</h1>
+
+  <div class="flowWrap">
+    <details class="flowDetails" open>
+      <summary>▼4話目</summary>
+      <div class="flowBody">
+
+        <p class="p"><b>・<span class="groupBattle">グループバトル評価</span>（後半）、グループバトル結果発表</b></p>
+
+        <p class="p">
+          3話目から始まった<span class="groupBattle">グループバトル評価</span>は
+          4話目で後半戦へと進みます。
+        </p>
+
+        <p class="p">
+          各チームのパフォーマンスが披露され
+          残りのグループのステージが公開されます。
+        </p>
+
+        <div class="videoWrap">
+          <iframe
+            src="https://www.youtube.com/embed/5dr-gLYYYLE"
+            title="PRODUCE 101 JAPAN 新世界"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <p class="p">
+          <span class="groupBattle">グループバトル評価</span>では
+          同じ楽曲を担当する2つのチームが対決し
+          どちらのチームのパフォーマンスが
+          より良かったかが評価されて会場投票によって
+          個人の票数でチームの順位。
+          その合計票数でチームの勝ち負けが決まります。
+        </p>
+
+        <p class="p">
+          そこで、｢この練習生が1位でしょ｣と
+          思われていた人がチーム順位で6人中4位なんて事も
+          過去シリーズでは起こりました。
+        </p>
+
+        <p class="p">
+          グループ内1位に選ばれた練習生は
+          今後の順位に影響する<span class="benefit">ベネフィット</span>を獲得したり
+          全ての対決が終わるとグループバトル全体で
+          最も評価されたチーム「No.1チーム」が発表され
+          そのチームにも<span class="benefit">ベネフィット</span>が入ります。
+        </p>
+
+        <div class="videoWrap">
+          <iframe
+            src="https://www.youtube.com/embed/CO8P_vwaGLA"
+            title="PRODUCE 101 JAPAN 新世界"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <p class="p">
+          この評価によって
+          ｢この練習生ってこんなに歌が上手なんだ｣
+          ｢ダンス上手いの知らなかった｣と練習生の人気や
+          注目度が大きく変わることもあり
+          初回Fクラスだった練習生でも急に
+          デビュー圏内順位に上がって来ることもあり
+          この後の番組の流れに大きな影響を与える回になります。
+        </p>
+
+        <p class="p">
+          <span class="groupBattle">グループバトル評価</span>は
+          練習生の実力や成長が最も分かりやすい
+          重要なミッションの1つです。
+        </p>
+
+        <details class="flowDetails">
+          <summary>▼過去の日プシリーズのベネフィット</summary>
+          <div class="flowBody">
+
+            <p class="p s1BenefitHead">■ PRODUCE 101 JAPAN（JO1）</p>
+
+            <p class="p">
+              他のシーズンと比べグループバトル評価では
+              大きな<span class="benefit">ベネフィット</span>が用意されていました。
+            </p>
+
+            <p class="p">
+              ・勝利チーム<br>
+              100,000票 / 人
+            </p>
+
+            <p class="p">
+              ・各曲の最多得票者<br>
+              20,000票
+            </p>
+
+            <p class="p">
+              ・全体最多得票者<br>
+              50,000票
+            </p>
+
+            <p class="p">
+              つまり条件をすべて満たすと
+            </p>
+
+            <p class="p"><b>最大170,000票</b></p>
+
+            <p class="p">
+              の<span class="benefit">ベネフィット</span>を獲得できました。
+            </p>
+
+            <p class="p">
+              実際に川西拓実（JO1）は
+            </p>
+
+            <p class="p">
+              ・勝利チーム<br>
+              ・グループ内1位<br>
+              ・全体最多得票
+            </p>
+
+            <p class="p">
+              のすべてを獲得し
+            </p>
+
+            <p class="p"><b>170,000票のベネフィット</b></p>
+
+            <p class="p">
+              を獲得しました。
+            </p>
+
+            <p class="p">
+              この<span class="benefit">ベネフィット</span>により
+              順位が大きく変動したことで有名です。
+            </p>
+
+            <hr class="hr">
+
+            <p class="p s2BenefitHead">■ PRODUCE 101 JAPAN SEASON2（INI）</p>
+
+            <p class="p">
+              日プ2では<span class="benefit">ベネフィット</span>ルールが
+              大幅に変更されました。
+            </p>
+
+            <p class="p">
+              グループバトル評価の<span class="benefit">ベネフィット</span>は
+            </p>
+
+            <p class="p">
+              勝利チーム<br>
+              <span class="redNum">3,000票</span> / 人
+            </p>
+
+            <p class="p">
+              となりました。
+            </p>
+
+            <p class="p">
+              日プ1の10万票と比べて
+              かなり小さい<span class="benefit">ベネフィット</span>になっています。
+            </p>
+
+            <p class="p">
+              グループバトル評価では
+            </p>
+
+            <p class="p">
+              木村柾哉<br>
+              髙塚大夢<br>
+              田島将吾
+            </p>
+
+            <p class="p">
+              などの練習生が
+              勝利チームとして<span class="benefit">ベネフィット</span>を獲得しています。
+            </p>
+
+            <p class="p">
+              <span class="benefit">ベネフィット</span>が
+              <span class="redNum">3,000票</span>
+              になったことで
+            </p>
+
+            <p class="p">
+              順位が大きく逆転するケースは少ないですが
+            </p>
+
+            <p class="p">
+              センターを務めた木村柾哉は
+              <span class="benefit">ベネフィット</span>を貰えたにも関わらず
+              個人票数が少なく14位という結果で
+              ファンも驚きが隠せませんでした。
+            </p>
+
+            <hr class="hr">
+
+            <p class="p s3BenefitHead">■ PRODUCE 101 JAPAN THE GIRLS（ME:I）</p>
+
+            <p class="p">
+              女子版でも
+              日プ2と同じ仕組みが採用されています。
+            </p>
+
+            <p class="p">
+              グループバトル評価の<span class="benefit">ベネフィット</span>は
+            </p>
+
+            <p class="p">
+              勝利チーム<br>
+              <span class="redNum">3,000票</span> / 人
+            </p>
+
+            <p class="p">
+              です。
+            </p>
+
+            <p class="p">
+              グループバトルでは
+            </p>
+
+            <p class="p">
+              笠原桃奈<br>
+              櫻井美羽<br>
+              石井蘭
+            </p>
+
+            <p class="p">
+              などが勝利チームとして
+              <span class="benefit">ベネフィット</span>を獲得しました。
+            </p>
+
+            <p class="p">
+              日プ2と同様に
+              <span class="benefit">ベネフィット</span>は
+              <span class="redNum">3,000票</span>
+              ですが、
+              センターを務めた櫻井美羽はベネフィット貰えず31位
+              デビュー圏内から急落でリアルタイムで見ていた
+              ファンもザワついていました。
+            </p>
+
+          </div>
+        </details>
+
+      </div>
+    </details>
+  </div>
+
+  <a href="./episode3.html" class="detailBtn">3話目へ戻る</a>
+  <a href="./beginner.html" class="detailBtn">1話目へ戻る</a>
+
+</section>
+
+<div class="footer">
+  <a href="./about.html">About</a>
+  <a href="./privacy.html">Privacy</a>
+  <a href="./contact.html">Contact</a>
+</div>
+
+</main>
+</body>
+</html>
