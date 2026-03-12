@@ -252,18 +252,19 @@ h1{
 
 <div class="topbar">
   <a class="pill" href="./index.html">← トップへ</a>
-  <a class="btnMain" href="https://riprd1.github.io/fanvote-produce101japan/" target="_blank" rel="noopener">
-    投票へ移動🗳
-  </a>
 </div>
 
 <h1>上位11人ランキング</h1>
 <div class="sub">
-  最新の投票データをもとに表示しています。<br>
-  30秒ごとに自動更新されます。
+最新の投票データをもとに表示しています。<br>
+30秒ごとに自動更新されます。<br>
+※投票ページはトップページからアクセスできます。
 </div>
 
-<div id="ranking" class="grid">読み込み中...</div>
+<div id="ranking" class="grid">
+  読み込み中...<br>
+  <span style="font-size:13px;color:#6b7280;">※最大10秒ほどかかる場合があります</span>
+</div>
 
 <div class="notice">
   ※当サイトは非公式のファン向け情報まとめサイトです。<br>
@@ -295,39 +296,97 @@ function buildMap(){
   return map;
 }
 
+function parseCSVLine(line){
+  const result = [];
+  let current = "";
+  let inQuotes = false;
+
+  for(let i=0; i<line.length; i++){
+    const ch = line[i];
+    const next = line[i+1];
+
+    if(ch === '"'){
+      if(inQuotes && next === '"'){
+        current += '"';
+        i++;
+      }else{
+        inQuotes = !inQuotes;
+      }
+      continue;
+    }
+
+    if(ch === "," && !inQuotes){
+      result.push(current);
+      current = "";
+      continue;
+    }
+
+    current += ch;
+  }
+
+  result.push(current);
+  return result;
+}
+
+async function fetchWithTimeout(url, options = {}, timeoutMs = 8000){
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try{
+    const res = await fetch(url, {
+      ...options,
+      signal: controller.signal
+    });
+    return res;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function loadRanking(){
   const container = document.getElementById("ranking");
   const withdrawn = window.WITHDRAWN_IDS || new Set();
   const memberMap = buildMap();
 
+  container.innerHTML = "読み込み中...<br><span style='font-size:13px;color:#6b7280;'>※最大10秒ほどかかる場合があります</span>";
+
   try{
-    const res = await fetch(CSV_URL,{cache:"no-store"});
+    const url = CSV_URL + "&_ts=" + Date.now();
+    const res = await fetchWithTimeout(url, { cache: "no-store" }, 8000);
+
+    if(!res.ok){
+      throw new Error("HTTP " + res.status);
+    }
+
     const text = await res.text();
     const rows = text.trim().split(/\r?\n/).slice(1);
 
-    let data = rows.map(r=>{
-      const c=r.split(",");
+    let data = rows.map(r => {
+      const c = parseCSVLine(r);
       return {
-        id:c[0]?.trim(),
-        votes:Number(c[1]),
-        rank:Number(c[2])
+        id: c[0]?.trim(),
+        votes: Number(c[1]) || 0,
+        rank: Number(c[2]) || 9999
       };
-    }).filter(x=>x.id).sort((a,b)=>a.rank-b.rank);
+    }).filter(x => x.id).sort((a,b) => a.rank - b.rank);
 
-    const filtered=[];
+    const filtered = [];
     for(const p of data){
       if(withdrawn.has(p.id)) continue;
       filtered.push(p);
-      if(filtered.length>=MAX) break;
+      if(filtered.length >= MAX) break;
     }
 
-    container.innerHTML="";
+    if(filtered.length === 0){
+      container.innerHTML = "ランキングデータがまだありません。";
+      return;
+    }
 
-    filtered.forEach(p=>{
-      const m=memberMap[p.id]||{name:p.id,id:p.id};
-      const jp=displayName(m.name);
+    const html = filtered.map(p => {
+      const m = memberMap[p.id] || {name:p.id,id:p.id};
+      const jp = displayName(m.name);
 
-      container.innerHTML+=`
+      return `
         <div class="card">
           <div class="avatar">${jp.charAt(0)}</div>
           <div class="meta">
@@ -338,10 +397,18 @@ async function loadRanking(){
           </div>
         </div>
       `;
-    });
+    }).join("");
+
+    container.innerHTML = html;
 
   }catch(e){
-    container.innerHTML="データ取得に失敗しました。";
+    console.error(e);
+    container.innerHTML = `
+      データ取得に時間がかかっています。<br>
+      <span style="font-size:13px;color:#6b7280;">
+        ページを再読み込みしてください。
+      </span>
+    `;
   }
 }
 
